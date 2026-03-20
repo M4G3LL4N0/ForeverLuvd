@@ -1,48 +1,39 @@
 import Link from "next/link";
-import Nav from "@/components/Nav";
-import {
-  LockKeyhole,
-  Heart,
-  AudioLines,
-  ShieldCheck,
-  GalleryVertical,
-  MessageCircleHeart
-} from "lucide-react";
+import { Heart, Album, AudioLines, MessageSquare, Clock } from "lucide-react";
+import { Nav } from "@/components/Nav";
 
-const features = [
+const stats = {
+  lovedOnes: 5,
+  totalMemories: 184,
+  recentUploads: 12,
+  voiceNotes: 32
+};
+
+const recentMemories = [
   {
-    icon: Heart,
-    title: "Loved ones profiles",
-    copy: "Create a private space for each person you want to preserve, honor, and remember."
+    id: "1",
+    title: "Mom's birthday party",
+    date: "2026-03-15",
+    type: "Photo album",
+    lovedOne: "Mom"
   },
   {
-    icon: GalleryVertical,
-    title: "Memory vault",
-    copy: "Store photos, videos, voice notes, letters, and moments in one secure timeline."
+    id: "2",
+    title: "Dad's favorite story",
+    date: "2026-03-10",
+    type: "Voice note",
+    lovedOne: "Dad"
   },
   {
-    icon: AudioLines,
-    title: "Voice-ready foundation",
-    copy: "Capture the audio and stories that matter now, before they are lost."
-  },
-  {
-    icon: MessageCircleHeart,
-    title: "Future AI conversations",
-    copy: "Build toward a private, consent-based conversational experience rooted in real memories."
-  },
-  {
-    icon: LockKeyhole,
-    title: "You own the data",
-    copy: "Your family’s memories are never sold, scraped, or used without your explicit permission."
-  },
-  {
-    icon: ShieldCheck,
-    title: "Privacy-first by design",
-    copy: "Encrypted architecture, protected storage, and trust-centered defaults from day one."
+    id: "3", 
+    title: "Grandma's recipe",
+    date: "2026-03-05",
+    type: "Document",
+    lovedOne: "Grandma"
   }
 ];
 
-export default function HomePage() {
+export default function DashboardPage() {
   return (
     <main className="pb-20">
       <Nav />
