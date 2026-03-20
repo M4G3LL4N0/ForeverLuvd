@@ -46,8 +46,92 @@ export default function HomePage() {
   return (
     <main className="pb-20">
       <Nav />
+      
+      <section className="container-wrap py-8">
+        <h1 className="text-3xl font-semibold">Your Memory Dashboard</h1>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-8">
+          <div className="card p-6">
+            <div className="flex items-center gap-3">
+              <Heart className="h-6 w-6 text-primary" />
+              <h3 className="text-lg font-medium">Loved Ones</h3>
+            </div>
+            <p className="mt-2 text-3xl font-bold">{stats.lovedOnes}</p>
+          </div>
 
-      <section className="container-wrap pt-16 pb-24">
+          <div className="card p-6">
+            <div className="flex items-center gap-3">
+              <Album className="h-6 w-6 text-primary" />
+              <h3 className="text-lg font-medium">Total Memories</h3>
+            </div>
+            <p className="mt-2 text-3xl font-bold">{stats.totalMemories}</p>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-3">
+              <Clock className="h-6 w-6 text-primary" />
+              <h3 className="text-lg font-medium">Recent Uploads</h3>
+            </div>
+            <p className="mt-2 text-3xl font-bold">{stats.recentUploads}</p>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-3">
+              <AudioLines className="h-6 w-6 text-primary" />
+              <h3 className="text-lg font-medium">Voice Notes</h3>
+            </div>
+            <p className="mt-2 text-3xl font-bold">{stats.voiceNotes}</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 my-8">
+          <div className="lg:col-span-2 card p-6 overflow-hidden">
+            <h2 className="text-xl font-semibold mb-4">Recent Memories</h2>
+            <div className="space-y-4">
+              {recentMemories.map((memory) => (
+                <div key={memory.id} className="flex items-center gap-4 p-3 hover:bg-muted rounded-lg transition-colors">
+                  <div className="flex-1">
+                    <h3 className="font-medium}>{memory.title}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      {memory.type} · {memory.lovedOne}
+                    </p>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {new Date(memory.date).toLocaleDateString()}
+                  </div>
+                  <Link href={`/memories/${memory.id}`} className="text-sm text-primary">
+                    View
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <Link 
+              href="/memories" 
+              className="mt-4 flex items-center justify-center text-sm text-primary"
+            >
+              View all memories →
+            </Link>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <MessageSquare className="h-5 w-5 text-primary" />
+              <h2 className="text-xl font-semibold">Quick Actions</h2>
+            </div>
+            <div className="space-y-3">
+              <Link href="/add-memory" className="btn btn-primary w-full">
+                Add Memory
+              </Link>
+              <Link href="/add-loved-one" className="btn btn-outline w-full">
+                Add Loved One
+              </Link>
+              <Link href="/record-voice" className="btn btn-outline w-full">
+                Record Voice Note
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
         <div className="grid gap-12 lg:grid-cols-[1.2fr_.8fr] lg:items-center">
           <div className="animate-fade-in">
             <p className="mb-6 text-sm uppercase tracking-[0.25em] text-neutral-400">
