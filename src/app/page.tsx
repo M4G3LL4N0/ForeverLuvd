@@ -47,13 +47,13 @@ export default function HomePage() {
     <main className="pb-20">
       <Nav />
 
-      <section className="container-wrap pt-10 pb-20">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_.8fr] lg:items-center">
-          <div>
-            <p className="mb-5 text-sm uppercase tracking-[0.25em] text-neutral-400">
+      <section className="container-wrap pt-16 pb-24">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_.8fr] lg:items-center">
+          <div className="animate-fade-in">
+            <p className="mb-6 text-sm uppercase tracking-[0.25em] text-neutral-400">
               Private memory preservation for the people you love
             </p>
-            <h1 className="section-title max-w-4xl">
+            <h1 className="section-title max-w-4xl bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
               They may be gone one day.
               <br />
               Their voice, memories, and presence don’t have to be.
@@ -64,12 +64,18 @@ export default function HomePage() {
               and encrypted protection built into the core product.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/auth/sign-up" className="btn btn-primary">
-                Start preserving
+            <div className="mt-10 flex flex-wrap gap-6">
+              <Link 
+                href="/auth/sign-up" 
+                className="btn btn-primary px-8 py-4 text-lg font-semibold"
+              >
+                Start preserving →
               </Link>
-              <Link href="/dashboard" className="btn btn-secondary">
-                View product
+              <Link 
+                href="/dashboard" 
+                className="btn btn-secondary px-8 py-4 text-lg font-semibold hover:bg-white/5"
+              >
+                Explore features
               </Link>
             </div>
 
@@ -120,10 +126,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="how-it-works" className="container-wrap py-14">
-        <div className="mb-10 max-w-2xl">
-          <h2 className="text-3xl font-semibold tracking-tight">How it works</h2>
-          <p className="section-copy mt-4">
+      <section id="how-it-works" className="container-wrap py-20">
+        <div className="mb-12 max-w-2xl">
+          <h2 className="text-4xl font-semibold tracking-tight bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
+            How it works
+          </h2>
+          <p className="section-copy mt-5 text-lg leading-relaxed">
             Start with preservation first. Build trust first. Then expand into voice, legacy,
             and AI interaction later.
           </p>
