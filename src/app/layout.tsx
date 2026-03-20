@@ -13,11 +13,15 @@ export const metadata: Metadata = {
   description: "Preserve the voice, memories, and essence of the people you love.",
 };
 
+import { AppLayout } from "@/components/layouts/app-layout"
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isApp = false // TODO: Replace with actual auth check
+  
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn(
@@ -30,10 +34,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen flex-col">
-            <Nav />
-            <main className="flex-1">{children}</main>
-          </div>
+          {isApp ? (
+            <AppLayout>{children}</AppLayout>
+          ) : (
+            <div className="flex min-h-screen flex-col">
+              <Nav />
+              <main className="flex-1">{children}</main>
+            </div>
+          )}
           <Toaster position="top-center" />
         </ThemeProvider>
       </body>
