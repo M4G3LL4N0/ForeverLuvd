@@ -13,7 +13,8 @@ const navItems = [
   { name: "Memories", href: "/memories", icon: Icons.Album },
   { name: "Voice Notes", href: "/voice", icon: Icons.Mic },
   { name: "Letters", href: "/letters", icon: Icons.Mail },
-  { name: "AI Presence", href: "/ai-presence", icon: Icons.Bot },
+  { name: "Premium Features", href: "/premium", icon: Icons.Bot },
+  { name: "Waitlist", href: "/waitlist", icon: Icons.Bell },
   { name: "Settings", href: "/settings", icon: Icons.Settings },
 ]
 

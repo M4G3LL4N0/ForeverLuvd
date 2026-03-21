@@ -4,28 +4,6 @@ import { Heart, Album, AudioLines, MessageSquare, Clock, Upload } from "lucide-r
 import { Nav } from "@/components/Nav";
 import { useState } from "react";
 
-async function uploadFile(file: File) {
-  const { data, error } = await supabase
-    .storage
-    .from('memories')
-    .upload(`user-uploads/${Date.now()}-${file.name}`, file, {
-      cacheControl: '3600',
-      upsert: false
-    });
-
-  if (error) throw error;
-  return data;
-}
-
-async function getSignedUrl(filePath: string) {
-  const { data, error } = await supabase
-    .storage
-    .from('memories')
-    .createSignedUrl(filePath, 3600); // 1 hour expiration
-
-  if (error) throw error;
-  return data.signedUrl;
-}
 
 const stats = {
   lovedOnes: 5,
@@ -220,10 +198,58 @@ export default function LovedOneProfilePage() {
         </div>
 
         <div className="card p-6">
-          <h2 className="text-xl font-semibold mb-4">AI Presence</h2>
-          <div className="text-muted-foreground">
-            Coming soon: Interact with your loved one's AI presence based on their preserved memories and voice notes.
+          <h2 className="text-xl font-semibold mb-4">Private Voice Legacy (Beta Waitlist)</h2>
+          <div className="space-y-4 mb-6">
+            <div className="flex items-start gap-3 bg-white/5 p-4 rounded-lg">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                <Icons.Mic className="h-4 w-4 text-white" />
+              </div>
+              <div>
+                <p className="font-medium">Consent-first AI Roadmap</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  We're pioneering ethical AI that respects boundaries. All features require explicit opt-in and never use private data without consent.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white/5 p-4 rounded-lg">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-medium">Preview</h3>
+                <div className="text-xs bg-white/10 px-2 py-1 rounded-full">Demo Only</div>
+              </div>
+              <div className="space-y-4">
+                <div className="mock-chat bg-black/20 p-3 rounded-lg">
+                  <div className="text-muted-foreground text-sm">Recording your voice pattern...</div>
+                </div>
+                <div className="mock-chat bg-black/20 p-3 rounded-lg animate-pulse">
+                  <div className="text-muted-foreground text-sm">"Generating voice signature..."</div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <div className="space-y-3">
+            <h4 className="text-sm font-medium text-muted-foreground">Coming Features Timeline</h4>
+            <div className="space-y-2">
+              {[
+                ["Q3 2026: Voice Pattern Capture", "Opt-in recorder preserves natural speech patterns"],
+                ["Q1 2027: Conversation Builder", "Safe, private chat interface with memory limits"],
+                ["Q3 2027: Legacy Mode", "Future messages for loved ones"]
+              ].map(([title, desc]) => (
+                <div key={title} className="flex gap-3 items-start">
+                  <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium text-sm">{title}</p>
+                    <p className="text-xs text-muted-foreground">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <Button variant="primary" className="mt-6 w-full">
+            Join Private Beta Waitlist
+          </Button>
         </div>
         <h1 className="text-3xl font-semibold">Your Memory Dashboard</h1>
         
