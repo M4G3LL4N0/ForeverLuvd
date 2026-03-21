@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Check } from "lucide-react";
 import { Heart, Album, AudioLines, MessageSquare, Clock, Upload } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { useState } from "react";
@@ -426,6 +427,41 @@ export default function LovedOneProfilePage() {
         </div>
       </section>
 
+      <section id="testimonials" className="container-wrap py-20">
+        <div className="mb-12 max-w-2xl">
+          <h2 className="text-4xl font-semibold tracking-tight bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
+            Stories of love preserved
+          </h2>
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">
+          {[
+            {
+              quote: "ForeverLuvd helped me preserve my father's voice and stories. Now I can share them with my children.",
+              name: "Sarah T.",
+              location: "Chicago, IL"
+            },
+            {
+              quote: "After losing my mom, I thought her memories were gone too. ForeverLuvd gave me a way to keep her spirit alive.",
+              name: "Michael R.",
+              location: "Austin, TX"
+            },
+            {
+              quote: "Being able to hear my grandmother's voice again... there are no words for how much that means to me.",
+              name: "Emily C.",
+              location: "Seattle, WA"
+            }
+          ].map((testimonial) => (
+            <div key={testimonial.name} className="card p-6">
+              <p className="text-lg italic">"{testimonial.quote}"</p>
+              <div className="mt-4">
+                <p className="font-medium">{testimonial.name}</p>
+                <p className="text-sm text-neutral-400">{testimonial.location}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="privacy" className="container-wrap py-14">
         <div className="card grid gap-8 p-8 lg:grid-cols-2">
           <div>
@@ -442,6 +478,29 @@ export default function LovedOneProfilePage() {
         </div>
       </section>
 
+      <section id="faq" className="container-wrap py-20">
+        <div className="mb-12 max-w-2xl">
+          <h2 className="text-4xl font-semibold tracking-tight bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
+            Your questions, answered
+          </h2>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          {[
+            ["Is my data really private?", "Yes. We use end-to-end encryption and never sell or share your data. Your memories belong only to you and your family."],
+            ["Can I access this from anywhere?", "Your memories are securely stored in the cloud and accessible from any device, anytime you need them."],
+            ["What if I'm not tech-savvy?", "We've designed ForeverLuvd to be simple and intuitive. Our support team is always here to help if you need it."],
+            ["Can I share with family members?", "Yes, you can securely share access with trusted family members while maintaining full control over permissions."],
+            ["What file types can I upload?", "We support photos, videos, audio recordings, documents, and more. If it's meaningful to you, we'll preserve it."],
+            ["How does the AI work?", "Our AI is opt-in only and trained solely on your uploaded content. It helps organize and interact with memories in meaningful ways."]
+          ].map(([question, answer]) => (
+            <div key={question} className="card p-6">
+              <h3 className="text-xl font-semibold">{question}</h3>
+              <p className="mt-3 text-neutral-400">{answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="pricing" className="container-wrap py-14">
         <div className="mb-8 max-w-2xl">
           <h2 className="text-3xl font-semibold tracking-tight">Simple pricing</h2>
@@ -452,16 +511,90 @@ export default function LovedOneProfilePage() {
 
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            ["Starter", "Free", "1 loved one profile, basic memory uploads, private dashboard"],
-            ["Personal", "$12/mo", "More storage, unlimited memory entries, better organization"],
-            ["Family", "$29/mo", "Multiple loved ones, shared family access, future legacy features"],
-          ].map(([name, price, copy]) => (
-            <div key={name} className="card p-6">
-              <h3 className="text-xl font-semibold">{name}</h3>
-              <p className="mt-3 text-3xl font-bold">{price}</p>
-              <p className="mt-4 text-neutral-400">{copy}</p>
+            {
+              name: "Starter",
+              price: "Free",
+              description: "Begin preserving one loved one's legacy",
+              features: [
+                "1 loved one profile",
+                "Basic memory uploads",
+                "Private dashboard",
+                "Essential preservation tools"
+              ],
+              cta: "Start preserving"
+            },
+            {
+              name: "Personal",
+              price: "$12/mo",
+              description: "For comprehensive memory keeping",
+              features: [
+                "Unlimited memory entries",
+                "Enhanced organization",
+                "Priority support",
+                "Basic AI features"
+              ],
+              cta: "Preserve more"
+            },
+            {
+              name: "Family",
+              price: "$29/mo",
+              description: "Share and protect family legacies",
+              features: [
+                "Multiple loved ones",
+                "Shared family access",
+                "Advanced AI features",
+                "Legacy planning tools"
+              ],
+              cta: "Protect family"
+            }
+          ].map((plan) => (
+            <div key={plan.name} className="card p-6">
+              <h3 className="text-xl font-semibold">{plan.name}</h3>
+              <p className="mt-3 text-3xl font-bold">{plan.price}</p>
+              <p className="mt-4 text-neutral-400">{plan.description}</p>
+              <div className="mt-6 space-y-3">
+                {plan.features.map((feature) => (
+                  <div key={feature} className="flex items-center gap-3">
+                    <Check className="h-4 w-4 text-primary" />
+                    <span className="text-sm">{feature}</span>
+                  </div>
+                ))}
+              </div>
+              <Link
+                href="/auth/sign-up"
+                className="mt-6 btn btn-primary w-full"
+              >
+                {plan.cta}
+              </Link>
             </div>
           ))}
+        </div>
+      </section>
+      <section id="final-cta" className="container-wrap py-20">
+        <div className="card p-8 md:p-12 text-center">
+          <h2 className="text-4xl font-semibold tracking-tight bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
+            Don't wait until it's too late
+          </h2>
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-neutral-300">
+            Memories fade, but with ForeverLuvd, your loved ones' essence can live on. Start preserving their stories, voice, and legacy today.
+          </p>
+          <div className="mt-8 flex justify-center gap-4">
+            <Link 
+              href="/auth/sign-up" 
+              className="btn btn-primary px-8 py-4 text-lg font-semibold"
+            >
+              Start preserving →
+            </Link>
+            <Link 
+              href="/features" 
+              className="btn btn-secondary px-8 py-4 text-lg font-semibold hover:bg-white/5"
+            >
+              Learn more
+            </Link>
+          </div>
+          <p className="mt-6 text-sm text-neutral-400">
+            Your memories deserve protection. Start today, before it's too late.
+          </p>
         </div>
       </section>
     </main>
