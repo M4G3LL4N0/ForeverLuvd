@@ -33,12 +33,155 @@ const recentMemories = [
   }
 ];
 
-export default function DashboardPage() {
+interface LovedOneProfile {
+  id: string
+  name: string
+  relationship: string
+  bio: string
+  avatarUrl: string
+  stats: {
+    memories: number
+    voiceNotes: number
+    letters: number
+    timelineEvents: number
+  }
+  timeline: Array<{
+    id: string
+    date: string
+    title: string
+    description: string
+    type: 'memory' | 'voice' | 'letter' | 'milestone'
+  }>
+}
+
+const sampleProfile: LovedOneProfile = {
+  id: "1",
+  name: "Mom",
+  relationship: "Mother",
+  bio: "The most loving and caring person I've ever known. Her wisdom and kindness shaped who I am today.",
+  avatarUrl: "/avatars/mom.jpg",
+  stats: {
+    memories: 184,
+    voiceNotes: 32,
+    letters: 12,
+    timelineEvents: 228
+  },
+  timeline: [
+    {
+      id: "1",
+      date: "2026-03-15",
+      title: "Mom's birthday party",
+      description: "Celebrated her 65th birthday with family and friends",
+      type: 'memory'
+    },
+    {
+      id: "2",
+      date: "2026-03-10",
+      title: "Dad's favorite story",
+      description: "Recorded Dad telling his favorite story about Mom",
+      type: 'voice'
+    },
+    {
+      id: "3",
+      date: "2026-03-05",
+      title: "Grandma's recipe",
+      description: "Scanned and preserved Grandma's handwritten recipe book",
+      type: 'letter'
+    }
+  ]
+}
+
+export default function LovedOneProfilePage() {
   return (
-    <main className="pb-20">
+    <ProfileLayout
+      heroContent={
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex-shrink-0">
+            <img 
+              src={sampleProfile.avatarUrl}
+              alt={sampleProfile.name}
+              className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-4 border-white/10"
+            />
+          </div>
+          <div className="flex-1">
+            <div className="flex items-center justify-between">
+              <h1 className="text-3xl md:text-4xl font-bold">
+                {sampleProfile.name}
+              </h1>
+              <div className="bg-white/10 px-3 py-1 rounded-full text-sm">
+                Premium Profile
+              </div>
+            </div>
+            <p className="mt-2 text-muted-foreground">
+              {sampleProfile.relationship}
+            </p>
+            <p className="mt-4 text-lg">
+              {sampleProfile.bio}
+            </p>
+            <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <StatCard 
+                label="Memories" 
+                value={sampleProfile.stats.memories}
+                icon={Icons.Album}
+              />
+              <StatCard 
+                label="Voice Notes" 
+                value={sampleProfile.stats.voiceNotes}
+                icon={Icons.Mic}
+              />
+              <StatCard 
+                label="Letters" 
+                value={sampleProfile.stats.letters}
+                icon={Icons.Mail}
+              />
+              <StatCard 
+                label="Timeline Events" 
+                value={sampleProfile.stats.timelineEvents}
+                icon={Icons.Calendar}
+              />
+            </div>
+          </div>
+        </div>
+      }
+    >
       <Nav />
       
-      <section className="container-wrap py-8">
+      <section className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="card p-6">
+            <h2 className="text-xl font-semibold mb-4">Timeline</h2>
+            <div className="space-y-4">
+              {sampleProfile.timeline.map(event => (
+                <TimelineEvent key={event.id} event={event} />
+              ))}
+            </div>
+          </div>
+
+          <div className="card p-6">
+            <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
+            <div className="space-y-3">
+              <Button className="w-full" variant="outline">
+                <Icons.Upload className="mr-2 h-4 w-4" />
+                Upload Memory
+              </Button>
+              <Button className="w-full" variant="outline">
+                <Icons.Mic className="mr-2 h-4 w-4" />
+                Record Voice Note
+              </Button>
+              <Button className="w-full" variant="outline">
+                <Icons.Pen className="mr-2 h-4 w-4" />
+                Write Letter
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <div className="card p-6">
+          <h2 className="text-xl font-semibold mb-4">AI Presence</h2>
+          <div className="text-muted-foreground">
+            Coming soon: Interact with your loved one's AI presence based on their preserved memories and voice notes.
+          </div>
+        </div>
         <h1 className="text-3xl font-semibold">Your Memory Dashboard</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-8">

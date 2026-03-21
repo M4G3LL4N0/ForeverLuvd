@@ -11,7 +11,9 @@ const navItems = [
   { name: "Dashboard", href: "/dashboard", icon: Icons.Dashboard },
   { name: "Loved Ones", href: "/loved-ones", icon: Icons.Users },
   { name: "Memories", href: "/memories", icon: Icons.Album },
-  { name: "AI Chat", href: "/chat", icon: Icons.MessageSquare },
+  { name: "Voice Notes", href: "/voice", icon: Icons.Mic },
+  { name: "Letters", href: "/letters", icon: Icons.Mail },
+  { name: "AI Presence", href: "/ai-presence", icon: Icons.Bot },
   { name: "Settings", href: "/settings", icon: Icons.Settings },
 ]
 
