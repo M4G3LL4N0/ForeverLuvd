@@ -1,6 +1,30 @@
 import Link from "next/link";
-import { Heart, Album, AudioLines, MessageSquare, Clock } from "lucide-react";
+import { Heart, Album, AudioLines, MessageSquare, Clock, Upload } from "lucide-react";
 import { Nav } from "@/components/Nav";
+import { useState } from "react";
+
+async function uploadFile(file: File) {
+  const { data, error } = await supabase
+    .storage
+    .from('memories')
+    .upload(`user-uploads/${Date.now()}-${file.name}`, file, {
+      cacheControl: '3600',
+      upsert: false
+    });
+
+  if (error) throw error;
+  return data;
+}
+
+async function getSignedUrl(filePath: string) {
+  const { data, error } = await supabase
+    .storage
+    .from('memories')
+    .createSignedUrl(filePath, 3600); // 1 hour expiration
+
+  if (error) throw error;
+  return data.signedUrl;
+}
 
 const stats = {
   lovedOnes: 5,
@@ -160,10 +184,28 @@ export default function LovedOneProfilePage() {
           <div className="card p-6">
             <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
             <div className="space-y-3">
-              <Button className="w-full" variant="outline">
-                <Icons.Upload className="mr-2 h-4 w-4" />
+              <label className="btn btn-outline w-full cursor-pointer">
+                <Upload className="mr-2 h-4 w-4" />
                 Upload Memory
-              </Button>
+                <input 
+                  type="file"
+                  className="hidden"
+                  accept="image/*,video/*,audio/*"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      try {
+                        const uploadData = await uploadFile(file);
+                        const signedUrl = await getSignedUrl(uploadData.path);
+                        // Handle the signed URL (e.g., save to database)
+                        console.log('File uploaded successfully:', signedUrl);
+                      } catch (error) {
+                        console.error('Upload failed:', error);
+                      }
+                    }
+                  }}
+                />
+              </label>
               <Button className="w-full" variant="outline">
                 <Icons.Mic className="mr-2 h-4 w-4" />
                 Record Voice Note
