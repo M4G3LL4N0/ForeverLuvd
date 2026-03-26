@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "Preserve the voice, memories, and essence of the people you love.",
 };
 
-import { AppLayout } from "@/components/layouts/app-layout"
+import AuthenticatedLayout from "@/components/layouts/authenticated-layout";
 
 export default function RootLayout({
   children,
@@ -35,7 +35,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {isApp ? (
-            <AppLayout>{children}</AppLayout>
+            <AuthenticatedLayout>{children}</AuthenticatedLayout>
           ) : (
             <div className="flex min-h-screen flex-col">
               <Nav />
