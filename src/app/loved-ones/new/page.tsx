@@ -33,51 +33,72 @@ export default function NewLovedOnePage() {
   }
 
   return (
-    <main className="container-wrap py-12">
+    <main className="container-wrap py-16">
       <div className="card mx-auto max-w-2xl p-8">
-        <h1 className="text-3xl font-semibold">Add a loved one</h1>
-        <p className="mt-3 text-neutral-400">
-          Start a private profile for someone important to you.
-        </p>
+        <div className="space-y-2 border-b border-neutral-800 pb-6">
+          <h1 className="text-3xl font-semibold">Preserve Their Memory</h1>
+          <p className="text-neutral-400">
+            Begin honoring someone special by creating their private profile. This will be a safe space to cherish your memories together.
+          </p>
+        </div>
 
-        <form onSubmit={handleCreate} className="mt-8 space-y-5">
-          <div>
-            <label className="label">Name</label>
-            <input
-              className="input"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Mom, Dad, Grandma, Alex..."
-              required
-            />
+        <form onSubmit={handleCreate} className="mt-8 space-y-8">
+          <div className="space-y-6">
+            <div>
+              <label className="label">Their Name</label>
+              <input
+                className="input"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Mom, Dad, Grandma, Alex..."
+                required
+              />
+              <p className="mt-2 text-sm text-neutral-400">
+                Enter the name you most fondly remember them by.
+              </p>
+            </div>
+
+            <div>
+              <label className="label">Your Relationship</label>
+              <input
+                className="input"
+                value={relationshipType}
+                onChange={(e) => setRelationshipType(e.target.value)}
+                placeholder="Mother, father, partner, friend..."
+              />
+              <p className="mt-2 text-sm text-neutral-400">
+                How you were connected in each other's lives.
+              </p>
+            </div>
+
+            <div>
+              <label className="label">Birth Date</label>
+              <input
+                className="input"
+                type="date"
+                value={birthDate}
+                onChange={(e) => setBirthDate(e.target.value)}
+              />
+              <p className="mt-2 text-sm text-neutral-400">
+                Optional - helps us celebrate their life at special times.
+              </p>
+            </div>
           </div>
 
-          <div>
-            <label className="label">Relationship</label>
-            <input
-              className="input"
-              value={relationshipType}
-              onChange={(e) => setRelationshipType(e.target.value)}
-              placeholder="Mother, father, partner, friend..."
-            />
+          <div className="pt-4">
+            <button 
+              className="btn btn-primary w-full"
+              type="submit"
+            >
+              Create Memory Profile
+            </button>
+            {status && (
+              <p className="mt-3 text-center text-sm text-neutral-400">
+                {status}
+              </p>
+            )}
           </div>
-
-          <div>
-            <label className="label">Birth date</label>
-            <input
-              className="input"
-              type="date"
-              value={birthDate}
-              onChange={(e) => setBirthDate(e.target.value)}
-            />
-          </div>
-
-          <button className="btn btn-primary" type="submit">
-            Save loved one
-          </button>
         </form>
-
-        {status ? <p className="mt-4 text-sm text-neutral-400">{status}</p> : null}
       </div>
     </main>
   );
