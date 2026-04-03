@@ -2,95 +2,210 @@ export default function SettingsPage() {
   return (
     <main className="container-wrap py-12">
       <div className="card p-8">
-        <h1 className="text-4xl font-semibold tracking-tight">Privacy & Trust Center</h1>
-        <p className="mt-3 max-w-2xl text-neutral-400">
-          Your safety, control, and peace of mind are our top priorities. Manage your data, privacy, and account settings here.
-        </p>
+        <div className="max-w-4xl">
+          <h1 className="text-4xl font-semibold tracking-tight">Your Privacy & Trust Center</h1>
+          <p className="mt-3 text-lg text-neutral-400">
+            At ForeverLuvd, we believe your memories deserve the highest level of protection and respect. 
+            This is your command center for data ownership, privacy controls, and account security.
+          </p>
+        </div>
 
-        <div className="mt-8 grid gap-6">
+        <div className="mt-12 grid gap-8">
           {/* Data Ownership Section */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-2xl font-semibold">Your Data, Your Control</h2>
-            <p className="mt-2 text-neutral-400">
-              You maintain full ownership of all content you create on ForeverLuvd. We never claim rights to your memories or likeness.
+          <section>
+            <h2 className="text-3xl font-semibold tracking-tight">Your Data, Your Legacy</h2>
+            <p className="mt-2 max-w-3xl text-neutral-400">
+              Every memory you create belongs exclusively to you. We're here to safeguard your legacy, 
+              not to claim it. Our technology exists solely to preserve and honor your stories.
             </p>
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">Content ownership</span>
-                <span className="text-sm text-green-400">Active</span>
+            <div className="mt-6 space-y-4">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Complete Content Ownership</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      You retain full rights to all uploaded content and memories
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">Memory export</span>
-                <span className="text-sm text-yellow-400">Coming Q3 2026</span>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Memory Export & Backup</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Export your entire memory archive in standard formats
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Launching Q3 2026</span>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* Privacy Commitments Section */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-2xl font-semibold">Our Privacy Promise</h2>
-            <p className="mt-2 text-neutral-400">
-              We're committed to protecting your privacy and treating your memories with the utmost care.
+          <section>
+            <h2 className="text-3xl font-semibold tracking-tight">Our Ironclad Privacy Promise</h2>
+            <p className="mt-2 max-w-3xl text-neutral-400">
+              We've built ForeverLuvd on a foundation of privacy-by-design. Your data is protected 
+              by industry-leading security measures and ethical principles.
             </p>
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">No data resale</span>
-                <span className="text-sm text-green-400">Active</span>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Zero Data Resale</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      We never sell or share your data with third parties
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">No hidden AI training</span>
-                <span className="text-sm text-green-400">Active</span>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">No Hidden AI Training</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Your memories are never used to train AI models
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">End-to-end encryption</span>
-                <span className="text-sm text-green-400">Active</span>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">End-to-End Encryption</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      All data is encrypted in transit and at rest
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Transparent Data Practices</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Clear documentation of how we handle your information
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* Account Controls Section */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-2xl font-semibold">Account Management</h2>
-            <p className="mt-2 text-neutral-400">
-              Maintain complete control over your account and data.
+          <section>
+            <h2 className="text-3xl font-semibold tracking-tight">Account & Access Management</h2>
+            <p className="mt-2 max-w-3xl text-neutral-400">
+              Maintain complete control over your account and how your memories are accessed.
             </p>
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">Account deletion</span>
-                <span className="text-sm text-yellow-400">Coming Q4 2026</span>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Full Account Deletion</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Permanently remove all account data and memories
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Launching Q4 2026</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">AI consent settings</span>
-                <span className="text-sm text-yellow-400">Coming Q1 2027</span>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Granular AI Consent</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Control how AI interacts with your memories
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Launching Q1 2027</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">Family access controls</span>
-                <span className="text-sm text-yellow-400">Coming Q2 2027</span>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Family Access Controls</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Manage who can view and interact with memories
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Launching Q2 2027</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Legacy Planning</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Designate memory custodians and access rules
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Launching Q3 2027</span>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* Trust & Safety Section */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-2xl font-semibold">Trust & Safety</h2>
-            <p className="mt-2 text-neutral-400">
-              We're here to ensure your experience is safe and respectful.
+          <section>
+            <h2 className="text-3xl font-semibold tracking-tight">Trust & Safety</h2>
+            <p className="mt-2 max-w-3xl text-neutral-400">
+              We're committed to creating a safe, respectful environment for preserving memories.
             </p>
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">Content moderation</span>
-                <span className="text-sm text-green-400">Active</span>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Content Moderation</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Proactive protection against harmful content
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">Grief support resources</span>
-                <span className="text-sm text-green-400">Active</span>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Grief Support Resources</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Access to professional support and guidance
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-300">Ethical AI guidelines</span>
-                <span className="text-sm text-green-400">Active</span>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Ethical AI Guidelines</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Strict adherence to responsible AI practices
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">24/7 Support</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Immediate assistance for any concerns
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </main>
