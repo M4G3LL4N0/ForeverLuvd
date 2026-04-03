@@ -1,20 +1,29 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
+import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 
 export default function SignInPage() {
   const router = useRouter();
-  const supabase = useMemo(() => createClient(), []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
 
+  const configured = isSupabaseConfigured();
+
   async function handleSignIn(e: React.FormEvent) {
     e.preventDefault();
+
+    if (!configured) {
+      setStatus("Supabase is not configured yet. Add the Vercel environment variables and redeploy.");
+      return;
+    }
+
     setStatus("Signing in...");
+
+    const supabase = createClient();
 
     const { error } = await supabase.auth.signInWithPassword({
       email,
@@ -39,6 +48,16 @@ export default function SignInPage() {
           Sign in to your private memory vault.
         </p>
 
+        {!configured ? (
+          <div className="mt-6 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 text-sm text-yellow-200">
+            Supabase is not configured for this deployment yet. Add
+            <code className="mx-1">NEXT_PUBLIC_SUPABASE_URL</code>
+            and
+            <code className="mx-1">NEXT_PUBLIC_SUPABASE_ANON_KEY</code>
+            in Vercel project settings, then redeploy.
+          </div>
+        ) : null}
+
         <form onSubmit={handleSignIn} className="mt-8 space-y-5">
           <div>
             <label className="label">Email</label>
@@ -49,6 +68,7 @@ export default function SignInPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={!configured}
             />
           </div>
 
@@ -61,10 +81,11 @@ export default function SignInPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              disabled={!configured}
             />
           </div>
 
-          <button className="btn btn-primary w-full" type="submit">
+          <button className="btn btn-primary w-full" type="submit" disabled={!configured}>
             Sign in
           </button>
         </form>

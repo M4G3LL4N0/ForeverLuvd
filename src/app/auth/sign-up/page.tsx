@@ -1,24 +1,36 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/client";
+import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 
 export default function SignUpPage() {
-  const supabase = useMemo(() => createClient(), []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
 
+  const configured = isSupabaseConfigured();
+
   async function handleSignUp(e: React.FormEvent) {
     e.preventDefault();
+
+    if (!configured) {
+      setStatus("Supabase is not configured yet. Add the Vercel environment variables and redeploy.");
+      return;
+    }
+
     setStatus("Creating account...");
+
+    const supabase = createClient();
 
     const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        emailRedirectTo: `${window.location.origin}/dashboard`,
+        emailRedirectTo:
+          process.env.NEXT_PUBLIC_APP_URL
+            ? `${process.env.NEXT_PUBLIC_APP_URL}/dashboard`
+            : `${window.location.origin}/dashboard`,
       },
     });
 
@@ -37,6 +49,16 @@ export default function SignUpPage() {
           Create your ForeverLuvd account.
         </p>
 
+        {!configured ? (
+          <div className="mt-6 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 text-sm text-yellow-200">
+            Supabase is not configured for this deployment yet. Add
+            <code className="mx-1">NEXT_PUBLIC_SUPABASE_URL</code>
+            and
+            <code className="mx-1">NEXT_PUBLIC_SUPABASE_ANON_KEY</code>
+            in Vercel project settings, then redeploy.
+          </div>
+        ) : null}
+
         <form onSubmit={handleSignUp} className="mt-8 space-y-5">
           <div>
             <label className="label">Email</label>
@@ -47,6 +69,7 @@ export default function SignUpPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={!configured}
             />
           </div>
 
@@ -59,10 +82,11 @@ export default function SignUpPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              disabled={!configured}
             />
           </div>
 
-          <button className="btn btn-primary w-full" type="submit">
+          <button className="btn btn-primary w-full" type="submit" disabled={!configured}>
             Create account
           </button>
         </form>
