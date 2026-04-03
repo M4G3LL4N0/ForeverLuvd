@@ -1,16 +1,18 @@
 import {
   Album,
   ArrowLeft,
-  Dashboard,
+  LayoutDashboard,
   MessageSquare,
   Settings,
   Users,
-} from "lucide-react"
+  type LucideIcon,
+} from "lucide-react";
 
-export const Icons = {
-  Dashboard,
-  Users,
-  Album,
-  MessageSquare,
-  Settings,
-}
+export const Icons: Record<string, LucideIcon> = {
+  album: Album,
+  arrowLeft: ArrowLeft,
+  dashboard: LayoutDashboard,
+  messageSquare: MessageSquare,
+  settings: Settings,
+  users: Users,
+};
