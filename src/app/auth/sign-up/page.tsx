@@ -1,6 +1,14 @@
-"use client";
+import { useState } from "react";
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
 
-import { useMemo, useState } from "react";
+export default async function SignUpPage() {
+  const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (user) {
+    redirect("/dashboard");
+  }
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 
