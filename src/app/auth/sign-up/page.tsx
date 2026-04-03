@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { createClient } from "@/lib/supabase/client";
+import { useMemo, useState } from "react";
 import Link from "next/link";
+import { createClient } from "@/lib/supabase/client";
 
 export default function SignUpPage() {
-  const supabase = createClient();
+  const supabase = useMemo(() => createClient(), []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
@@ -22,7 +22,11 @@ export default function SignUpPage() {
       },
     });
 
-    setStatus(error ? error.message : "Account created. Check your email if confirmation is enabled.");
+    setStatus(
+      error
+        ? error.message
+        : "Account created. Check your email if confirmation is enabled."
+    );
   }
 
   return (
