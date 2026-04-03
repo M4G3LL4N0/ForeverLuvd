@@ -81,90 +81,117 @@ export default function NewMemoryPage() {
 
   return (
     <main className="container-wrap py-12">
-      <div className="card mx-auto max-w-2xl p-8">
-        <h1 className="text-3xl font-semibold">Add a memory</h1>
-        <p className="mt-3 text-neutral-400">
-          Preserve a moment, note, file, or story.
-        </p>
+      <div className="card mx-auto max-w-2xl overflow-hidden">
+        <div className="bg-neutral-900 px-8 py-6">
+          <h1 className="text-3xl font-semibold">Preserve a Memory</h1>
+          <p className="mt-2 text-neutral-300">
+            Capture a moment that matters - photos, letters, voice notes or stories
+          </p>
+        </div>
 
-        <form onSubmit={handleCreate} className="mt-8 space-y-5">
-          <div>
-            <label className="label">Loved one</label>
-            <select
-              className="input"
-              value={lovedOneId}
-              onChange={(e) => setLovedOneId(e.target.value)}
-              required
+        <form onSubmit={handleCreate} className="space-y-6 p-8">
+          <div className="space-y-6">
+            <div>
+              <label className="label">For</label>
+              <select
+                className="input"
+                value={lovedOneId}
+                onChange={(e) => setLovedOneId(e.target.value)}
+                required
+              >
+                {lovedOnes.map((person) => (
+                  <option key={person.id} value={person.id}>
+                    {person.name}
+                  </option>
+                ))}
+              </select>
+              <p className="mt-1 text-sm text-neutral-400">
+                Who is this memory connected to?
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <label className="label">Memory Title</label>
+                <input
+                  className="input"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="e.g. 'Grandma's 80th birthday'"
+                  required
+                />
+                <p className="mt-1 text-sm text-neutral-400">
+                  A short, meaningful name
+                </p>
+              </div>
+
+              <div>
+                <label className="label">Type</label>
+                <select
+                  className="input"
+                  value={memoryType}
+                  onChange={(e) => setMemoryType(e.target.value)}
+                >
+                  <option value="note">Written Note</option>
+                  <option value="photo">Photo</option>
+                  <option value="video">Video</option>
+                  <option value="audio">Voice Note</option>
+                  <option value="letter">Letter</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label className="label">Memory Date</label>
+              <input
+                className="input"
+                type="date"
+                value={memoryDate}
+                onChange={(e) => setMemoryDate(e.target.value)}
+              />
+              <p className="mt-1 text-sm text-neutral-400">
+                When this moment happened (if known)
+              </p>
+            </div>
+
+            <div>
+              <label className="label">Your Thoughts</label>
+              <textarea
+                className="input min-h-40"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="What makes this memory special? How does it make you feel?"
+              />
+            </div>
+
+            <div className="rounded-lg border-2 border-dashed border-neutral-700 p-6 text-center">
+              <label className="label">Add a File</label>
+              <p className="mb-3 text-sm text-neutral-400">
+                Upload photos, scans, recordings or documents
+              </p>
+              <input
+                className="block w-full cursor-pointer text-sm"
+                type="file"
+                onChange={(e) => setFile(e.target.files?.[0] || null)}
+              />
+            </div>
+          </div>
+
+          <div className="pt-4">
+            <button
+              className="btn btn-primary w-full py-3 text-lg"
+              type="submit"
             >
-              {lovedOnes.map((person) => (
-                <option key={person.id} value={person.id}>
-                  {person.name}
-                </option>
-              ))}
-            </select>
+              Preserve This Memory
+            </button>
           </div>
-
-          <div>
-            <label className="label">Title</label>
-            <input
-              className="input"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Birthday voicemail, old photo, story from childhood..."
-              required
-            />
-          </div>
-
-          <div>
-            <label className="label">Type</label>
-            <select
-              className="input"
-              value={memoryType}
-              onChange={(e) => setMemoryType(e.target.value)}
-            >
-              <option value="note">Note</option>
-              <option value="photo">Photo</option>
-              <option value="video">Video</option>
-              <option value="audio">Audio</option>
-              <option value="letter">Letter</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="label">Date of memory</label>
-            <input
-              className="input"
-              type="date"
-              value={memoryDate}
-              onChange={(e) => setMemoryDate(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label className="label">Description</label>
-            <textarea
-              className="input min-h-32"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="Why this moment matters..."
-            />
-          </div>
-
-          <div>
-            <label className="label">File upload</label>
-            <input
-              className="input"
-              type="file"
-              onChange={(e) => setFile(e.target.files?.[0] || null)}
-            />
-          </div>
-
-          <button className="btn btn-primary" type="submit">
-            Save memory
-          </button>
         </form>
 
-        {status ? <p className="mt-4 text-sm text-neutral-400">{status}</p> : null}
+        {status && (
+          <div className="border-t border-neutral-800 px-8 py-4">
+            <p className="text-sm text-neutral-400">{status}</p>
+          </div>
+        )}
       </div>
     </main>
   );
