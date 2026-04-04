@@ -19,39 +19,43 @@ export default async function DashboardPage() {
   ]);
 
   return (
-    <main className="container-wrap py-8">
+    <main className="container-wrap py-12">
       {/* Hero Section */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
-          Welcome Back
+      <div className="mb-12">
+        <h1 className="text-4xl font-bold tracking-tight md:text-5xl bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+          Your Legacy Dashboard
         </h1>
-        <p className="mt-2 text-neutral-400">
-          Your private space for preserving precious memories
+        <p className="mt-3 text-lg text-white/70">
+          Beautifully preserve and revisit cherished moments
         </p>
       </div>
 
       {/* Stats Cards */}
-      <div className="mb-8 grid gap-4 sm:grid-cols-3">
-        <div className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-          <div className="text-sm text-neutral-400">Loved Ones</div>
-          <div className="mt-2 text-2xl font-semibold">{lovedOnes?.length || 0}</div>
+      <div className="mb-12 grid gap-6 sm:grid-cols-3">
+        <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 backdrop-blur-lg transition hover:border-white/50">
+          <div className="text-sm text-white/70">Loved Ones</div>
+          <div className="mt-2 text-3xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent">
+            {lovedOnes?.length || 0}
+          </div>
         </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-          <div className="text-sm text-neutral-400">Memories</div>
-          <div className="mt-2 text-2xl font-semibold">{memories?.length || 0}</div>
+        <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 backdrop-blur-lg transition hover:border-white/50">
+          <div className="text-sm text-white/70">Memories</div>
+          <div className="mt-2 text-3xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent">
+            {memories?.length || 0}
+          </div>
         </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-          <div className="text-sm text-neutral-400">Last Activity</div>
-          <div className="mt-2 text-2xl font-semibold">
+        <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 backdrop-blur-lg transition hover:border-white/50">
+          <div className="text-sm text-white/70">Last Activity</div>
+          <div className="mt-2 text-3xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent">
             {memories?.[0]?.memory_date 
               ? new Date(memories[0].memory_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-              : 'None'}
+              : 'Never'}
           </div>
         </div>
       </div>
 
       {/* Action Cards */}
-      <div className="mb-8 grid gap-4 sm:grid-cols-2">
+      <div className="mb-12 grid gap-6 sm:grid-cols-2">
         <Link
           href="/loved-ones/new"
           className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/[0.07]"
@@ -117,49 +121,53 @@ export default async function DashboardPage() {
       </div>
 
       {/* Main Content Grid */}
-      <div className="grid gap-8 lg:grid-cols-[1fr,1.2fr]">
+      <div className="grid gap-10 lg:grid-cols-[1fr,1.2fr]">
         {/* Loved Ones Section */}
         <section>
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-xl font-semibold">Your Loved Ones</h2>
-            <Link 
-              href="/loved-ones/new" 
-              className="flex items-center gap-1 rounded-full bg-white/10 px-3 py-1.5 text-sm text-neutral-400 transition hover:bg-white/20 hover:text-white"
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
+              Your Loved Ones
+            </h2>
+            <Link
+              href="/loved-ones/new"
+              className="flex items-center gap-2 rounded-full bg-blue-500/10 px-4 py-2 text-sm font-medium text-blue-400 transition hover:bg-blue-500/20 hover:text-blue-300"
             >
-              <span>Add New</span>
               <PlusIcon className="h-4 w-4" />
+              Add New
             </Link>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {lovedOnes?.length ? (
               lovedOnes.map((person) => (
                 <Link
                   key={person.id}
                   href={`/loved-ones/${person.id}`}
-                  className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/[0.07]"
+                  className="group flex items-center gap-4 rounded-xl border border-white/10 bg-gradient-to-b from-white/5 to-white/10 p-5 transition hover:border-white/25 hover:shadow-lg"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-lg font-medium">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 to-blue-700/20 text-lg font-bold">
                     {person.name[0]}
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium">{person.name}</p>
-                    <p className="mt-1 text-sm text-neutral-400">
+                    <p className="font-medium text-white">{person.name}</p>
+                    <p className="mt-1 text-sm text-white/60">
                       {person.relationship_type || "Loved one"}
                     </p>
                   </div>
-                  <ChevronRightIcon className="h-5 w-5 text-neutral-400 transition group-hover:text-white" />
+                  <ChevronRightIcon className="h-5 w-5 text-white/40 transition group-hover:text-white/80" />
                 </Link>
               ))
             ) : (
-              <div className="flex flex-col items-center rounded-xl border border-dashed border-white/10 p-8 text-center">
-                <UserIcon className="h-8 w-8 text-neutral-400" />
-                <p className="mt-3 text-neutral-400">No loved ones yet</p>
-                <p className="mt-2 text-sm text-neutral-500">
-                  Start by creating a profile for someone special
+              <div className="flex flex-col items-center rounded-2xl border-2 border-dashed border-white/10 p-10 text-center bg-gradient-to-b from-white/5 to-white/10">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 to-blue-700/20">
+                  <UserIcon className="h-8 w-8 text-white/60" />
+                </div>
+                <p className="mt-4 text-lg font-medium text-white/80">No loved ones yet</p>
+                <p className="mt-2 text-sm text-white/50 max-w-[240px]">
+                  Create your first profile to begin preserving memories
                 </p>
                 <Link
                   href="/loved-ones/new"
-                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-neutral-400 transition hover:bg-white/20 hover:text-white"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-blue-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-blue-600"
                 >
                   <PlusIcon className="h-4 w-4" />
                   Add Loved One
@@ -171,17 +179,19 @@ export default async function DashboardPage() {
 
         {/* Memories Section */}
         <section>
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-xl font-semibold">Recent Memories</h2>
-            <Link 
-              href="/memories/new" 
-              className="flex items-center gap-1 rounded-full bg-white/10 px-3 py-1.5 text-sm text-neutral-400 transition hover:bg-white/20 hover:text-white"
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
+              Recent Memories
+            </h2>
+            <Link
+              href="/memories/new"
+              className="flex items-center gap-2 rounded-full bg-blue-500/10 px-4 py-2 text-sm font-medium text-blue-400 transition hover:bg-blue-500/20 hover:text-blue-300"
             >
-              <span>Add New</span>
               <PlusIcon className="h-4 w-4" />
+              Add New
             </Link>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {memories?.length ? (
               memories.map((memory) => (
                 <div
@@ -211,15 +221,17 @@ export default async function DashboardPage() {
                 </div>
               ))
             ) : (
-              <div className="flex flex-col items-center rounded-xl border border-dashed border-white/10 p-8 text-center">
-                <FileIcon className="h-8 w-8 text-neutral-400" />
-                <p className="mt-3 text-neutral-400">No memories yet</p>
-                <p className="mt-2 text-sm text-neutral-500">
-                  Start preserving your special moments today
+              <div className="flex flex-col items-center rounded-2xl border-2 border-dashed border-white/10 p-10 text-center bg-gradient-to-b from-white/5 to-white/10">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 to-blue-700/20">
+                  <FileIcon className="h-8 w-8 text-white/60" />
+                </div>
+                <p className="mt-4 text-lg font-medium text-white/80">No memories yet</p>
+                <p className="mt-2 text-sm text-white/50 max-w-[240px]">
+                  Capture special moments to revisit later
                 </p>
                 <Link
                   href="/memories/new"
-                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-neutral-400 transition hover:bg-white/20 hover:text-white"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-blue-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-blue-600"
                 >
                   <PlusIcon className="h-4 w-4" />
                   Add Memory
@@ -227,10 +239,10 @@ export default async function DashboardPage() {
               </div>
             )}
           </div>
-          <div className="mt-6">
+          <div className="mt-8">
             <Link
               href="/chat"
-              className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm transition hover:bg-white/[0.07]"
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 px-6 py-3.5 text-sm font-medium text-white transition hover:border-white/25 hover:shadow-lg"
             >
               <MessageCircleIcon className="h-4 w-4" />
               Explore Memories with AI
