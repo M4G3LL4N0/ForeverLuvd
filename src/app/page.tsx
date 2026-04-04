@@ -78,9 +78,53 @@ export default function HomePage() {
               <span>Family-owned data</span>
               <span>Consent-centered AI roadmap</span>
             </div>
+          <div className="card p-8">
+            <div className="mb-6 flex items-center justify-between">
+              <div>
+                <p className="text-sm text-neutral-400">Memory Preview</p>
+                <h2 className="mt-1 text-2xl font-semibold">Keep Them Close</h2>
+              </div>
+              <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300">
+                Encrypted
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm text-neutral-400">Loved One</p>
+                <p className="mt-1 text-lg font-medium">Mom</p>
+                <p className="mt-2 text-sm text-neutral-300">
+                  184 memories · 32 voice notes · 12 letters
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm text-neutral-400">Recent Memory</p>
+                <p className="mt-1 font-medium">Birthday Voicemail</p>
+                <p className="mt-2 text-sm text-neutral-300">
+                  "I love you more than you know. I'm proud of you."
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="card p-6 md:p-8">
+      {/* Trust Signals */}
+      <section className="container-wrap py-8">
+        <div className="card flex flex-wrap justify-center gap-6 p-6 text-sm text-neutral-300">
+          <span className="flex items-center gap-2">
+            <LockKeyhole className="h-4 w-4" /> Private by Default
+          </span>
+          <span className="flex items-center gap-2">
+            <ShieldCheck className="h-4 w-4" /> Encrypted Storage
+          </span>
+          <span className="flex items-center gap-2">
+            <Heart className="h-4 w-4" /> Family-Owned Data
+          </span>
+          <span className="flex items-center gap-2">
+            <MessageCircleHeart className="h-4 w-4" /> Consent-Based AI
+          </span>
+        </div>
+      </section>
             <div className="mb-6 flex items-center justify-between">
               <div>
                 <p className="text-sm text-neutral-400">Memory vault preview</p>
