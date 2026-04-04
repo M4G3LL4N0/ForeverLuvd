@@ -12,33 +12,33 @@ import {
 const features = [
   {
     icon: Heart,
-    title: "Loved ones profiles",
-    copy: "Create a private space for each person you want to preserve, honor, and remember."
+    title: "Loved Ones",
+    copy: "Create private profiles to honor and remember those who matter most."
   },
   {
     icon: GalleryVertical,
-    title: "Memory vault",
-    copy: "Store photos, videos, voice notes, letters, and moments in one secure timeline."
+    title: "Memory Vault",
+    copy: "Securely store photos, videos, voice notes, and written memories."
   },
   {
     icon: AudioLines,
-    title: "Voice-ready foundation",
-    copy: "Capture the audio and stories that matter now, before they are lost."
+    title: "Voice Legacy",
+    copy: "Preserve the unique sound of their voice and stories forever."
   },
   {
     icon: MessageCircleHeart,
-    title: "Future AI conversations",
-    copy: "Build toward a private, consent-based conversational experience rooted in real memories."
+    title: "AI Conversations",
+    copy: "Future opt-in interactions rooted in real memories and consent."
   },
   {
     icon: LockKeyhole,
-    title: "You own the data",
-    copy: "Your family’s memories are never sold, scraped, or used without your explicit permission."
+    title: "Your Data",
+    copy: "Complete ownership and control over all stored memories."
   },
   {
     icon: ShieldCheck,
-    title: "Privacy-first by design",
-    copy: "Encrypted architecture, protected storage, and trust-centered defaults from day one."
+    title: "Privacy First",
+    copy: "End-to-end encryption and protected storage by default."
   }
 ];
 
@@ -47,37 +47,25 @@ export default function HomePage() {
     <main className="pb-20">
       <Nav />
 
-      <section className="container-wrap pt-10 pb-20">
+      {/* Hero Section */}
+      <section className="container-wrap pt-24 pb-32">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_.8fr] lg:items-center">
-          <div>
-            <p className="mb-5 text-sm uppercase tracking-[0.25em] text-neutral-400">
-              Private memory preservation for the people you love
-            </p>
-            <h1 className="section-title max-w-4xl">
-              They may be gone one day.
-              <br />
-              Their voice, memories, and presence don’t have to be.
+          <div className="space-y-8">
+            <h1 className="section-title max-w-3xl">
+              Preserve the <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">essence</span> of those you love
             </h1>
-            <p className="section-copy mt-6 max-w-2xl">
-              ForeverLuvd helps families preserve photos, videos, voice notes, stories,
-              and the emotional essence of the people they love — with privacy, ownership,
-              and encrypted protection built into the core product.
+            <p className="section-copy max-w-2xl">
+              ForeverLuvd helps you capture and protect the voice, memories, and presence of your loved ones with uncompromising privacy and security.
             </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="flex gap-4">
               <Link href="/auth/sign-up" className="btn btn-primary">
-                Start preserving
+                Start Preserving
               </Link>
               <Link href="/dashboard" className="btn btn-secondary">
-                View product
+                View Product
               </Link>
             </div>
-
-            <div className="mt-10 flex flex-wrap gap-6 text-sm text-neutral-400">
-              <span>Private by default</span>
-              <span>Family-owned data</span>
-              <span>Consent-centered AI roadmap</span>
-            </div>
+          </div>
           <div className="card p-8">
             <div className="mb-6 flex items-center justify-between">
               <div>
