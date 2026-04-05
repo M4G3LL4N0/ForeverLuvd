@@ -20,7 +20,7 @@ export type CreateMemoryInput = {
   file?: File | null;
 };
 
-export async function getMemories(): Promise<Memory[]> {
+export async function getMemoriesByLovedOne(lovedOneId: string): Promise<Memory[]> {
   if (!isSupabaseConfigured()) {
     return [];
   }
@@ -30,6 +30,7 @@ export async function getMemories(): Promise<Memory[]> {
     const { data, error } = await supabase
       .from("memories")
       .select("*")
+      .eq("loved_one_id", lovedOneId)
       .order("memory_date", { ascending: false });
 
     if (error) {
