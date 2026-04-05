@@ -4,42 +4,47 @@ import { Icons } from "@/components/icons";
 
 const navGroups = [
   {
-    title: "Core",
+    title: "Your Vault",
     items: [
       {
         href: "/dashboard",
-        label: "Dashboard",
+        label: "Memory Vault",
         icon: Icons.home,
       },
       {
         href: "/chat",
-        label: "AI Chat",
+        label: "Memory Companion",
         icon: Icons.message,
       },
     ],
   },
   {
-    title: "Memories",
+    title: "Preserve",
     items: [
       {
         href: "/loved-ones/new",
-        label: "Add loved one",
+        label: "Add Loved One",
         icon: Icons.heart,
       },
       {
         href: "/memories/new",
-        label: "Add memory",
+        label: "Add Memory",
         icon: Icons.archive,
       },
     ],
   },
   {
-    title: "Settings",
+    title: "Account",
     items: [
       {
         href: "/settings",
         label: "Settings",
         icon: Icons.settings,
+      },
+      {
+        href: "/pricing",
+        label: "Upgrade",
+        icon: Icons.sparkles,
       },
     ],
   },

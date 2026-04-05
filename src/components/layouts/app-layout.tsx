@@ -11,9 +11,11 @@ export default function AppLayout({
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
       {/* Mobile header */}
       <div className="md:hidden">
-        <div className="container-wrap py-4">
+        <div className="container-wrap py-3">
           <div className="card flex items-center justify-between px-4 py-3">
-            <h1 className="text-xl font-semibold tracking-tight">ForeverLuvd</h1>
+            <Link href="/dashboard" className="text-xl font-semibold tracking-tight">
+              ForeverLuvd
+            </Link>
             <MobileNav />
           </div>
         </div>
@@ -22,13 +24,13 @@ export default function AppLayout({
       {/* Desktop layout */}
       <div className="hidden md:flex">
         <Sidebar className="border-r border-white/10" />
-        <main className="flex-1">
-          <div className="container-wrap py-6">
+        <main className="flex-1 overflow-y-auto">
+          <div className="container-wrap pt-6 pb-3">
             <div className="card px-5 py-4">
-              <h1 className="text-xl font-semibold tracking-tight">ForeverLuvd</h1>
+              <h1 className="text-xl font-semibold tracking-tight">Memory Vault</h1>
             </div>
           </div>
-          <div className="container-wrap pb-6">
+          <div className="container-wrap py-3">
             {children}
           </div>
         </main>
@@ -36,7 +38,7 @@ export default function AppLayout({
 
       {/* Mobile content */}
       <div className="md:hidden">
-        <div className="container-wrap pb-6">
+        <div className="container-wrap py-3">
           {children}
         </div>
       </div>

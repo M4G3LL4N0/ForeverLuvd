@@ -6,23 +6,24 @@ import { Menu, X } from "lucide-react";
 
 const navGroups = [
   {
-    title: "Core",
+    title: "Your Vault",
     items: [
-      { href: "/dashboard", label: "Dashboard" },
-      { href: "/chat", label: "AI Chat" },
+      { href: "/dashboard", label: "Memory Vault" },
+      { href: "/chat", label: "Memory Companion" },
     ],
   },
   {
-    title: "Memories",
+    title: "Preserve",
     items: [
-      { href: "/loved-ones/new", label: "Add loved one" },
-      { href: "/memories/new", label: "Add memory" },
+      { href: "/loved-ones/new", label: "Add Loved One" },
+      { href: "/memories/new", label: "Add Memory" },
     ],
   },
   {
-    title: "Settings",
+    title: "Account",
     items: [
       { href: "/settings", label: "Settings" },
+      { href: "/pricing", label: "Upgrade" },
     ],
   },
 ];

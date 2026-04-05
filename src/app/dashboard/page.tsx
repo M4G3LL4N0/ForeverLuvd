@@ -33,23 +33,23 @@ export default async function DashboardPage() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
-              Dashboard
+              Memory Vault
             </p>
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-              Your private memory vault.
+              Preserve what matters most
             </h1>
             <p className="mt-4 max-w-2xl text-neutral-400">
-              Preserve the people you love through stories, voice notes,
-              photos, letters, and moments that deserve more than a camera roll.
+              Every memory here is protected with encryption and stays under your control. 
+              Build a lasting legacy for the people you love.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-3">
             <Link href="/loved-ones/new" className="btn btn-secondary">
-              Add loved one
+              + Loved One
             </Link>
             <Link href="/memories/new" className="btn btn-primary">
-              Add memory
+              + Memory
             </Link>
           </div>
         </div>
