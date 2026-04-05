@@ -4,12 +4,27 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-const links = [
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/loved-ones/new", label: "Add loved one" },
-  { href: "/memories/new", label: "Add memory" },
-  { href: "/chat", label: "AI Chat" },
-  { href: "/settings", label: "Settings" },
+const navGroups = [
+  {
+    title: "Core",
+    items: [
+      { href: "/dashboard", label: "Dashboard" },
+      { href: "/chat", label: "AI Chat" },
+    ],
+  },
+  {
+    title: "Memories",
+    items: [
+      { href: "/loved-ones/new", label: "Add loved one" },
+      { href: "/memories/new", label: "Add memory" },
+    ],
+  },
+  {
+    title: "Settings",
+    items: [
+      { href: "/settings", label: "Settings" },
+    ],
+  },
 ];
 
 export function MobileNav() {
@@ -48,18 +63,25 @@ export function MobileNav() {
               </button>
             </div>
 
-            <nav className="flex flex-col gap-3">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[var(--foreground)] transition hover:bg-white/10"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
+            {navGroups.map((group) => (
+              <div key={group.title} className="mb-6">
+                <h3 className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-neutral-400">
+                  {group.title}
+                </h3>
+                <nav className="flex flex-col gap-3">
+                  {group.items.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[var(--foreground)] transition hover:bg-white/10"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            ))}
           </div>
         </div>
       ) : null}

@@ -2,31 +2,46 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/icons";
 
-const navItems = [
+const navGroups = [
   {
-    href: "/dashboard",
-    label: "Dashboard",
-    icon: Icons.dashboard,
+    title: "Core",
+    items: [
+      {
+        href: "/dashboard",
+        label: "Dashboard",
+        icon: Icons.home,
+      },
+      {
+        href: "/chat",
+        label: "AI Chat",
+        icon: Icons.chat,
+      },
+    ],
   },
   {
-    href: "/loved-ones/new",
-    label: "Add loved one",
-    icon: Icons.users,
+    title: "Memories",
+    items: [
+      {
+        href: "/loved-ones/new",
+        label: "Add loved one",
+        icon: Icons.heart,
+      },
+      {
+        href: "/memories/new",
+        label: "Add memory",
+        icon: Icons.memory,
+      },
+    ],
   },
   {
-    href: "/memories/new",
-    label: "Add memory",
-    icon: Icons.album,
-  },
-  {
-    href: "/chat",
-    label: "AI Chat",
-    icon: Icons.messageSquare,
-  },
-  {
-    href: "/settings",
-    label: "Settings",
-    icon: Icons.settings,
+    title: "Settings",
+    items: [
+      {
+        href: "/settings",
+        label: "Settings",
+        icon: Icons.settings,
+      },
+    ],
   },
 ];
 
@@ -50,22 +65,28 @@ export function Sidebar({ className }: { className?: string }) {
 
         <div className="my-4 h-px bg-white/10" />
 
-        <nav className="flex flex-col gap-2">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[var(--foreground)] transition hover:bg-white/10"
-              >
-                <Icon className="h-4 w-4" />
-                <span>{item.label}</span>
-              </Link>
-            );
-          })}
-        </nav>
+        {navGroups.map((group) => (
+          <div key={group.title} className="mb-6">
+            <h3 className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-neutral-400">
+              {group.title}
+            </h3>
+            <nav className="flex flex-col gap-2">
+              {group.items.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[var(--foreground)] transition hover:bg-white/10"
+                  >
+                    <Icon className="h-4 w-4" />
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+        ))}
       </div>
     </aside>
   );

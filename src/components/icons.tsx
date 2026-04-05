@@ -5,6 +5,10 @@ import {
   MessageSquare,
   Settings,
   Users,
+  Home,
+  Heart,
+  Memory,
+  MessageCircle,
   type LucideIcon,
 } from "lucide-react";
 
@@ -15,4 +19,8 @@ export const Icons: Record<string, LucideIcon> = {
   messageSquare: MessageSquare,
   settings: Settings,
   users: Users,
+  home: Home,
+  heart: Heart,
+  memory: Memory,
+  chat: MessageCircle,
 };
