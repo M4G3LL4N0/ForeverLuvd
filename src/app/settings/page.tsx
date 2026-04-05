@@ -3,23 +3,69 @@ export default function SettingsPage() {
     <main className="container-wrap py-12">
       <div className="card p-8">
         <div className="max-w-4xl">
-          <h1 className="text-4xl font-semibold tracking-tight">Your Legacy, Your Control</h1>
-          <p className="mt-3 text-lg text-neutral-400">
-            ForeverLuvd is built on a foundation of trust, transparency, and respect. 
-            This is your command center for managing how your memories are preserved, protected, and shared.
-          </p>
-          <div className="mt-6 flex gap-4">
-            <div className="flex-1 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-lg font-medium">Your Data Sovereignty</h3>
-              <p className="mt-2 text-sm text-neutral-400">
-                Complete ownership and control over your memories
-              </p>
+          <div className="border-b border-white/10 pb-8">
+            <h1 className="text-4xl font-semibold tracking-tight">ForeverLuvd Trust Center</h1>
+            <p className="mt-3 text-lg text-neutral-400">
+              Our sacred commitment to protecting your most precious memories. 
+              Every technical and ethical decision we make begins here.
+            </p>
+          </div>
+          
+          <div className="mt-8 grid grid-cols-1 gap-4 border-b border-white/10 pb-8 md:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="flex items-start gap-3">
+                <div className="flex-1">
+                  <h3 className="text-lg font-medium">Irrevocable Data Ownership</h3>
+                  <p className="mt-1 text-sm text-neutral-400">
+                    Your memories always belong to you. ForeverLuvd's role is strictly custodial.
+                  </p>
+                </div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500/10 text-green-400">
+                  ✓
+                </div>
+              </div>
             </div>
-            <div className="flex-1 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-lg font-medium">Ethical AI</h3>
-              <p className="mt-2 text-sm text-neutral-400">
-                Consent-based AI interactions that respect your boundaries
-              </p>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="flex items-start gap-3">
+                <div className="flex-1">
+                  <h3 className="text-lg font-medium">Consent-First AI</h3>
+                  <p className="mt-1 text-sm text-neutral-400">
+                    No automated processing. Every AI interaction requires your explicit permission.
+                  </p>
+                </div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500/10 text-green-400">
+                  ✓
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="flex items-start gap-3">
+                <div className="flex-1">
+                  <h3 className="text-lg font-medium">Zero Data Monetization</h3>
+                  <p className="mt-1 text-sm text-neutral-400">
+                    Nobody profits from your memories—not even us.
+                  </p>
+                </div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500/10 text-green-400">
+                  ✓
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="flex items-start gap-3">
+                <div className="flex-1">
+                  <h3 className="text-lg font-medium">Military-Grade Encryption</h3>
+                  <p className="mt-1 text-sm text-neutral-400">
+                    AES-256 + zero-access architecture protects everything.
+                  </p>
+                </div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500/10 text-green-400">
+                  ✓
+                </div>
+              </div>
             </div>
           </div>
         </div>
