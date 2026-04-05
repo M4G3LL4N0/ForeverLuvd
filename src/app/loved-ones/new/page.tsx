@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
+import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 
 export default function NewLovedOnePage() {
-  const supabase = createClient();
   const router = useRouter();
+  const configured = isSupabaseConfigured();
 
   const [name, setName] = useState("");
   const [relationshipType, setRelationshipType] = useState("");
@@ -15,7 +15,15 @@ export default function NewLovedOnePage() {
 
   async function handleCreate(e: React.FormEvent) {
     e.preventDefault();
+
+    if (!configured) {
+      setStatus("Supabase is not configured yet. Add the Vercel environment variables and redeploy.");
+      return;
+    }
+
     setStatus("Creating...");
+
+    const supabase = createClient();
 
     const { error } = await supabase.from("loved_ones").insert({
       name,
@@ -33,76 +41,67 @@ export default function NewLovedOnePage() {
   }
 
   return (
-    <main className="container-wrap py-16">
-      <div className="card mx-auto max-w-2xl overflow-hidden">
-        <div className="bg-gradient-to-r from-neutral-900 to-neutral-800 px-8 py-10">
-          <h1 className="text-3xl font-semibold tracking-tight text-white">
-            Honor Their Legacy
-          </h1>
-          <p className="mt-2 text-neutral-300">
-            Begin crafting a sacred space to celebrate {name || "your loved one"}'s life and the love you shared.
-          </p>
-        </div>
+    <main className="container-wrap py-12">
+      <div className="card mx-auto max-w-2xl p-8">
+        <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
+          Loved one profile
+        </p>
+        <h1 className="text-3xl font-semibold">Add a loved one</h1>
+        <p className="mt-3 text-neutral-400">
+          Start a private profile for someone important to you.
+        </p>
 
-        <form onSubmit={handleCreate} className="space-y-8 p-8">
-          <div className="space-y-8">
-            <div className="space-y-1">
-              <label className="label">Full Name</label>
-              <input
-                className="input"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="The name you called them by..."
-                required
-              />
-              <p className="mt-1 text-sm text-neutral-500">
-                The name that brings them closest to your heart
-              </p>
-            </div>
+        {!configured ? (
+          <div className="mt-6 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 text-sm text-yellow-200">
+            Supabase is not configured for this deployment yet. Add
+            <code className="mx-1">NEXT_PUBLIC_SUPABASE_URL</code>
+            and
+            <code className="mx-1">NEXT_PUBLIC_SUPABASE_ANON_KEY</code>
+            in Vercel project settings, then redeploy.
+          </div>
+        ) : null}
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              <div className="space-y-1">
-                <label className="label">Relationship</label>
-                <input
-                  className="input"
-                  value={relationshipType}
-                  onChange={(e) => setRelationshipType(e.target.value)}
-                  placeholder="How you knew each other"
-                />
-                <p className="mt-1 text-sm text-neutral-500">
-                  Mother, mentor, childhood friend...
-                </p>
-              </div>
-
-              <div className="space-y-1">
-                <label className="label">Birth Date</label>
-                <input
-                  className="input"
-                  type="date"
-                  value={birthDate}
-                  onChange={(e) => setBirthDate(e.target.value)}
-                />
-                <p className="mt-1 text-sm text-neutral-500">
-                  We'll honor their special days
-                </p>
-              </div>
-            </div>
+        <form onSubmit={handleCreate} className="mt-8 space-y-5">
+          <div>
+            <label className="label">Name</label>
+            <input
+              className="input"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Mom, Dad, Grandma, Alex..."
+              required
+              disabled={!configured}
+            />
           </div>
 
-          <div className="border-t border-neutral-800 pt-8">
-            <button
-              className="btn btn-primary w-full py-3 text-lg"
-              type="submit"
-            >
-              {name ? `Create ${name}'s Memorial` : "Begin Their Story"}
-            </button>
-            {status && (
-              <p className="mt-4 text-center text-sm text-neutral-500">
-                {status}
-              </p>
-            )}
+          <div>
+            <label className="label">Relationship</label>
+            <input
+              className="input"
+              value={relationshipType}
+              onChange={(e) => setRelationshipType(e.target.value)}
+              placeholder="Mother, father, partner, friend..."
+              disabled={!configured}
+            />
           </div>
+
+          <div>
+            <label className="label">Birth date</label>
+            <input
+              className="input"
+              type="date"
+              value={birthDate}
+              onChange={(e) => setBirthDate(e.target.value)}
+              disabled={!configured}
+            />
+          </div>
+
+          <button className="btn btn-primary" type="submit" disabled={!configured}>
+            Save loved one
+          </button>
         </form>
+
+        {status ? <p className="mt-4 text-sm text-neutral-400">{status}</p> : null}
       </div>
     </main>
   );
