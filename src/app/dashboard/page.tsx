@@ -22,54 +22,70 @@ export default async function DashboardPage() {
     <main className="container-wrap py-12">
       {/* Hero Section */}
       <div className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight md:text-5xl bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
+        <div className="mb-3 text-sm font-medium text-white/50 tracking-[0.2em] uppercase">
           ForeverLuvd Dashboard
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight md:text-5xl bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
+          Your Digital Legacy
         </h1>
-        <p className="mt-3 text-lg text-white/70">
-          Your private sanctuary for preserving cherished memories
+        <p className="mt-3 text-lg text-white/70 max-w-2xl">
+          ForeverLuvd is your private sanctuary for preserving cherished memories and honoring the lives of those you love.
         </p>
       </div>
 
       {/* Overview Section */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
-          Your Legacy Overview
-        </h2>
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-2xl font-semibold bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
+            Legacy Overview
+          </h2>
+          <p className="text-sm text-white/50">
+            Your preservation journey
+          </p>
+        </div>
         <div className="grid gap-6 sm:grid-cols-3">
-        <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 backdrop-blur-lg transition hover:border-white/50">
+        <div className="relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 backdrop-blur-lg transition hover:border-white/50">
           <div className="text-sm text-white/70">Loved Ones</div>
           <div className="mt-2 text-3xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent">
             {lovedOnes?.length || 0}
           </div>
+          <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500/50 to-blue-700/50 opacity-0 transition-opacity group-hover:opacity-100" />
         </div>
-        <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 backdrop-blur-lg transition hover:border-white/50">
+        <div className="relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 backdrop-blur-lg transition hover:border-white/50">
           <div className="text-sm text-white/70">Memories</div>
           <div className="mt-2 text-3xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent">
             {memories?.length || 0}
           </div>
+          <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500/50 to-blue-700/50 opacity-0 transition-opacity group-hover:opacity-100" />
         </div>
-        <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 backdrop-blur-lg transition hover:border-white/50">
+        <div className="relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 backdrop-blur-lg transition hover:border-white/50">
           <div className="text-sm text-white/70">Last Activity</div>
           <div className="mt-2 text-3xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent">
             {memories?.[0]?.memory_date 
               ? new Date(memories[0].memory_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
               : 'Never'}
           </div>
+          <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500/50 to-blue-700/50 opacity-0 transition-opacity group-hover:opacity-100" />
         </div>
       </div>
 
       {/* Quick Actions */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
-          Quick Actions
-        </h2>
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-2xl font-semibold bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
+            Quick Actions
+          </h2>
+          <p className="text-sm text-white/50">
+            Preserve and honor
+          </p>
+        </div>
         <div className="grid gap-6 sm:grid-cols-2">
         <Link
           href="/loved-ones/new"
-          className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/[0.07]"
+          className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/[0.07]"
         >
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 to-blue-700/20">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -93,13 +109,14 @@ export default async function DashboardPage() {
               </p>
             </div>
           </div>
+          <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500/50 to-blue-700/50 opacity-0 transition-opacity group-hover:opacity-100" />
         </Link>
         <Link
           href="/memories/new"
-          className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/[0.07]"
+          className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/[0.07]"
         >
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 to-blue-700/20">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -125,11 +142,15 @@ export default async function DashboardPage() {
               </p>
             </div>
           </div>
+          <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500/50 to-blue-700/50 opacity-0 transition-opacity group-hover:opacity-100" />
         </Link>
       </div>
 
       {/* Legacy Management */}
       <div className="grid gap-10 lg:grid-cols-[1fr,1.2fr]">
+        <div className="text-sm text-white/50 mb-6">
+          Your ForeverLuvd preservation dashboard
+        </div>
         {/* Loved Ones Section */}
         <section>
           <div className="mb-6 flex items-center justify-between">
