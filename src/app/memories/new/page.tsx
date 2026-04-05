@@ -77,13 +77,15 @@ export default function NewMemoryPage() {
   return (
     <main className="container-wrap py-12">
       <div className="card mx-auto max-w-2xl p-8">
-        <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
-          Memory capture
-        </p>
-        <h1 className="text-3xl font-semibold">Add a memory</h1>
-        <p className="mt-3 text-neutral-400">
-          Preserve a moment, note, file, or story.
-        </p>
+        <div className="space-y-1 border-b border-white/5 pb-6">
+          <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
+            Preserve a moment
+          </p>
+          <h1 className="text-3xl font-semibold">Capture a memory</h1>
+          <p className="text-neutral-400">
+            Safeguard precious moments, stories, and keepsakes forever.
+          </p>
+        </div>
 
         {!configured ? (
           <div className="mt-6 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 text-sm text-yellow-200">
@@ -95,88 +97,111 @@ export default function NewMemoryPage() {
           </div>
         ) : null}
 
-        <form onSubmit={handleCreate} className="mt-8 space-y-5">
-          <div>
-            <label className="label">Loved one</label>
-            <select
-              className="input"
-              value={lovedOneId}
-              onChange={(e) => setLovedOneId(e.target.value)}
-              required
+        <form onSubmit={handleCreate} className="mt-8 space-y-8">
+          <div className="space-y-5">
+            <div>
+              <label className="label">Who is this memory about?</label>
+              <select
+                className="input"
+                value={lovedOneId}
+                onChange={(e) => setLovedOneId(e.target.value)}
+                required
+                disabled={!configured}
+              >
+                <option value="">Select a loved one</option>
+                {lovedOnes.map((person) => (
+                  <option key={person.id} value={person.id}>
+                    {person.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="label">Memory title</label>
+              <input
+                className="input"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="e.g. 'Grandma's apple pie recipe', 'Dad's fishing story', 'Our wedding vows'"
+                required
+                disabled={!configured}
+              />
+              <p className="mt-2 text-sm text-neutral-400">
+                A short, meaningful title to remember this by
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-5 rounded-2xl border border-white/5 bg-white/5 p-5">
+            <h2 className="text-sm font-medium text-neutral-300">Memory details</h2>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="label">Type</label>
+                <select
+                  className="input"
+                  value={memoryType}
+                  onChange={(e) => setMemoryType(e.target.value)}
+                  disabled={!configured}
+                >
+                  <option value="note">Note</option>
+                  <option value="photo">Photo</option>
+                  <option value="video">Video</option>
+                  <option value="audio">Audio</option>
+                  <option value="letter">Letter</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="label">Date</label>
+                <input
+                  className="input"
+                  type="date"
+                  value={memoryDate}
+                  onChange={(e) => setMemoryDate(e.target.value)}
+                  disabled={!configured}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="label">Description</label>
+              <textarea
+                className="input min-h-32"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="What makes this memory special? Why does it matter?"
+                disabled={!configured}
+              />
+            </div>
+          </div>
+
+          <div className="space-y-5 rounded-2xl border border-white/5 bg-white/5 p-5">
+            <h2 className="text-sm font-medium text-neutral-300">Attach a keepsake</h2>
+            <div>
+              <label className="label">Upload file</label>
+              <input
+                className="input"
+                type="file"
+                onChange={(e) => setFile(e.target.files?.[0] || null)}
+                disabled={!configured}
+              />
+              <p className="mt-2 text-sm text-neutral-400">
+                Photos, videos, audio recordings, or documents that help preserve this memory
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-6">
+            <button 
+              className="btn btn-primary w-full" 
+              type="submit" 
               disabled={!configured}
             >
-              <option value="">Select a loved one</option>
-              {lovedOnes.map((person) => (
-                <option key={person.id} value={person.id}>
-                  {person.name}
-                </option>
-              ))}
-            </select>
+              Preserve this memory
+            </button>
           </div>
-
-          <div>
-            <label className="label">Title</label>
-            <input
-              className="input"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Birthday voicemail, old photo, story from childhood..."
-              required
-              disabled={!configured}
-            />
-          </div>
-
-          <div>
-            <label className="label">Type</label>
-            <select
-              className="input"
-              value={memoryType}
-              onChange={(e) => setMemoryType(e.target.value)}
-              disabled={!configured}
-            >
-              <option value="note">Note</option>
-              <option value="photo">Photo</option>
-              <option value="video">Video</option>
-              <option value="audio">Audio</option>
-              <option value="letter">Letter</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="label">Date of memory</label>
-            <input
-              className="input"
-              type="date"
-              value={memoryDate}
-              onChange={(e) => setMemoryDate(e.target.value)}
-              disabled={!configured}
-            />
-          </div>
-
-          <div>
-            <label className="label">Description</label>
-            <textarea
-              className="input min-h-32"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="Why this moment matters..."
-              disabled={!configured}
-            />
-          </div>
-
-          <div>
-            <label className="label">File upload</label>
-            <input
-              className="input"
-              type="file"
-              onChange={(e) => setFile(e.target.files?.[0] || null)}
-              disabled={!configured}
-            />
-          </div>
-
-          <button className="btn btn-primary" type="submit" disabled={!configured}>
-            Save memory
-          </button>
         </form>
 
         {status ? <p className="mt-4 text-sm text-neutral-400">{status}</p> : null}
