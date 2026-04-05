@@ -68,27 +68,27 @@ export default function ChatPage() {
       <div className="card overflow-hidden p-8">
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
-            Future AI layer
+            The ForeverLuvd Difference
           </p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-            Conversation built from real memory.
+            Continuity, not imitation
           </h1>
           <p className="mt-4 max-w-2xl text-neutral-400">
-            ForeverLuvd’s AI layer is designed as a private, consent-based
-            continuity experience — rooted in preserved memories, voice notes,
-            letters, stories, and archived context.
+            Unlike generic AI, we're building a private, consent-based way to maintain 
+            connection — using only the memories, voice recordings, and personal artifacts 
+            you choose to preserve.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="card p-6">
-            <h2 className="text-xl font-semibold">Concept preview</h2>
-            <p className="mt-2 text-sm text-neutral-400">
-              This is not generic AI. It is a future interaction layer built
-              only from real preserved material and only with user-approved data.
+        <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="card p-8">
+            <h2 className="text-2xl font-semibold">Concept Preview</h2>
+            <p className="mt-3 text-sm text-neutral-400">
+              This demonstrates how future interactions could be grounded in your actual 
+              preserved memories, with responses shaped only by your approved material.
             </p>
 
-            <div className="mt-6 space-y-4">
+            <div className="mt-8 space-y-5">
               {messages.map((message) => (
                 <ChatBubble
                   key={message.id}
@@ -100,32 +100,36 @@ export default function ChatPage() {
             </div>
           </div>
 
-          <div className="space-y-5">
+          <div className="space-y-6">
             <div className="card p-6">
-              <h3 className="text-lg font-semibold">How it will work</h3>
+              <h3 className="text-lg font-semibold">Our Approach</h3>
               <div className="mt-4 space-y-3 text-sm text-neutral-400">
-                <p>• Preserve real memories, recordings, and written context</p>
-                <p>• User approves what can be used</p>
-                <p>• Future interaction is derived only from that archive</p>
-                <p>• Ownership and dignity stay with the family</p>
+                <p>• Ethical by design: No hidden training or data mining</p>
+                <p>• Memory-first: Responses derived from your preserved content</p>
+                <p>• Permission-based: You control what's included</p>
+                <p>• Private infrastructure: Your data never leaves our secure systems</p>
+                <p>• Human-centered: Designed for emotional authenticity</p>
               </div>
             </div>
 
             <div className="card p-6">
-              <h3 className="text-lg font-semibold">Why this matters</h3>
+              <h3 className="text-lg font-semibold">The Promise</h3>
               <p className="mt-3 text-sm text-neutral-400">
-                The goal is not imitation for its own sake. The goal is
-                continuity, comfort, and a more faithful way to preserve the
-                emotional texture of a person over time.
+                We believe technology should help preserve the essence of a person - 
+                their unique way of speaking, their values, and the emotional texture 
+                of your relationship - without compromising their dignity or your privacy.
               </p>
             </div>
 
             <div className="card p-6">
-              <h3 className="text-lg font-semibold">Privacy commitment</h3>
-              <p className="mt-3 text-sm text-neutral-400">
-                No hidden training. No resale. No platform ownership of likeness
-                or memory. Everything begins with consent.
-              </p>
+              <h3 className="text-lg font-semibold">Core Principles</h3>
+              <div className="mt-3 space-y-3 text-sm text-neutral-400">
+                <p>• No data resale or third-party access</p>
+                <p>• Full transparency about how responses are generated</p>
+                <p>• Permanent opt-out at any time</p>
+                <p>• No synthetic content without explicit consent</p>
+                <p>• Designed for meaningful connection, not entertainment</p>
+              </div>
             </div>
           </div>
         </div>
