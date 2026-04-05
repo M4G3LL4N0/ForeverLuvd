@@ -5,19 +5,26 @@ export type LovedOne = {
   name: string;
   relationship_type: string | null;
   birth_date: string | null;
-  death_date?: string | null;
-  created_at?: string;
+  death_date: string | null;
+  created_at: string;
+  updated_at: string | null;
 };
 
 export type CreateLovedOneInput = {
   name: string;
-  relationship_type?: string | null;
+  relationship_type?: string;
   birth_date?: string | null;
+  death_date?: string | null;
 };
 
-export async function getLovedOnes(): Promise<LovedOne[]> {
+export type LovedOneResult = {
+  data: LovedOne[] | null;
+  error: string | null;
+};
+
+export async function getLovedOnes(): Promise<LovedOneResult> {
   if (!isSupabaseConfigured()) {
-    return [];
+    return { data: null, error: "Supabase not configured" };
   }
 
   try {
@@ -28,53 +35,56 @@ export async function getLovedOnes(): Promise<LovedOne[]> {
       .order("created_at", { ascending: false });
 
     if (error) {
-      console.error("getLovedOnes error:", error.message);
-      return [];
+      console.error("[DATA] getLovedOnes error:", error);
+      return { data: null, error: error.message };
     }
 
-    return (data ?? []) as LovedOne[];
+    return { 
+      data: (data ?? []) as LovedOne[],
+      error: null 
+    };
   } catch (error) {
-    console.error("getLovedOnes exception:", error);
-    return [];
+    console.error("[DATA] getLovedOnes exception:", error);
+    return { data: null, error: "Failed to fetch loved ones" };
   }
 }
 
 export async function createLovedOne(input: CreateLovedOneInput): Promise<{
-  success: boolean;
+  data: LovedOne | null;
   error: string | null;
 }> {
   if (!isSupabaseConfigured()) {
-    return {
-      success: false,
-      error: "Supabase is not configured.",
-    };
+    return { data: null, error: "Supabase not configured" };
+  }
+
+  if (!input.name) {
+    return { data: null, error: "Name is required" };
   }
 
   try {
     const supabase = createClient();
-
-    const { error } = await supabase.from("loved_ones").insert({
-      name: input.name,
-      relationship_type: input.relationship_type ?? null,
-      birth_date: input.birth_date ?? null,
-    });
+    const { data, error } = await supabase
+      .from("loved_ones")
+      .insert({
+        name: input.name,
+        relationship_type: input.relationship_type || null,
+        birth_date: input.birth_date || null,
+        death_date: input.death_date || null,
+      })
+      .select()
+      .single();
 
     if (error) {
-      return {
-        success: false,
-        error: error.message,
-      };
+      console.error("[DATA] createLovedOne error:", error);
+      return { data: null, error: error.message };
     }
 
-    return {
-      success: true,
-      error: null,
+    return { 
+      data: data as LovedOne,
+      error: null 
     };
   } catch (error) {
-    console.error("createLovedOne exception:", error);
-    return {
-      success: false,
-      error: "Unexpected error creating loved one.",
-    };
+    console.error("[DATA] createLovedOne exception:", error);
+    return { data: null, error: "Failed to create loved one" };
   }
 }

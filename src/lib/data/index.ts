@@ -1,5 +1,16 @@
-export type { Memory, CreateMemoryInput } from "./memories";
-export type { LovedOne, CreateLovedOneInput } from "./loved-ones";
+export type { 
+  Memory, 
+  MemoryResult,
+  CreateMemoryInput,
+  CreateMemoryResult 
+} from "./memories";
+
+export type { 
+  LovedOne,
+  LovedOneResult,
+  CreateLovedOneInput 
+} from "./loved-ones";
+
 export type { SignInInput, SignUpInput } from "./auth";
 
 export { 
