@@ -2,15 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { createMemory } from "@/lib/data/memories";
-import { getLovedOnes, LovedOne } from "@/lib/data/loved-ones";
+import { getLovedOnes } from "@/lib/data/loved-ones";
+import { isSupabaseConfigured } from "@/lib/supabase/client";
+
+type LovedOneOption = {
+  id: string;
+  name: string;
+};
 
 export default function NewMemoryPage() {
   const router = useRouter();
   const configured = isSupabaseConfigured();
 
-  const [lovedOnes, setLovedOnes] = useState<LovedOne[]>([]);
+  const [lovedOnes, setLovedOnes] = useState<LovedOneOption[]>([]);
   const [lovedOneId, setLovedOneId] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -23,11 +28,17 @@ export default function NewMemoryPage() {
     async function loadLovedOnes() {
       if (!configured) return;
 
-      const lovedOnes = await getLovedOnes();
-      // Map to expected type
-      const mapped = lovedOnes.map(lo => ({ id: lo.id, name: lo.name }));
+      const lovedOnesData = await getLovedOnes();
+      const mapped: LovedOneOption[] = lovedOnesData.map((lo) => ({
+        id: lo.id,
+        name: lo.name,
+      }));
+
       setLovedOnes(mapped);
-      if (mapped[0]?.id) setLovedOneId(mapped[0].id);
+
+      if (mapped[0]?.id) {
+        setLovedOneId(mapped[0].id);
+      }
     }
 
     loadLovedOnes();
@@ -37,23 +48,25 @@ export default function NewMemoryPage() {
     e.preventDefault();
 
     if (!configured) {
-      setStatus("Supabase is not configured yet. Add the Vercel environment variables and redeploy.");
+      setStatus(
+        "Supabase is not configured yet. Add the Vercel environment variables and redeploy."
+      );
       return;
     }
 
     setStatus("Saving memory...");
 
-    const { success, error } = await createMemory({
+    const result = await createMemory({
       loved_one_id: lovedOneId,
       title,
-      description,
+      description: description || null,
       memory_type: memoryType,
-      memory_date: memoryDate,
+      memory_date: memoryDate || null,
       file,
     });
 
-    if (!success) {
-      setStatus(error || "Error creating memory");
+    if (!result.success) {
+      setStatus(result.error || "Failed to save memory.");
       return;
     }
 
