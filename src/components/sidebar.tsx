@@ -14,7 +14,7 @@ const navGroups = [
       {
         href: "/chat",
         label: "AI Chat",
-        icon: Icons.chat,
+        icon: Icons.message,
       },
     ],
   },
@@ -29,7 +29,7 @@ const navGroups = [
       {
         href: "/memories/new",
         label: "Add memory",
-        icon: Icons.memory,
+        icon: Icons.archive,
       },
     ],
   },
