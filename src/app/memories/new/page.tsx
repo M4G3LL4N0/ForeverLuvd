@@ -2,12 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
-
-type LovedOne = {
-  id: string;
-  name: string;
-};
+import { isSupabaseConfigured } from "@/lib/supabase/client";
+import { createMemory } from "@/lib/data/memories";
+import { getLovedOnes, LovedOne } from "@/lib/data/loved-ones";
 
 export default function NewMemoryPage() {
   const router = useRouter();
@@ -26,14 +23,11 @@ export default function NewMemoryPage() {
     async function loadLovedOnes() {
       if (!configured) return;
 
-      const supabase = createClient();
-      const { data } = await supabase
-        .from("loved_ones")
-        .select("id,name")
-        .order("created_at", { ascending: false });
-
-      setLovedOnes(data || []);
-      if (data?.[0]?.id) setLovedOneId(data[0].id);
+      const lovedOnes = await getLovedOnes();
+      // Map to expected type
+      const mapped = lovedOnes.map(lo => ({ id: lo.id, name: lo.name }));
+      setLovedOnes(mapped);
+      if (mapped[0]?.id) setLovedOneId(mapped[0].id);
     }
 
     loadLovedOnes();
@@ -48,40 +42,18 @@ export default function NewMemoryPage() {
     }
 
     setStatus("Saving memory...");
-    const supabase = createClient();
 
-    let fileUrl: string | null = null;
-
-    if (file) {
-      const filePath = `${crypto.randomUUID()}-${file.name}`;
-
-      const { error: uploadError } = await supabase.storage
-        .from("memory-files")
-        .upload(filePath, file);
-
-      if (uploadError) {
-        setStatus(uploadError.message);
-        return;
-      }
-
-      const { data: publicUrlData } = supabase.storage
-        .from("memory-files")
-        .getPublicUrl(filePath);
-
-      fileUrl = publicUrlData.publicUrl;
-    }
-
-    const { error } = await supabase.from("memories").insert({
+    const { success, error } = await createMemory({
       loved_one_id: lovedOneId,
       title,
-      description: description || null,
+      description,
       memory_type: memoryType,
-      memory_date: memoryDate || null,
-      file_url: fileUrl,
+      memory_date: memoryDate,
+      file,
     });
 
-    if (error) {
-      setStatus(error.message);
+    if (!success) {
+      setStatus(error || "Error creating memory");
       return;
     }
 

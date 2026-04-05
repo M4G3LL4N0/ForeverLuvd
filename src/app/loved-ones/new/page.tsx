@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/supabase/client";
+import { createLovedOne } from "@/lib/data/loved-ones";
 
 export default function NewLovedOnePage() {
   const router = useRouter();
@@ -23,16 +24,14 @@ export default function NewLovedOnePage() {
 
     setStatus("Creating...");
 
-    const supabase = createClient();
-
-    const { error } = await supabase.from("loved_ones").insert({
+    const { success, error } = await createLovedOne({
       name,
-      relationship_type: relationshipType || null,
-      birth_date: birthDate || null,
+      relationship_type: relationshipType,
+      birth_date: birthDate,
     });
 
-    if (error) {
-      setStatus(error.message);
+    if (!success) {
+      setStatus(error || "Error creating loved one");
       return;
     }
 
