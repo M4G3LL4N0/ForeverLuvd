@@ -3,28 +3,42 @@ export default function SettingsPage() {
     <main className="container-wrap py-12">
       <div className="card p-8">
         <div className="max-w-4xl">
-          <h1 className="text-4xl font-semibold tracking-tight">Your Privacy & Trust Center</h1>
+          <h1 className="text-4xl font-semibold tracking-tight">Your Legacy, Your Control</h1>
           <p className="mt-3 text-lg text-neutral-400">
-            At ForeverLuvd, we believe your memories deserve the highest level of protection and respect. 
-            This is your command center for data ownership, privacy controls, and account security.
+            ForeverLuvd is built on a foundation of trust, transparency, and respect. 
+            This is your command center for managing how your memories are preserved, protected, and shared.
           </p>
+          <div className="mt-6 flex gap-4">
+            <div className="flex-1 rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 className="text-lg font-medium">Your Data Sovereignty</h3>
+              <p className="mt-2 text-sm text-neutral-400">
+                Complete ownership and control over your memories
+              </p>
+            </div>
+            <div className="flex-1 rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 className="text-lg font-medium">Ethical AI</h3>
+              <p className="mt-2 text-sm text-neutral-400">
+                Consent-based AI interactions that respect your boundaries
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="mt-12 grid gap-8">
-          {/* Data Ownership Section */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight">Your Data, Your Legacy</h2>
+          {/* Data Sovereignty Section */}
+          <section className="mt-12">
+            <h2 className="text-3xl font-semibold tracking-tight">Complete Data Sovereignty</h2>
             <p className="mt-2 max-w-3xl text-neutral-400">
-              Every memory you create belongs exclusively to you. We're here to safeguard your legacy, 
-              not to claim it. Our technology exists solely to preserve and honor your stories.
+              Your memories belong exclusively to you. We're custodians, not owners. Every byte of data 
+              you entrust to us remains under your complete control.
             </p>
-            <div className="mt-6 space-y-4">
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium">Complete Content Ownership</h3>
+                    <h3 className="text-lg font-medium">Absolute Ownership</h3>
                     <p className="mt-1 text-sm text-neutral-400">
-                      You retain full rights to all uploaded content and memories
+                      Full legal rights to all content and memories
                     </p>
                   </div>
                   <span className="text-sm font-medium text-green-400">Active</span>
@@ -33,85 +47,20 @@ export default function SettingsPage() {
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium">Memory Export & Backup</h3>
+                    <h3 className="text-lg font-medium">Export & Backup</h3>
                     <p className="mt-1 text-sm text-neutral-400">
-                      Export your entire memory archive in standard formats
+                      Full memory archive export in standard formats
                     </p>
                   </div>
                   <span className="text-sm font-medium text-yellow-400">Launching Q3 2026</span>
                 </div>
               </div>
-            </div>
-          </section>
-
-          {/* Privacy Commitments Section */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight">Our Ironclad Privacy Promise</h2>
-            <p className="mt-2 max-w-3xl text-neutral-400">
-              We've built ForeverLuvd on a foundation of privacy-by-design. Your data is protected 
-              by industry-leading security measures and ethical principles.
-            </p>
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium">Zero Data Resale</h3>
+                    <h3 className="text-lg font-medium">Data Portability</h3>
                     <p className="mt-1 text-sm text-neutral-400">
-                      We never sell or share your data with third parties
-                    </p>
-                  </div>
-                  <span className="text-sm font-medium text-green-400">Active</span>
-                </div>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-lg font-medium">No Hidden AI Training</h3>
-                    <p className="mt-1 text-sm text-neutral-400">
-                      Your memories are never used to train AI models
-                    </p>
-                  </div>
-                  <span className="text-sm font-medium text-green-400">Active</span>
-                </div>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-lg font-medium">End-to-End Encryption</h3>
-                    <p className="mt-1 text-sm text-neutral-400">
-                      All data is encrypted in transit and at rest
-                    </p>
-                  </div>
-                  <span className="text-sm font-medium text-green-400">Active</span>
-                </div>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-lg font-medium">Transparent Data Practices</h3>
-                    <p className="mt-1 text-sm text-neutral-400">
-                      Clear documentation of how we handle your information
-                    </p>
-                  </div>
-                  <span className="text-sm font-medium text-green-400">Active</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Account Controls Section */}
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight">Account & Access Management</h2>
-            <p className="mt-2 max-w-3xl text-neutral-400">
-              Maintain complete control over your account and how your memories are accessed.
-            </p>
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-lg font-medium">Full Account Deletion</h3>
-                    <p className="mt-1 text-sm text-neutral-400">
-                      Permanently remove all account data and memories
+                      Move your memories to any compatible platform
                     </p>
                   </div>
                   <span className="text-sm font-medium text-yellow-400">Launching Q4 2026</span>
@@ -120,9 +69,97 @@ export default function SettingsPage() {
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium">Granular AI Consent</h3>
+                    <h3 className="text-lg font-medium">Legacy Planning</h3>
                     <p className="mt-1 text-sm text-neutral-400">
-                      Control how AI interacts with your memories
+                      Designate custodians for your digital legacy
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Launching Q1 2027</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Privacy & Security Section */}
+          <section className="mt-12">
+            <h2 className="text-3xl font-semibold tracking-tight">Uncompromising Privacy & Security</h2>
+            <p className="mt-2 max-w-3xl text-neutral-400">
+              Your memories are protected by industry-leading security measures and ethical principles. 
+              We go beyond compliance to ensure your peace of mind.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Zero Data Monetization</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      We never sell, share, or monetize your data
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Consent-Based AI</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      AI only interacts with your explicit consent
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Military-Grade Encryption</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      AES-256 encryption for all data at rest and in transit
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Transparent Operations</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Full visibility into our data practices
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Active</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Access & Control Section */}
+          <section className="mt-12">
+            <h2 className="text-3xl font-semibold tracking-tight">Granular Access Controls</h2>
+            <p className="mt-2 max-w-3xl text-neutral-400">
+              Maintain precise control over who can access your memories and how they're used. 
+              From family sharing to legacy planning, you're in complete control.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Complete Account Deletion</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Permanently erase all account data and memories
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Launching Q4 2026</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">AI Interaction Controls</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Fine-tune how AI engages with your memories
                     </p>
                   </div>
                   <span className="text-sm font-medium text-yellow-400">Launching Q1 2027</span>
@@ -131,9 +168,9 @@ export default function SettingsPage() {
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium">Family Access Controls</h3>
+                    <h3 className="text-lg font-medium">Family Sharing Settings</h3>
                     <p className="mt-1 text-sm text-neutral-400">
-                      Manage who can view and interact with memories
+                      Manage family access to specific memories
                     </p>
                   </div>
                   <span className="text-sm font-medium text-yellow-400">Launching Q2 2027</span>
@@ -142,9 +179,9 @@ export default function SettingsPage() {
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium">Legacy Planning</h3>
+                    <h3 className="text-lg font-medium">Legacy Custodians</h3>
                     <p className="mt-1 text-sm text-neutral-400">
-                      Designate memory custodians and access rules
+                      Designate trusted individuals to manage your legacy
                     </p>
                   </div>
                   <span className="text-sm font-medium text-yellow-400">Launching Q3 2027</span>
