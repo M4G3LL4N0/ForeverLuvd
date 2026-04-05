@@ -1,4 +1,34 @@
+import { MessageBubble } from "@/components/message-bubble";
+
 export default function ChatPage() {
+  // Simulated conversation data
+  const messages = [
+    {
+      id: "1",
+      text: "Hi there! I'm here to help you reconnect with your loved ones through the memories you've shared.",
+      type: "system",
+      timestamp: new Date(),
+    },
+    {
+      id: "2",
+      text: "Would you like to start by selecting a loved one to chat with?",
+      type: "system",
+      timestamp: new Date(),
+    },
+    {
+      id: "3",
+      text: "Yes, I'd like to chat with Grandma.",
+      type: "user",
+      timestamp: new Date(),
+    },
+    {
+      id: "4",
+      text: "Wonderful choice! Based on the memories you've shared, I can help you have a conversation that feels authentic and true to your relationship.",
+      type: "system",
+      timestamp: new Date(),
+    },
+  ];
+
   return (
     <main className="container-wrap py-12">
       <div className="card p-8">
@@ -8,6 +38,19 @@ export default function ChatPage() {
           A revolutionary approach to preserving connections through consent-based AI,
           powered exclusively by your curated memories and approved likeness.
         </p>
+
+        <div className="mt-8 rounded-2xl border border-white/10 p-6">
+          <div className="space-y-4">
+            {messages.map((message) => (
+              <MessageBubble
+                key={message.id}
+                message={message.text}
+                type={message.type}
+                timestamp={message.timestamp}
+              />
+            ))}
+          </div>
+        </div>
 
         <div className="mt-8 grid gap-8 md:grid-cols-2">
           <div className="space-y-6">
