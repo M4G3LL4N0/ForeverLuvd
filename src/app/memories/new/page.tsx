@@ -21,8 +21,14 @@ export default function NewMemoryPage() {
   const [description, setDescription] = useState("");
   const [memoryType, setMemoryType] = useState("note");
   const [memoryDate, setMemoryDate] = useState("");
-  const [status, setStatus] = useState("");
+  type Status = {
+    type: 'idle' | 'loading' | 'success' | 'error';
+    message: string;
+  };
+  
+  const [status, setStatus] = useState<Status>({ type: 'idle', message: '' });
   const [file, setFile] = useState<File | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     async function loadLovedOnes() {
@@ -48,13 +54,28 @@ export default function NewMemoryPage() {
     e.preventDefault();
 
     if (!configured) {
-      setStatus(
-        "Supabase is not configured yet. Add the Vercel environment variables and redeploy."
-      );
+      setStatus({
+        type: 'error',
+        message: "Supabase is not configured yet. Add the Vercel environment variables and redeploy."
+      });
       return;
     }
 
-    setStatus("Saving memory...");
+    setIsUploading(true);
+    setStatus({ type: 'loading', message: 'Saving memory...' });
+
+    // Basic file validation
+    if (file) {
+      const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+      if (file.size > MAX_FILE_SIZE) {
+        setStatus({
+          type: 'error',
+          message: 'File size exceeds 10MB limit'
+        });
+        setIsUploading(false);
+        return;
+      }
+    }
 
     const result = await createMemory({
       loved_one_id: lovedOneId,
@@ -66,12 +87,19 @@ export default function NewMemoryPage() {
     });
 
     if (!result.success) {
-      setStatus(result.error || "Failed to save memory.");
+      setStatus({
+        type: 'error',
+        message: result.error || "Failed to save memory."
+      });
+      setIsUploading(false);
       return;
     }
 
-    router.push("/dashboard");
-    router.refresh();
+    setStatus({ type: 'success', message: 'Memory saved successfully!' });
+    setTimeout(() => {
+      router.push("/dashboard");
+      router.refresh();
+    }, 1500);
   }
 
   return (
@@ -184,11 +212,18 @@ export default function NewMemoryPage() {
               <input
                 className="input"
                 type="file"
-                onChange={(e) => setFile(e.target.files?.[0] || null)}
-                disabled={!configured}
+                onChange={(e) => {
+                  const selectedFile = e.target.files?.[0];
+                  if (selectedFile) {
+                    setFile(selectedFile);
+                  }
+                }}
+                disabled={!configured || isUploading}
+                accept=".jpg,.jpeg,.png,.gif,.mp4,.mov,.mp3,.wav,.pdf,.doc,.docx"
               />
               <p className="mt-2 text-sm text-neutral-400">
-                Photos, videos, audio recordings, or documents that help preserve this memory
+                Photos, videos, audio recordings, or documents that help preserve this memory.
+                Max file size: 10MB. Supported formats: JPG, PNG, GIF, MP4, MOV, MP3, WAV, PDF, DOC
               </p>
             </div>
           </div>
@@ -197,14 +232,31 @@ export default function NewMemoryPage() {
             <button 
               className="btn btn-primary w-full" 
               type="submit" 
-              disabled={!configured}
+              disabled={!configured || isUploading}
             >
-              Preserve this memory
+              {isUploading ? (
+                <span className="flex items-center gap-2">
+                  <span className="animate-spin">⏳</span>
+                  Saving...
+                </span>
+              ) : (
+                'Preserve this memory'
+              )}
             </button>
           </div>
         </form>
 
-        {status ? <p className="mt-4 text-sm text-neutral-400">{status}</p> : null}
+        {status.message && (
+          <p 
+            className={`mt-4 text-sm ${
+              status.type === 'error' ? 'text-red-400' :
+              status.type === 'success' ? 'text-green-400' :
+              'text-neutral-400'
+            }`}
+          >
+            {status.message}
+          </p>
+        )}
       </div>
     </main>
   );
