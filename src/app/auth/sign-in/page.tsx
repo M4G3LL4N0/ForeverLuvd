@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/supabase/client";
+import { signIn } from "@/lib/data/auth";
 
 export default function SignInPage() {
   const router = useRouter();
@@ -23,15 +24,10 @@ export default function SignInPage() {
 
     setStatus("Signing in...");
 
-    const supabase = createClient();
+    const { success, error } = await signIn({ email, password });
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      setStatus(error.message);
+    if (!success) {
+      setStatus(error || "Failed to sign in");
       return;
     }
 

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/supabase/client";
+import { signUp } from "@/lib/data/auth";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -21,23 +22,12 @@ export default function SignUpPage() {
 
     setStatus("Creating account...");
 
-    const supabase = createClient();
-
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo:
-          process.env.NEXT_PUBLIC_APP_URL
-            ? `${process.env.NEXT_PUBLIC_APP_URL}/dashboard`
-            : `${window.location.origin}/dashboard`,
-      },
-    });
+    const { success, error } = await signUp({ email, password });
 
     setStatus(
-      error
-        ? error.message
-        : "Account created. Check your email if confirmation is enabled."
+      success
+        ? "Account created. Check your email if confirmation is enabled."
+        : error || "Failed to create account"
     );
   }
 
