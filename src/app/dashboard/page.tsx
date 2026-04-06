@@ -28,34 +28,33 @@ export default async function DashboardPage() {
   const memoriesCount = memories?.length ?? 0;
 
   return (
-    <main className="space-y-8">
-      <section className="card p-8">
+    <main className="container-wrap py-10">
+      <section className="card overflow-hidden p-8 md:p-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
-              Memory Vault
+              Dashboard
             </p>
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-              Preserve what matters most
+              Your private memory vault.
             </h1>
             <p className="mt-4 max-w-2xl text-neutral-400">
-              Every memory here is protected with encryption and stays under your control. 
-              Build a lasting legacy for the people you love.
+              Preserve the people you love through stories, voice notes, photos,
+              letters, and moments that deserve more than a camera roll.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-3">
             <Link href="/loved-ones/new" className="btn btn-secondary">
-              + Loved One
+              Add loved one
             </Link>
             <Link href="/memories/new" className="btn btn-primary">
-              + Memory
+              Add memory
             </Link>
           </div>
         </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
-          <div className="rounded-[24px] border border-white/10 bg-gradient-to-br from-[#4f6bff]/10 via-transparent to-[#ff8f6b]/10 p-5">
           <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
             <p className="text-sm text-neutral-400">Loved ones</p>
             <p className="mt-3 text-3xl font-semibold">{lovedOnesCount}</p>
@@ -119,9 +118,7 @@ export default async function DashboardPage() {
               ))
             ) : (
               <div className="rounded-[24px] border border-dashed border-white/10 bg-white/5 p-6">
-                <p className="text-lg font-medium text-white">
-                  No loved ones yet
-                </p>
+                <p className="text-lg font-medium text-white">No loved ones yet</p>
                 <p className="mt-3 text-sm text-neutral-400">
                   Start by creating a private profile for someone important to you.
                 </p>
@@ -176,9 +173,7 @@ export default async function DashboardPage() {
               ))
             ) : (
               <div className="rounded-[24px] border border-dashed border-white/10 bg-white/5 p-6">
-                <p className="text-lg font-medium text-white">
-                  No memories yet
-                </p>
+                <p className="text-lg font-medium text-white">No memories yet</p>
                 <p className="mt-3 text-sm text-neutral-400">
                   Add your first memory to begin building a lasting archive.
                 </p>
