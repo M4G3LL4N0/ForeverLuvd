@@ -40,7 +40,10 @@ export default async function DashboardPage() {
             </h1>
             <p className="mt-4 max-w-2xl text-neutral-400">
               Preserve and protect what matters across generations through 
-              structured memory, identity preservation, and secure sharing.
+              structured memory, voice continuity, and family stewardship.
+            </p>
+            <p className="mt-2 text-sm text-neutral-500">
+              Trusted family members can eventually help preserve memories together.
             </p>
           </div>
 

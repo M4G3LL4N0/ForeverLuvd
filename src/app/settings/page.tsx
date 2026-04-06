@@ -71,6 +71,38 @@ export default function SettingsPage() {
         </div>
 
         <div className="mt-12 grid gap-8">
+          {/* Family & Legacy Section */}
+          <section className="mt-12">
+            <h2 className="text-3xl font-semibold tracking-tight">Family Continuity & Legacy</h2>
+            <p className="mt-2 max-w-3xl text-neutral-400">
+              Manage how your loved ones' memories are preserved and shared across generations.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Family Contributors</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Invite trusted family to help preserve memories
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Launching Q3 2026</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Voice Continuity</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Preserve and protect voice recordings
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Launching Q4 2026</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Data Sovereignty Section */}
           <section className="mt-12">
             <h2 className="text-3xl font-semibold tracking-tight">Complete Data Sovereignty</h2>

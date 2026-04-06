@@ -2,24 +2,6 @@ import { CheckIcon, ShieldCheckIcon, LockClosedIcon } from '@heroicons/react/20/
 
 const tiers = [
   {
-    name: 'Starter',
-    price: 'Free',
-    lovedOnes: 1,
-    storage: '5GB',
-    aiAccess: 'Basic',
-    features: [
-      'Preserve 1 loved one',
-      '5GB memory storage',
-      'Basic AI memory assistance',
-      'Text-based memories only',
-      'Community support',
-      'Export your data anytime'
-    ],
-    cta: 'Start Preserving',
-    ctaColor: 'bg-gray-800',
-    highlight: false,
-  },
-  {
     name: 'Personal',
     price: '$12/mo',
     lovedOnes: 3,
@@ -29,12 +11,14 @@ const tiers = [
       'Preserve up to 3 loved ones',
       '50GB memory storage',
       'Standard AI memory assistance',
+      'Voice memory playback',
+      'Private family-only access',
       'Priority email support',
-      'Customizable memory timelines',
-      'Private family-only access'
+      'Customizable memory timelines'
     ],
     cta: 'Choose Personal',
     ctaColor: 'bg-blue-600',
+    highlight: true,
   },
   {
     name: 'Family',
@@ -46,6 +30,7 @@ const tiers = [
       'Preserve up to 10 loved ones',
       '200GB memory storage',
       'Enhanced AI memory assistance',
+      'Voice continuity readiness',
       'Family sharing (up to 6 users)',
       'Collaborative memory building',
       'Priority support',
@@ -53,6 +38,26 @@ const tiers = [
     ],
     cta: 'Protect Family',
     ctaColor: 'bg-purple-600',
+  },
+  {
+    name: 'Legacy',
+    price: '$99/mo',
+    lovedOnes: 'Unlimited',
+    storage: '1TB',
+    aiAccess: 'Unlimited',
+    features: [
+      'Preserve unlimited loved ones',
+      '1TB memory storage',
+      'Unlimited AI memory assistance',
+      'Voice continuity framework',
+      'Multi-generational access',
+      'Legacy planning tools',
+      'Dedicated account manager',
+      'Priority 24/7 support',
+      'ForeverLuvd legacy badge'
+    ],
+    cta: 'Build Legacy',
+    ctaColor: 'bg-indigo-600',
   },
   {
     name: 'Legacy',

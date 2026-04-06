@@ -204,7 +204,21 @@ export default function ChatPage() {
             </div>
 
             <div className="card p-6">
-              <h3 className="text-lg font-semibold">Privacy commitment</h3>
+              <h3 className="text-lg font-semibold">Voice Continuity</h3>
+              <p className="mt-3 text-sm text-neutral-400">
+                Future capability to preserve voice recordings and carefully reconstruct
+                communication patterns, rooted only in approved recordings.
+              </p>
+            </div>
+            <div className="card p-6">
+              <h3 className="text-lg font-semibold">Family Stewardship</h3>
+              <p className="mt-3 text-sm text-neutral-400">
+                Trusted family members can eventually contribute memories and help
+                preserve a loved one's identity together.
+              </p>
+            </div>
+            <div className="card p-6">
+              <h3 className="text-lg font-semibold">Privacy Commitment</h3>
               <p className="mt-3 text-sm text-neutral-400">
                 No hidden training. No resale. No platform ownership of likeness
                 or memory. Identity is derived only from preserved, user-approved

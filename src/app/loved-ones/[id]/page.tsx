@@ -55,6 +55,12 @@ export default async function LovedOneDetailPage({
             <div className="rounded-full border border-white/10 px-4 py-2 text-sm text-neutral-300">
               AI continuity ready
             </div>
+            <div className="rounded-full border border-white/10 px-4 py-2 text-sm text-neutral-300">
+              Voice continuity framework
+            </div>
+            <div className="rounded-full border border-white/10 px-4 py-2 text-sm text-neutral-300">
+              Family stewardship
+            </div>
           </div>
         </div>
       </div>

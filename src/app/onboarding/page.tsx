@@ -36,7 +36,10 @@ export default function OnboardingFlow() {
             Begin Their Continuity
           </h1>
           <p className="text-lg text-neutral-300 mb-8">
-            ForeverLuvd helps preserve and protect what makes your loved ones unique—now and for future generations.
+            ForeverLuvd helps preserve and protect what makes your loved ones unique—their stories, their voice, and their emotional presence—now and for future generations.
+          </p>
+          <p className="text-sm text-neutral-500 mb-8">
+            Trusted family members can eventually help build and preserve these memories together.
           </p>
           <div className="flex justify-center gap-8 mb-12">
             <div className="flex flex-col items-center">
