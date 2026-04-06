@@ -4,32 +4,36 @@ import { Icons } from "@/components/icons";
 
 const navGroups = [
   {
-    title: "Your Vault",
+    title: "Your Legacy",
     items: [
       {
         href: "/dashboard",
-        label: "Memory Vault",
+        label: "Dashboard",
         icon: Icons.home,
+        description: "View your memory vault",
       },
       {
         href: "/chat",
         label: "Memory Companion",
         icon: Icons.message,
+        description: "Conversations with context",
       },
     ],
   },
   {
-    title: "Preserve",
+    title: "Preserve Memories",
     items: [
       {
         href: "/loved-ones/new",
         label: "Add Loved One",
         icon: Icons.heart,
+        description: "Create a new profile",
       },
       {
         href: "/memories/new",
         label: "Add Memory",
         icon: Icons.archive,
+        description: "Save a new moment",
       },
     ],
   },
@@ -40,11 +44,13 @@ const navGroups = [
         href: "/settings",
         label: "Settings",
         icon: Icons.settings,
+        description: "Manage your account",
       },
       {
         href: "/pricing",
-        label: "Upgrade",
+        label: "Plans",
         icon: Icons.sparkles,
+        description: "View subscription options",
       },
     ],
   },

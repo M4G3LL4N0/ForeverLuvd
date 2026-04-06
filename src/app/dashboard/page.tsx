@@ -28,8 +28,8 @@ export default async function DashboardPage() {
   const memoriesCount = memories?.length ?? 0;
 
   return (
-    <main className="container-wrap py-10">
-      <section className="card overflow-hidden p-8 md:p-10">
+    <main className="space-y-8">
+      <section className="card p-8">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
@@ -55,6 +55,7 @@ export default async function DashboardPage() {
         </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="rounded-[24px] border border-white/10 bg-gradient-to-br from-[#4f6bff]/10 via-transparent to-[#ff8f6b]/10 p-5">
           <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
             <p className="text-sm text-neutral-400">Loved ones</p>
             <p className="mt-3 text-3xl font-semibold">{lovedOnesCount}</p>

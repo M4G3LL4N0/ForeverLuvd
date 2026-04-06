@@ -6,14 +6,14 @@ import { Menu, X } from "lucide-react";
 
 const navGroups = [
   {
-    title: "Your Vault",
+    title: "Your Legacy",
     items: [
-      { href: "/dashboard", label: "Memory Vault" },
+      { href: "/dashboard", label: "Dashboard" },
       { href: "/chat", label: "Memory Companion" },
     ],
   },
   {
-    title: "Preserve",
+    title: "Preserve Memories",
     items: [
       { href: "/loved-ones/new", label: "Add Loved One" },
       { href: "/memories/new", label: "Add Memory" },
@@ -23,7 +23,7 @@ const navGroups = [
     title: "Account",
     items: [
       { href: "/settings", label: "Settings" },
-      { href: "/pricing", label: "Upgrade" },
+      { href: "/pricing", label: "Plans" },
     ],
   },
 ];
