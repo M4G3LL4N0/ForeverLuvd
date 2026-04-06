@@ -133,7 +133,25 @@ export default function ChatPage() {
 
   return (
     <main className="container-wrap py-12">
-      <div className="card overflow-hidden p-8">
+      <div className="overflow-hidden">
+        <div className="card mb-6 p-8">
+          <div className="max-w-3xl">
+            <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
+              Identity Continuity Engine
+            </p>
+            <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+              Structured identity, derived from real memory.
+            </h1>
+            <p className="mt-4 max-w-2xl text-neutral-400">
+              ForeverLuvd's orchestration layer turns preserved memories into safe, 
+              structured identity context through deterministic analysis - building 
+              trustworthy pathways for future interaction while respecting privacy 
+              boundaries.
+            </p>
+          </div>
+        </div>
+
+        <div className="card p-8">
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
             Identity engine
