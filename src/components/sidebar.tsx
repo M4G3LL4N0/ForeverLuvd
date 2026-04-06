@@ -38,6 +38,29 @@ const navGroups = [
     ],
   },
   {
+    title: "Continuity",
+    items: [
+      {
+        href: "/family",
+        label: "Family",
+        icon: Icons.users,
+        description: "Shared preservation",
+      },
+      {
+        href: "/legacy",
+        label: "Legacy",
+        icon: Icons.archive,
+        description: "Long-term continuity",
+      },
+      {
+        href: "/voice",
+        label: "Voice",
+        icon: Icons.mic,
+        description: "Preserved recordings",
+      },
+    ],
+  },
+  {
     title: "Account",
     items: [
       {
@@ -51,6 +74,12 @@ const navGroups = [
         label: "Plans",
         icon: Icons.sparkles,
         description: "View subscription options",
+      },
+      {
+        href: "/technology",
+        label: "Technology",
+        icon: Icons.cpu,
+        description: "Platform architecture",
       },
     ],
   },
