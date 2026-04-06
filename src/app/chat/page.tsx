@@ -68,15 +68,15 @@ export default function ChatPage() {
       <div className="card overflow-hidden p-8">
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
-            The ForeverLuvd Difference
+            Our Ethical Approach
           </p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-            Continuity, not imitation
+            Authentic Connection
           </h1>
-          <p className="mt-4 max-w-2xl text-neutral-400">
-            Unlike generic AI, we're building a private, consent-based way to maintain 
-            connection — using only the memories, voice recordings, and personal artifacts 
-            you choose to preserve.
+          <p className="mt-4 max-w-2xl text-neutral-300/90 leading-relaxed">
+            We're pioneering a new way to maintain bonds - grounded in your actual memories,
+            with responses shaped only by what you choose to preserve. No data mining,
+            no hidden training - just meaningful connection on your terms.
           </p>
         </div>
 

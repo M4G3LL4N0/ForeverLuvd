@@ -48,11 +48,12 @@ export default function NewLovedOnePage() {
     <main className="container-wrap py-12">
       <div className="card mx-auto max-w-2xl p-8">
         <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
-          Loved one profile
+          Creating a sacred space
         </p>
-        <h1 className="text-3xl font-semibold">Add a loved one</h1>
-        <p className="mt-3 text-neutral-400">
-          Start a private profile for someone important to you.
+        <h1 className="text-3xl font-semibold">Begin their legacy</h1>
+        <p className="mt-3 text-neutral-300/90">
+          Create a private sanctuary to honor and remember 
+          someone who matters deeply to you.
         </p>
 
         {!configured ? (

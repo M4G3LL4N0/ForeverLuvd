@@ -91,11 +91,12 @@ export default function NewMemoryForm({
     <main className="container-wrap py-12">
       <div className="card mx-auto max-w-2xl p-8">
         <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
-          Memory capture
+          Preserving what matters
         </p>
-        <h1 className="text-3xl font-semibold">Add a memory</h1>
-        <p className="mt-3 text-neutral-400">
-          Preserve a moment, note, file, or story.
+        <h1 className="text-3xl font-semibold">Honor a moment</h1>
+        <p className="mt-3 text-neutral-300/90">
+          Capture the essence of your relationship - a moment, feeling, 
+          or artifact that holds meaning between you.
         </p>
 
         {!configured ? (

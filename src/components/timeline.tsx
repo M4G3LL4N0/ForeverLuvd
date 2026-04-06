@@ -26,12 +26,14 @@ export default function Timeline({
 }) {
   if (!items?.length) {
     return (
-      <div className="rounded-[28px] border border-dashed border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8 text-neutral-400 backdrop-blur-sm">
-        <p className="text-xl font-semibold text-white">Begin their story</p>
-        <p className="mt-3 max-w-xl text-neutral-400/80">
-          This sacred space awaits its first memory. Capture a cherished moment,
-          a treasured photo, or a heartfelt letter to weave the tapestry of their legacy.
-        </p>
+      <div className="rounded-[28px] border border-dashed border-white/20 bg-gradient-to-b from-white/5 to-transparent p-8 text-center backdrop-blur-sm">
+        <div className="mx-auto max-w-md">
+          <p className="text-xl font-semibold text-white">Begin their story</p>
+          <p className="mt-3 text-neutral-300/90 leading-relaxed">
+            This sacred space holds the promise of remembrance. 
+            Add your first memory - a photo, letter, or moment - 
+            to begin honoring their unique presence in your life.
+          </p>
         <div className="mt-6">
           <Link
             href={`/memories/new?lovedOneId=${lovedOneId}`}
