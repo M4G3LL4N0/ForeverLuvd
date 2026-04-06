@@ -8,6 +8,8 @@ export type IdentityProfile = {
   keyPhrases: string[];
   identitySummary: string;
   confidenceNotes: string[];
+  memoryCount: number;
+  derivedAt: string;
 };
 
 export type ChatContext = {
@@ -24,7 +26,9 @@ const DEFAULT_PROFILE: IdentityProfile = {
   recurringThemes: [],
   keyPhrases: [],
   identitySummary: "Identity reconstruction in progress",
-  confidenceNotes: ["Initial analysis based on preserved memories"]
+  confidenceNotes: ["Initial analysis based on preserved memories"],
+  memoryCount: 0,
+  derivedAt: new Date().toISOString()
 };
 
 export function analyzeMemories(memories: Memory[]): IdentityProfile {
@@ -33,16 +37,31 @@ export function analyzeMemories(memories: Memory[]): IdentityProfile {
   }
 
   try {
-    // Core analysis
-    const traitKeywords = ["kind", "funny", "wise", "patient", "creative", "loving", "supportive"];
-    const emotionalWords = ["love", "happy", "proud", "miss", "laugh", "care", "hope"];
-    const themeKeywords = ["family", "work", "travel", "art", "music", "nature"];
+    // Expanded analysis categories
+    const traitKeywords = [
+      "kind", "funny", "wise", "patient", "creative", 
+      "loving", "supportive", "generous", "thoughtful",
+      "resilient", "optimistic", "practical"
+    ];
     
+    const emotionalWords = [
+      "love", "happy", "proud", "miss", "laugh", 
+      "care", "hope", "cherish", "admire", "inspire"
+    ];
+    
+    const themeKeywords = [
+      "family", "work", "travel", "art", "music", 
+      "nature", "education", "community", "tradition",
+      "achievement", "spirituality"
+    ];
+
     const foundTraits = new Set<string>();
     const emotionalPatterns = new Set<string>();
     const themeCounts: Record<string, number> = {};
     const phraseCounts: Record<string, number> = {};
-    
+    const wordFrequency: Record<string, number> = {};
+
+    // Analyze each memory
     memories.forEach(memory => {
       const text = `${memory.title} ${memory.description || ''}`.toLowerCase();
       
@@ -63,39 +82,52 @@ export function analyzeMemories(memories: Memory[]): IdentityProfile {
         }
       });
       
-      // Extract phrases
+      // Extract phrases and word frequency
       const phrases = text.match(/"([^"]+)"/g) || [];
       phrases.forEach(phrase => {
         phraseCounts[phrase] = (phraseCounts[phrase] || 0) + 1;
       });
+
+      // Count word frequency
+      text.split(' ').forEach(word => {
+        wordFrequency[word] = (wordFrequency[word] || 0) + 1;
+      });
     });
-    
-    // Get top 3 themes
+
+    // Get top themes
     const recurringThemes = Object.entries(themeCounts)
       .sort((a, b) => b[1] - a[1])
-      .slice(0, 3)
+      .slice(0, 5)
       .map(([theme]) => theme);
     
-    // Get top 3 phrases
+    // Get top phrases
     const keyPhrases = Object.entries(phraseCounts)
       .sort((a, b) => b[1] - a[1])
-      .slice(0, 3)
+      .slice(0, 5)
       .map(([phrase]) => phrase);
+
+    // Determine communication style
+    const communicationStyle = 
+      foundTraits.has("funny") ? "warm and humorous" :
+      foundTraits.has("wise") ? "thoughtful and measured" :
+      foundTraits.has("optimistic") ? "positive and encouraging" :
+      "direct and personal";
 
     return {
       traits: Array.from(foundTraits),
-      communicationStyle: foundTraits.has("funny") ? "warm and humorous" : 
-                         foundTraits.has("wise") ? "thoughtful and measured" : 
-                         "direct and personal",
+      communicationStyle,
       emotionalPatterns: Array.from(emotionalPatterns),
       recurringThemes,
       keyPhrases,
-      identitySummary: `Based on ${memories.length} preserved memories, this person shows ${Array.from(foundTraits).join(', ') || 'distinctive'} qualities.`,
+      identitySummary: `Based on ${memories.length} preserved memories, this person shows ${Array.from(foundTraits).join(', ') || 'distinctive'} qualities. Their communication style appears ${communicationStyle}, with recurring themes around ${recurringThemes.join(', ') || 'various aspects of life'}.`,
       confidenceNotes: [
         `Analysis derived from ${memories.length} user-preserved memories`,
         "Confidence grows as more memories are added",
-        "Only uses approved, user-provided content"
-      ]
+        "Only uses approved, user-provided content",
+        "Analysis updated at: " + new Date().toLocaleString()
+      ],
+      memoryCount: memories.length,
+      derivedAt: new Date().toISOString()
     };
   } catch {
     return DEFAULT_PROFILE;
@@ -118,6 +150,8 @@ Identity Profile:
 - Emotional Patterns: ${profile.emotionalPatterns.join(', ') || 'Not yet determined'}
 - Recurring Themes: ${profile.recurringThemes.join(', ') || 'Not yet determined'}
 - Key Phrases: ${profile.keyPhrases.join(', ') || 'Not yet determined'}
+- Memory Count: ${profile.memoryCount}
+- Derived At: ${new Date(profile.derivedAt).toLocaleString()}
 
 This interaction is based on real, user-preserved memories:
 ${memoryDescriptions}
@@ -126,5 +160,6 @@ Constraints:
 - Only use information from preserved memories
 - Never invent details not supported by memories
 - Maintain respectful, authentic tone
-- Clearly indicate when information is limited`;
+- Clearly indicate when information is limited
+- Always prioritize user privacy and consent`;
 }
