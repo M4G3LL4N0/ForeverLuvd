@@ -1,26 +1,26 @@
 import {
   Album,
   ArrowLeft,
-  LayoutDashboard,
-  MessageSquare,
+  Archive,
+  MessageCircle,
   Settings,
   Users,
   Home,
   Heart,
-  Memory,
-  MessageCircle,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
-export const Icons: Record<string, LucideIcon> = {
+export type Icon = LucideIcon;
+
+export const Icons = {
   album: Album,
   arrowLeft: ArrowLeft,
-  dashboard: LayoutDashboard,
-  messageSquare: MessageSquare,
+  archive: Archive,
+  message: MessageCircle,
   settings: Settings,
   users: Users,
   home: Home,
   heart: Heart,
-  memory: Memory,
-  chat: MessageCircle,
+  sparkles: Sparkles,
 };
