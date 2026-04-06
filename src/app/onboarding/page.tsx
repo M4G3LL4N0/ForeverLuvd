@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import { Lock, Heart, Sparkles } from 'lucide-react'
 
 type FormData = {
   person: string
@@ -27,7 +28,32 @@ export default function OnboardingFlow() {
   const prevStep = () => setStep(step - 1);
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-50 to-white px-4">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-[#0f0f0f] to-[#1a1a1a] px-4">
+      {/* Hero Section */}
+      {step === 1 && (
+        <div className="max-w-2xl text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-light mb-6 bg-gradient-to-r from-[#ffd6c2] via-[#ffae7a] to-[#ff7b6b] bg-clip-text text-transparent">
+            Preserve What Matters Most
+          </h1>
+          <p className="text-lg text-neutral-300 mb-8">
+            ForeverLuvd helps you capture and cherish the essence of your loved ones through AI-powered memory preservation.
+          </p>
+          <div className="flex justify-center gap-8 mb-12">
+            <div className="flex flex-col items-center">
+              <Heart className="h-8 w-8 text-indigo-400 mb-2" />
+              <span className="text-sm text-neutral-400">Loved Ones</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Sparkles className="h-8 w-8 text-indigo-400 mb-2" />
+              <span className="text-sm text-neutral-400">AI Memories</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Lock className="h-8 w-8 text-indigo-400 mb-2" />
+              <span className="text-sm text-neutral-400">Private & Secure</span>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Progress Indicator */}
       <div className="absolute top-8 w-full max-w-lg">
         <div className="flex items-center space-x-2">

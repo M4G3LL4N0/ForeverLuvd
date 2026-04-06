@@ -8,18 +8,27 @@ export default function Nav() {
           ForeverLuvd
         </Link>
 
-        <nav className="hidden gap-6 text-sm text-neutral-300 md:flex">
-          <a href="#how-it-works">How it works</a>
-          <a href="#privacy">Privacy</a>
-          <a href="#pricing">Pricing</a>
+        <nav className="hidden gap-8 text-sm text-neutral-300 md:flex">
+          <Link href="/onboarding" className="hover:text-white transition">
+            How It Works
+          </Link>
+          <Link href="/pricing" className="hover:text-white transition">
+            Pricing
+          </Link>
+          <Link href="#privacy" className="hover:text-white transition">
+            Privacy
+          </Link>
         </nav>
 
         <div className="flex gap-3">
           <Link href="/auth/sign-in" className="btn btn-secondary">
-            Sign in
+            Sign In
           </Link>
-          <Link href="/auth/sign-up" className="btn btn-primary">
-            Start preserving
+          <Link 
+            href="/onboarding" 
+            className="btn btn-primary bg-gradient-to-r from-[#ff7b6b] to-[#ffae7a] hover:opacity-90"
+          >
+            Start Free Trial
           </Link>
         </div>
       </div>

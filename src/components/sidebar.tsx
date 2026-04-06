@@ -66,11 +66,16 @@ export function Sidebar({ className }: { className?: string }) {
     >
       <div className="card sticky top-6 p-4">
         <div className="mb-4 px-2">
-          <Link href="/dashboard" className="text-xl font-semibold tracking-tight">
-            ForeverLuvd
+          <Link 
+            href="/dashboard" 
+            className="text-xl font-semibold tracking-tight flex items-center gap-2"
+          >
+            <span className="bg-gradient-to-r from-[#ffd6c2] via-[#ffae7a] to-[#ff7b6b] bg-clip-text text-transparent">
+              ForeverLuvd
+            </span>
           </Link>
           <p className="mt-2 text-sm text-neutral-400">
-            Preserve memories, voices, and the presence of the people you love.
+            Your private memory vault for loved ones
           </p>
         </div>
 

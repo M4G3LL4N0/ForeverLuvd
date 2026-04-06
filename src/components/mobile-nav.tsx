@@ -64,18 +64,28 @@ export function MobileNav() {
               </button>
             </div>
 
+            <div className="mb-6">
+              <Link
+                href="/onboarding"
+                onClick={() => setOpen(false)}
+                className="mb-6 block rounded-2xl bg-gradient-to-r from-[#ff7b6b] to-[#ffae7a] px-4 py-3 text-sm font-medium text-white text-center transition hover:opacity-90"
+              >
+                Quick Start Guide
+              </Link>
+            </div>
+
             {navGroups.map((group) => (
               <div key={group.title} className="mb-6">
                 <h3 className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-neutral-400">
                   {group.title}
                 </h3>
-                <nav className="flex flex-col gap-3">
+                <nav className="flex flex-col gap-2">
                   {group.items.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[var(--foreground)] transition hover:bg-white/10"
+                      className="rounded-xl px-4 py-3 text-sm text-[var(--foreground)] transition hover:bg-white/5"
                     >
                       {link.label}
                     </Link>
@@ -83,6 +93,16 @@ export function MobileNav() {
                 </nav>
               </div>
             ))}
+
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <Link
+                href="/pricing"
+                onClick={() => setOpen(false)}
+                className="text-sm font-medium text-indigo-400 hover:text-indigo-300"
+              >
+                View Plans & Pricing →
+              </Link>
+            </div>
           </div>
         </div>
       ) : null}

@@ -12,9 +12,9 @@ export default function AppLayout({
       <Sidebar />
 
       <div className="flex flex-1 flex-col">
-        <header className="border-b border-white/10 bg-[var(--background)]">
+        <header className="border-b border-white/10 bg-[var(--background)] backdrop-blur-sm">
           <div className="container-wrap py-3">
-            <div className="card flex items-center justify-between px-4 py-3">
+            <div className="flex items-center justify-between px-4 py-3">
               <Link 
                 href="/dashboard" 
                 className="text-xl font-semibold tracking-tight flex items-center gap-2"
@@ -23,7 +23,15 @@ export default function AppLayout({
                   ForeverLuvd
                 </span>
               </Link>
-              <MobileNav />
+              <div className="flex items-center gap-4">
+                <Link 
+                  href="/pricing" 
+                  className="hidden md:block text-sm font-medium text-neutral-300 hover:text-white transition"
+                >
+                  Plans
+                </Link>
+                <MobileNav />
+              </div>
             </div>
           </div>
         </header>

@@ -8,14 +8,16 @@ const tiers = [
     storage: '5GB',
     aiAccess: 'Basic',
     features: [
-      'Preserve 1 loved one\'s legacy',
+      'Preserve 1 loved one',
       '5GB memory storage',
       'Basic AI memory assistance',
+      'Text-based memories only',
       'Community support',
       'Export your data anytime'
     ],
     cta: 'Start Preserving',
-    ctaColor: 'bg-gray-900',
+    ctaColor: 'bg-gray-800',
+    highlight: false,
   },
   {
     name: 'Personal',
