@@ -20,10 +20,19 @@ const navGroups = [
     ],
   },
   {
+    title: "Continuity",
+    items: [
+      { href: "/family", label: "Family" },
+      { href: "/legacy", label: "Legacy" },
+      { href: "/voice", label: "Voice" },
+    ],
+  },
+  {
     title: "Account",
     items: [
       { href: "/settings", label: "Settings" },
       { href: "/pricing", label: "Plans" },
+      { href: "/technology", label: "Technology" },
     ],
   },
 ];

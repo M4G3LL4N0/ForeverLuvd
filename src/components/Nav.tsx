@@ -12,11 +12,17 @@ export default function Nav() {
           <Link href="/onboarding" className="hover:text-white transition">
             How It Works
           </Link>
+          <Link href="/family" className="hover:text-white transition">
+            Family
+          </Link>
+          <Link href="/legacy" className="hover:text-white transition">
+            Legacy
+          </Link>
           <Link href="/pricing" className="hover:text-white transition">
             Pricing
           </Link>
-          <Link href="#privacy" className="hover:text-white transition">
-            Privacy
+          <Link href="/technology" className="hover:text-white transition">
+            Technology
           </Link>
         </nav>
 
