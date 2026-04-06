@@ -33,10 +33,10 @@ export default function OnboardingFlow() {
       {step === 1 && (
         <div className="max-w-2xl text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-light mb-6 bg-gradient-to-r from-[#ffd6c2] via-[#ffae7a] to-[#ff7b6b] bg-clip-text text-transparent">
-            Preserve What Matters Most
+            Begin Their Continuity
           </h1>
           <p className="text-lg text-neutral-300 mb-8">
-            ForeverLuvd helps you capture and cherish the essence of your loved ones through AI-powered memory preservation.
+            ForeverLuvd helps preserve and protect what makes your loved ones unique—now and for future generations.
           </p>
           <div className="flex justify-center gap-8 mb-12">
             <div className="flex flex-col items-center">

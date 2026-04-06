@@ -36,11 +36,11 @@ export default async function DashboardPage() {
               Dashboard
             </p>
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-              Your private memory vault.
+              Your family continuity platform.
             </h1>
             <p className="mt-4 max-w-2xl text-neutral-400">
-              Preserve the people you love through stories, voice notes, photos,
-              letters, and moments that deserve more than a camera roll.
+              Preserve and protect what matters across generations through 
+              structured memory, identity preservation, and secure sharing.
             </p>
           </div>
 

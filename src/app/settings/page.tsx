@@ -236,6 +236,70 @@ export default function SettingsPage() {
             </div>
           </section>
 
+          {/* Data Sovereignty Section */}
+          <section className="mt-12">
+            <h2 className="text-3xl font-semibold tracking-tight">Data Sovereignty</h2>
+            <p className="mt-2 max-w-3xl text-neutral-400">
+              Complete ownership and control over all memory data and generated representations.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Perpetual Rights</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      You retain all rights to likeness and representations
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Protected</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">No Hidden Usage</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Your data never trains commercial AI models
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-green-400">Guaranteed</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Continuity Section */}
+          <section className="mt-12">
+            <h2 className="text-3xl font-semibold tracking-tight">Family Continuity</h2>
+            <p className="mt-2 max-w-3xl text-neutral-400">
+              Future-ready framework for multi-generational memory preservation.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Collaborative Archives</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Coming soon: invite family to contribute memories
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Q3 2026</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium">Generational Transfer</h3>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Future capability to pass stewardship rights
+                    </p>
+                  </div>
+                  <span className="text-sm font-medium text-yellow-400">Q1 2027</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Trust & Safety Section */}
           <section>
             <h2 className="text-3xl font-semibold tracking-tight">Trust & Safety</h2>
