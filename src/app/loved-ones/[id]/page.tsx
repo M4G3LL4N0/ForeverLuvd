@@ -48,8 +48,13 @@ export default async function LovedOneDetailPage({
             </p>
           </div>
 
-          <div className="rounded-full border border-white/10 px-4 py-2 text-sm text-neutral-300">
-            Encrypted-first architecture
+          <div className="flex items-center gap-2">
+            <div className="rounded-full border border-white/10 px-4 py-2 text-sm text-neutral-300">
+              Encrypted-first architecture
+            </div>
+            <div className="rounded-full border border-white/10 px-4 py-2 text-sm text-neutral-300">
+              AI continuity ready
+            </div>
           </div>
         </div>
       </div>
@@ -71,7 +76,7 @@ export default async function LovedOneDetailPage({
           ForeverLuvd is building a structured understanding of {lovedOne.name} based on your preserved memories.
         </p>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="card bg-white/5 p-6">
             <h3 className="text-lg font-semibold">How It Works</h3>
             <div className="mt-3 space-y-3 text-sm text-neutral-400">
@@ -90,6 +95,23 @@ export default async function LovedOneDetailPage({
               <p>• Future family-safe architecture</p>
               <p>• Designed for generational continuity</p>
               <p>• Private and encrypted by default</p>
+            </div>
+          </div>
+
+          <div className="card bg-white/5 p-6">
+            <h3 className="text-lg font-semibold">Orchestration Readiness</h3>
+            <div className="mt-16 h-40 relative">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-lg font-medium">Context Depth</div>
+                  <div className="text-3xl font-bold mt-2">
+                    {memories?.length || 0}x
+                  </div>
+                  <div className="text-xs opacity-60 mt-2">
+                    Signals processed
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

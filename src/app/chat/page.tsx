@@ -101,15 +101,27 @@ const messages: ChatMessage[] = [
   {
     id: "1",
     text: "What was her favorite thing to say to me?",
-    type: "user",
+    type: "user", 
     timestamp: "7:42 PM",
   },
   {
-    id: "2",
+    id: "2", 
     text: "Based on the preserved memories, she often expressed pride in you, reassured you, and spoke with warmth that felt grounding.",
     type: "system",
     timestamp: "7:42 PM",
   },
+  {
+    id: "3",
+    text: "How does ForeverLuvd prepare responses like this responsibly?",
+    type: "user",
+    timestamp: "7:43 PM", 
+  },
+  {
+    id: "4",
+    text: "Through structured orchestration: 1) Memory analysis 2) Identity distillation 3) Constrained synthesis. Never hidden training or loose generation.",
+    type: "system",
+    timestamp: "7:43 PM",
+  }
 ];
 
 export default function ChatPage() {
@@ -136,7 +148,7 @@ export default function ChatPage() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
           <div className="card p-6">
             <h2 className="text-xl font-semibold">Concept preview</h2>
             <p className="mt-2 text-sm text-neutral-400">
