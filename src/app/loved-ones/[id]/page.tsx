@@ -64,6 +64,35 @@ export default async function LovedOneDetailPage({
           <Timeline items={memories || []} lovedOneId={id} />
         </div>
       </section>
+
+      <section className="mt-6 card p-8">
+        <h2 className="text-2xl font-semibold">Identity Reconstruction</h2>
+        <p className="mt-2 text-neutral-400">
+          ForeverLuvd is building a structured understanding of {lovedOne.name} based on your preserved memories.
+        </p>
+
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          <div className="card bg-white/5 p-6">
+            <h3 className="text-lg font-semibold">How It Works</h3>
+            <div className="mt-3 space-y-3 text-sm text-neutral-400">
+              <p>• Analyzes patterns across your memories</p>
+              <p>• Captures communication style and traits</p>
+              <p>• Identifies recurring themes and phrases</p>
+              <p>• Builds understanding over time</p>
+            </div>
+          </div>
+
+          <div className="card bg-white/5 p-6">
+            <h3 className="text-lg font-semibold">Your Control</h3>
+            <div className="mt-3 space-y-3 text-sm text-neutral-400">
+              <p>• Only uses your approved memories</p>
+              <p>• No hidden AI training</p>
+              <p>• Fully transparent process</p>
+              <p>• Private and encrypted</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

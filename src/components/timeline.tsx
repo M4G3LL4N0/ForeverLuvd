@@ -42,7 +42,7 @@ export default function Timeline({
         <p className="mt-3 max-w-xl">
           This timeline is waiting for its first memory. Add a story, photo,
           voice note, letter, or meaningful moment to begin preserving their
-          presence.
+          presence and building a deeper understanding of who they were.
         </p>
         <div className="mt-6">
           <Link
