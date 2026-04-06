@@ -6,234 +6,266 @@ import {
   AudioLines,
   ShieldCheck,
   GalleryVertical,
-  MessageCircleHeart
+  MessageCircleHeart,
 } from "lucide-react";
 
 const features = [
   {
     icon: Heart,
-    title: "Loved Ones",
-    copy: "Create private profiles to honor and remember those who matter most."
+    title: "Loved ones profiles",
+    copy: "Create a private space for each person you want to preserve, honor, and remember.",
   },
   {
     icon: GalleryVertical,
-    title: "Memory Vault",
-    copy: "Securely store photos, videos, voice notes, and written memories."
+    title: "Memory vault",
+    copy: "Store photos, videos, voice notes, letters, and meaningful moments in one secure timeline.",
   },
   {
     icon: AudioLines,
-    title: "Voice Legacy",
-    copy: "Preserve the unique sound of their voice and stories forever."
+    title: "Voice-ready foundation",
+    copy: "Capture audio and stories now, before they are lost to time.",
   },
   {
     icon: MessageCircleHeart,
-    title: "AI Conversations",
-    copy: "Future opt-in interactions rooted in real memories and consent."
+    title: "Consent-based AI",
+    copy: "Build toward future conversational experiences rooted only in user-approved memories.",
   },
   {
     icon: LockKeyhole,
-    title: "Your Data",
-    copy: "Complete ownership and control over all stored memories."
+    title: "You own the data",
+    copy: "Your family’s memories and likeness are never sold, scraped, or exploited.",
   },
   {
     icon: ShieldCheck,
-    title: "Privacy First",
-    copy: "End-to-end encryption and protected storage by default."
-  }
+    title: "Privacy-first by design",
+    copy: "Encrypted architecture, protected storage, and trust-centered defaults from day one.",
+  },
+];
+
+const trustItems = [
+  "Private by default",
+  "You own the data",
+  "Encrypted foundation",
+  "Consent-based AI roadmap",
+];
+
+const steps = [
+  {
+    title: "Create a loved one",
+    copy: "Start a private profile for someone important in your life.",
+  },
+  {
+    title: "Preserve memories",
+    copy: "Upload photos, videos, audio, letters, and stories that matter.",
+  },
+  {
+    title: "Build their timeline",
+    copy: "Organize moments into a lasting archive of voice, presence, and memory.",
+  },
 ];
 
 export default function HomePage() {
   return (
-    <main className="pb-20">
+    <main className="pb-24">
       <Nav />
 
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center container-wrap py-32">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-          <div className="space-y-8">
-            <h1 className="text-6xl font-bold leading-tight tracking-tight">
-              Keep their voice, <br className="hidden lg:block" />
-              <span className="bg-gradient-to-r from-purple-300 to-pink-600 bg-clip-text text-transparent">
-                presence and essence
-              </span>
-              <br className="hidden lg:block" /> 
-              with you forever
-            </h1>
-            <p className="text-xl text-neutral-300 max-w-xl leading-relaxed">
-              Preserve the most precious parts of those you love - their voice, memories, 
-              and personality - in a private, encrypted vault you control.
-            </p>
-            <div className="flex flex-wrap gap-6">
-              <Link href="/auth/sign-up" className="btn btn-primary px-12">
-                Start Preserving
-              </Link>
-              <Link href="/dashboard" className="btn btn-secondary px-12">
-                View Product
-              </Link>
-            </div>
-          </div>
-          <div className="card aspect-square h-full max-w-lg p-8 mx-auto opacity-90 hover:opacity-100 transition-all duration-500 hover:scale-[1.02]">
-            <div className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(400px_at_50%_40%,rgba(167,139,250,.2),transparent)] opacity-0 hover:opacity-100 transition-all duration-300" />
-            <div className="relative h-full flex flex-col justify-between">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-neutral-400">Forever Preserved</p>
-                  <h2 className="mt-1 text-2xl font-semibold">Mom's Memory Timeline</h2>
-                </div>
-                <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300">
-                  Private Vault
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-neutral-400">Today's Memory</p>
-                  <p className="mt-1 text-lg font-medium">Her Birthday Message</p>
-                  <p className="mt-2 text-sm text-neutral-300 truncate">
-                    "I love you more than you know. I'm so proud of..."
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-neutral-400">Recently Added</p>
-                  <p className="mt-1 font-medium">Old Recipes</p>
-                  <p className="mt-2 text-sm text-neutral-300 truncate">
-                    Her famous chocolate cake recipe, in her handwriting
-                  </p>
-                </div>
-              </div>
-              <p className="text-xs text-center text-neutral-500 pt-6">
-                End-to-end encrypted • Only you hold the keys
+      <section className="container-wrap pt-10 pb-20">
+        <div className="card overflow-hidden p-8 md:p-12 lg:p-16">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <p className="mb-5 text-xs uppercase tracking-[0.32em] text-neutral-400">
+                Private memory preservation for the people you love
               </p>
+
+              <h1 className="section-title max-w-4xl">
+                Preserve their{" "}
+                <span className="bg-gradient-to-r from-[#ffd6c2] via-[#ffae7a] to-[#ff7b6b] bg-clip-text text-transparent">
+                  voice, memories,
+                </span>
+                <br />
+                and presence.
+              </h1>
+
+              <p className="section-copy mt-6 max-w-2xl">
+                ForeverLuvd helps families preserve photos, videos, voice notes,
+                letters, and the emotional essence of the people they love —
+                with privacy, ownership, and protection built into the core
+                product.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link href="/auth/sign-up" className="btn btn-primary">
+                  Start preserving
+                </Link>
+                <Link href="/dashboard" className="btn btn-secondary">
+                  View product
+                </Link>
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                {trustItems.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-neutral-300"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-[#4f6bff]/20 via-transparent to-[#ff8f6b]/20 blur-3xl" />
+              <div className="card relative p-6 md:p-8">
+                <div className="mb-6 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-neutral-400">Memory vault preview</p>
+                    <h2 className="mt-1 text-2xl font-semibold">Keep them with you</h2>
+                  </div>
+                  <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300">
+                    Encrypted
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
+                    <p className="text-sm text-neutral-400">Loved one</p>
+                    <p className="mt-1 text-lg font-medium">Mom</p>
+                    <p className="mt-2 text-sm text-neutral-300">
+                      184 memories · 32 voice notes · 12 letters
+                    </p>
+                  </div>
+
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
+                    <p className="text-sm text-neutral-400">Recent memory</p>
+                    <p className="mt-1 font-medium">Birthday voicemail</p>
+                    <p className="mt-2 text-sm text-neutral-300">
+                      “I love you more than you know. I’m proud of you.”
+                    </p>
+                  </div>
+
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
+                    <p className="text-sm text-neutral-400">Future AI layer</p>
+                    <p className="mt-1 font-medium">Private and opt-in</p>
+                    <p className="mt-2 text-sm text-neutral-300">
+                      Conversational memory experiences built only from real,
+                      user-approved archived moments.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust Signals */}
-      <section className="container-wrap mb-32">
-        <div className="card flex justify-center divide-x divide-white/5 py-6 lg:py-8">
-          <div className="flex-1 px-8 text-center">
-            <LockKeyhole className="mx-auto h-5 w-5 mb-3 text-purple-400" />
-            <span className="text-sm font-medium">Private by Default</span>
-          </div>
-          <div className="flex-1 px-8 text-center">
-            <ShieldCheck className="mx-auto h-5 w-5 mb-3 text-purple-400" />
-            <span className="text-sm font-medium">Your Data</span>
-          </div>
-          <div className="flex-1 px-8 text-center">
-            <Heart className="mx-auto h-5 w-5 mb-3 text-purple-400" />
-            <span className="text-sm font-medium">Encrypted</span>
-          </div>
-          <div className="flex-1 px-8 text-center">
-            <MessageCircleHeart className="mx-auto h-5 w-5 mb-3 text-purple-400" />
-            <span className="text-sm font-medium">Consent-Based AI</span>
-          </div>
-        </div>
-      </section>
-            <div className="mb-6 flex items-center justify-between">
-              <div>
-                <p className="text-sm text-neutral-400">Memory vault preview</p>
-                <h2 className="mt-1 text-2xl font-semibold">Keep them with you</h2>
-              </div>
-              <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300">
-                Encrypted
-              </div>
+      <section className="container-wrap pb-8">
+        <div className="grid gap-4 md:grid-cols-4">
+          {trustItems.map((item) => (
+            <div key={item} className="card px-5 py-4 text-sm text-neutral-300">
+              {item}
             </div>
-
-            <div className="space-y-4">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm text-neutral-400">Loved one</p>
-                <p className="mt-1 text-lg font-medium">Mom</p>
-                <p className="mt-2 text-sm text-neutral-300">
-                  184 memories · 32 voice notes · 12 letters
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm text-neutral-400">Recent memory</p>
-                <p className="mt-1 font-medium">Birthday voicemail</p>
-                <p className="mt-2 text-sm text-neutral-300">
-                  “I love you more than you know. I’m proud of you.”
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm text-neutral-400">AI layer</p>
-                <p className="mt-1 font-medium">Coming soon</p>
-                <p className="mt-2 text-sm text-neutral-300">
-                  Private, opt-in, consent-based voice and memory interaction built from real archived moments.
-                </p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
       <section id="how-it-works" className="container-wrap py-14">
         <div className="mb-10 max-w-2xl">
-          <h2 className="text-3xl font-semibold tracking-tight">How it works</h2>
+          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
+            How it works
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
+            Start with preservation first.
+          </h2>
           <p className="section-copy mt-4">
-            Start with preservation first. Build trust first. Then expand into voice, legacy,
-            and AI interaction later.
+            Build trust first. Capture what matters now. Expand into voice,
+            legacy, and AI interaction later.
           </p>
         </div>
 
         <div className="grid gap-5 md:grid-cols-3">
-          {[
-            ["Create a loved one", "Start a private profile for someone important in your life."],
-            ["Upload memories", "Add photos, videos, audio, stories, and written notes."],
-            ["Build their timeline", "Organize the moments that define who they are and what they meant to you."]
-          ].map(([title, copy]) => (
-            <div key={title} className="card p-6">
-              <h3 className="text-xl font-semibold">{title}</h3>
-              <p className="mt-3 text-neutral-400">{copy}</p>
+          {steps.map((step, index) => (
+            <div key={step.title} className="card p-6">
+              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm text-neutral-300">
+                0{index + 1}
+              </div>
+              <h3 className="text-xl font-semibold">{step.title}</h3>
+              <p className="mt-3 text-neutral-400">{step.copy}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Feature Grid */}
-      <section className="container-wrap mb-48">
-        <div className="mb-20 text-center">
-          <h2 className="section-title">Preservation Beyond Photos</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-xl text-neutral-300">
-            Capture the multidimensional essence of those you love - not just what they looked like, but who they were.
+      <section className="container-wrap py-14">
+        <div className="mb-10 max-w-2xl">
+          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
+            Why ForeverLuvd
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
+            More than storage.
+          </h2>
+          <p className="section-copy mt-4">
+            This is a private continuity layer for the people you love — built
+            around memory, voice, ownership, and dignity.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => (
-            <div key={feature.title} className="card group p-8 hover:-translate-y-2 transition-all duration-300">
-              <div className="relative">
-                <div className="absolute -inset-2 rounded-xl bg-gradient-to-br from-purple-800/40 to-pink-600/40 opacity-0 blur-md transition-all duration-300 group-hover:opacity-100" />
-                <feature.icon className="relative z-10 h-8 w-8 bg-gradient-to-br from-purple-300 to-pink-400 bg-clip-text text-transparent" />
+
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {features.map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <div key={feature.title} className="card p-6">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-semibold">{feature.title}</h3>
+                <p className="mt-3 text-neutral-400">{feature.copy}</p>
               </div>
-              <h3 className="mt-8 text-2xl font-semibold">{feature.title}</h3>
-              <p className="mt-4 text-neutral-400">{feature.copy}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
-      <section id="privacy" className="container-wrap py-14">
-        <div className="card grid gap-8 p-8 lg:grid-cols-2">
+      <section className="container-wrap py-14">
+        <div className="card grid gap-8 p-8 lg:grid-cols-2 lg:p-12">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-neutral-400">Privacy first</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight">
-              Your loved one’s likeness should never belong to a platform.
+            <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
+              Emotional continuity
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+              Photos are not the same as presence.
             </h2>
           </div>
+
           <div className="space-y-4 text-neutral-300">
-            <p>ForeverLuvd is built on the principle that memory is sacred.</p>
-            <p>You own the data. Your family controls the access. Encryption and protected storage are defaults, not add-ons.</p>
-            <p>No resale. No hidden training. No exploiting grief.</p>
+            <p>
+              People don’t just lose images when someone passes. They lose a
+              voice. A rhythm. A way of speaking. A thousand small details.
+            </p>
+            <p>
+              ForeverLuvd is designed to preserve the things that make someone
+              feel real — their stories, recordings, letters, memories, and the
+              emotional texture of who they were.
+            </p>
+            <p>
+              And it does that without taking ownership away from the people who
+              loved them.
+            </p>
           </div>
         </div>
       </section>
 
       <section id="pricing" className="container-wrap py-14">
         <div className="mb-8 max-w-2xl">
-          <h2 className="text-3xl font-semibold tracking-tight">Simple pricing</h2>
+          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
+            Pricing
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
+            Start simply.
+          </h2>
           <p className="section-copy mt-4">
-            Start with a clean consumer plan now. Add family and legacy tiers after launch.
+            Launch with a clean consumer plan now. Expand into family and legacy
+            tiers after traction.
           </p>
         </div>
 
@@ -249,6 +281,26 @@ export default function HomePage() {
               <p className="mt-4 text-neutral-400">{copy}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="container-wrap pt-10 pb-24">
+        <div className="card p-8 text-center lg:p-14">
+          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
+            Start now
+          </p>
+          <h2 className="mx-auto max-w-3xl text-3xl font-semibold tracking-tight md:text-5xl">
+            Preserve what matters before it becomes impossible to recover.
+          </h2>
+          <p className="section-copy mx-auto mt-5 max-w-2xl">
+            Build a private vault for the people you love — with memory,
+            ownership, and dignity at the center.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <Link href="/auth/sign-up" className="btn btn-primary">
+              Start preserving
+            </Link>
+          </div>
         </div>
       </section>
     </main>
