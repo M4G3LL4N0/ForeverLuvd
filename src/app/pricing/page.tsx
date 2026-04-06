@@ -80,13 +80,13 @@ export default function PricingPage() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Preserve What Matters Most</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">Preserve Across Generations</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            ForeverLuvd Pricing
+            ForeverLuvd Continuity Plans
           </p>
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-          Choose the plan that best fits your needs to preserve and honor your loved ones' legacies.
+          Structured pricing for individuals, families, and legacy preservation needs.
         </p>
         
         {/* Pricing Tiers */}
