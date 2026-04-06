@@ -83,12 +83,13 @@ export default async function LovedOneDetailPage({
           </div>
 
           <div className="card bg-white/5 p-6">
-            <h3 className="text-lg font-semibold">Your Control</h3>
+            <h3 className="text-lg font-semibold">Preservation Framework</h3>
             <div className="mt-3 space-y-3 text-sm text-neutral-400">
               <p>• Only uses your approved memories</p>
               <p>• No hidden AI training</p>
-              <p>• Fully transparent process</p>
-              <p>• Private and encrypted</p>
+              <p>• Future family-safe architecture</p>
+              <p>• Designed for generational continuity</p>
+              <p>• Private and encrypted by default</p>
             </div>
           </div>
         </div>
