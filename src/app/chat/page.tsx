@@ -113,14 +113,14 @@ export default function ChatPage() {
       <div className="card p-8">
         <h1 className="text-4xl font-semibold">Continuity Systems</h1>
         <p className="mt-3 text-neutral-400 max-w-2xl">
-          Advanced AI systems for preserving identity, voice, and personality. 
-          Every interaction is rooted in your explicit consent and protected 
-          by zero monetization policies.
+          Enterprise-grade continuity systems for identity preservation. 
+          Each interaction is consent-gated, encrypted, and governed by 
+          your stewardship protocols.
         </p>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <div className="card p-6">
-            <h2 className="text-lg font-semibold">Voice Continuity Preview</h2>
+            <h2 className="text-lg font-semibold">Continuity Simulation Preview</h2>
 
             <div className="mt-6 space-y-4">
               {messages.map((m) => (
@@ -152,7 +152,8 @@ export default function ChatPage() {
         </div>
 
         <div className="mt-10 text-sm text-neutral-500">
-          Built on privacy, ownership, and consent. No hidden training. No resale.
+          Certified private compute infrastructure. Zero data retention policies. 
+          Audit-ready compliance framework.
         </div>
       </div>
     </main>

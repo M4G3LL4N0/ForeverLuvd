@@ -6,8 +6,8 @@ export default function SettingsPage() {
           <div className="border-b border-white/10 pb-8">
             <h1 className="text-4xl font-semibold tracking-tight">Ownership & Consent Center</h1>
             <p className="mt-3 text-lg text-neutral-400">
-              Complete control over your family's digital legacy. Manage permissions, 
-              access, and AI interactions with precision and confidence.
+              Sovereign control center for your family's continuity. Oversee permissions, 
+              AI consent frameworks, and inheritance directives with full transparency.
             </p>
           </div>
           
@@ -105,10 +105,10 @@ export default function SettingsPage() {
 
           {/* Data Sovereignty Section */}
           <section className="mt-12">
-            <h2 className="text-3xl font-semibold tracking-tight">Complete Data Sovereignty</h2>
+            <h2 className="text-3xl font-semibold tracking-tight">Digital Sovereignty</h2>
             <p className="mt-2 max-w-3xl text-neutral-400">
-              Your memories belong exclusively to you. We're custodians, not owners. Every byte of data 
-              you entrust to us remains under your complete control.
+              Full jurisdictional control over memory data. We serve as technical stewards; 
+              you retain all ownership rights and perpetual access authority.
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">

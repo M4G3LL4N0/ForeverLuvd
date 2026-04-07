@@ -33,10 +33,10 @@ export default async function DashboardPage() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
-              Continuity Control Center
+              Legacy Control Center
             </p>
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-              Family Legacy Stewardship
+              Memory Stewardship Platform
             </h1>
             <p className="mt-4 max-w-2xl text-neutral-400">
               Your secure command center for preserving memories, voices, and identities 
@@ -62,7 +62,7 @@ export default async function DashboardPage() {
             <p className="text-sm text-neutral-400">Loved ones</p>
             <p className="mt-3 text-3xl font-semibold">{lovedOnesCount}</p>
             <p className="mt-2 text-sm text-neutral-500">
-              Private profiles you are preserving.
+              Private identity profiles under your stewardship.
             </p>
           </div>
 
@@ -70,7 +70,7 @@ export default async function DashboardPage() {
             <p className="text-sm text-neutral-400">Recent memories</p>
             <p className="mt-3 text-3xl font-semibold">{memoriesCount}</p>
             <p className="mt-2 text-sm text-neutral-500">
-              The latest preserved moments in your vault.
+              Timeline of preserved moments in your legacy vault.
             </p>
           </div>
 
