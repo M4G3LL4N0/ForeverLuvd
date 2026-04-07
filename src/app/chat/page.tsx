@@ -111,16 +111,16 @@ export default function ChatPage() {
   return (
     <main className="container-wrap py-12">
       <div className="card p-8">
-        <h1 className="text-4xl font-semibold">Identity Engine</h1>
+        <h1 className="text-4xl font-semibold">Continuity Systems</h1>
         <p className="mt-3 text-neutral-400 max-w-2xl">
-          ForeverLuvd transforms preserved memories into structured identity
-          context. This enables future, respectful interaction rooted only in
-          real, user-approved experiences.
+          Advanced AI systems for preserving identity, voice, and personality. 
+          Every interaction is rooted in your explicit consent and protected 
+          by zero monetization policies.
         </p>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <div className="card p-6">
-            <h2 className="text-lg font-semibold">Conversation preview</h2>
+            <h2 className="text-lg font-semibold">Voice Continuity Preview</h2>
 
             <div className="mt-6 space-y-4">
               {messages.map((m) => (
@@ -136,14 +136,14 @@ export default function ChatPage() {
 
           <div className="space-y-6">
             <div className="card p-6">
-              <h3 className="text-lg font-semibold">Identity context</h3>
+              <h3 className="text-lg font-semibold">Identity Preservation</h3>
               <pre className="mt-4 text-xs text-neutral-300">
                 {JSON.stringify(derivedPreview, null, 2)}
               </pre>
             </div>
 
             <div className="card p-6">
-              <h3 className="text-lg font-semibold">Prompt scaffold</h3>
+              <h3 className="text-lg font-semibold">Stewardship Framework</h3>
               <pre className="mt-4 text-xs text-neutral-300">
                 {JSON.stringify(EXAMPLE_PROMPT, null, 2)}
               </pre>

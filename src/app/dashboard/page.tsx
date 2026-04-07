@@ -33,17 +33,17 @@ export default async function DashboardPage() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
-              Dashboard
+              Continuity Control Center
             </p>
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-              Your family continuity platform.
+              Family Legacy Stewardship
             </h1>
             <p className="mt-4 max-w-2xl text-neutral-400">
-              Preserve and protect what matters across generations through 
-              structured memory, voice continuity, and family stewardship.
+              Your secure command center for preserving memories, voices, and identities 
+              across generations. Every interaction strengthens your family's continuity.
             </p>
             <p className="mt-2 text-sm text-neutral-500">
-              Trusted family members can eventually help preserve memories together.
+              Protected by military-grade encryption and zero monetization policies.
             </p>
           </div>
 

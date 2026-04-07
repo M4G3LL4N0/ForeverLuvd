@@ -4,10 +4,10 @@ export default function SettingsPage() {
       <div className="card p-8">
         <div className="max-w-4xl">
           <div className="border-b border-white/10 pb-8">
-            <h1 className="text-4xl font-semibold tracking-tight">ForeverLuvd Trust Center</h1>
+            <h1 className="text-4xl font-semibold tracking-tight">Ownership & Consent Center</h1>
             <p className="mt-3 text-lg text-neutral-400">
-              Our sacred commitment to protecting your most precious memories. 
-              Every technical and ethical decision we make begins here.
+              Complete control over your family's digital legacy. Manage permissions, 
+              access, and AI interactions with precision and confidence.
             </p>
           </div>
           
