@@ -69,24 +69,24 @@ export default function HomePage() {
     <main className="pb-24">
       <Nav />
 
-      <section className="container-wrap pt-16 pb-24">
+      <section className="container-wrap pt-24 pb-32">
         <div className="card overflow-hidden p-8 md:p-12 lg:p-16 bg-gradient-to-br from-white/5 to-transparent">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <p className="mb-5 text-xs uppercase tracking-[0.32em] text-neutral-300">
+              <p className="mb-5 text-xs uppercase tracking-[0.32em] text-neutral-400">
                 Private memory preservation for the people you love
               </p>
 
-              <h1 className="section-title max-w-4xl">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight max-w-4xl">
                 Preserve their{" "}
-                <span className="bg-gradient-to-r from-[#ffd6c2] via-[#ffae7a] to-[#ff7b6b] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#ff7b6b] via-[#ff8f6b] to-[#4f6bff] bg-clip-text text-transparent">
                   voice, memories,
                 </span>
                 <br />
                 and presence.
               </h1>
 
-              <p className="section-copy mt-6 max-w-2xl text-neutral-200">
+              <p className="mt-6 max-w-2xl text-neutral-300 text-lg leading-relaxed">
                 ForeverLuvd helps families preserve photos, videos, voice notes,
                 letters, and the emotional essence of the people they love —
                 with privacy, ownership, and protection built into the core
@@ -106,7 +106,7 @@ export default function HomePage() {
                 {trustItems.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-neutral-300"
+                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-neutral-300 hover:bg-white/10 transition-colors"
                   >
                     {item}
                   </span>
@@ -120,33 +120,33 @@ export default function HomePage() {
                 <div className="mb-6 flex items-center justify-between">
                   <div>
                     <p className="text-sm text-neutral-400">Memory vault preview</p>
-                    <h2 className="mt-1 text-2xl font-semibold">Keep them with you</h2>
+                    <h2 className="mt-1 text-2xl font-semibold text-white">Keep them with you</h2>
                   </div>
-                  <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300">
+                  <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300 bg-white/5">
                     Encrypted
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-colors">
                     <p className="text-sm text-neutral-400">Loved one</p>
-                    <p className="mt-1 text-lg font-medium">Mom</p>
+                    <p className="mt-1 text-lg font-medium text-white">Mom</p>
                     <p className="mt-2 text-sm text-neutral-300">
                       184 memories · 32 voice notes · 12 letters
                     </p>
                   </div>
 
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-colors">
                     <p className="text-sm text-neutral-400">Recent memory</p>
-                    <p className="mt-1 font-medium">Birthday voicemail</p>
+                    <p className="mt-1 font-medium text-white">Birthday voicemail</p>
                     <p className="mt-2 text-sm text-neutral-300">
                       “I love you more than you know. I’m proud of you.”
                     </p>
                   </div>
 
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-colors">
                     <p className="text-sm text-neutral-400">Future AI layer</p>
-                    <p className="mt-1 font-medium">Private and opt-in</p>
+                    <p className="mt-1 font-medium text-white">Private and opt-in</p>
                     <p className="mt-2 text-sm text-neutral-300">
                       Conversational memory experiences built only from real,
                       user-approved archived moments.
