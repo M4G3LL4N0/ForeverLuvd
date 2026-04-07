@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export default function Nav() {
   return (
-    <header className="container-wrap py-6">
-      <div className="card flex items-center justify-between px-5 py-4">
-        <Link href="/" className="text-xl font-semibold tracking-tight">
+    <header className="container-wrap py-6 sticky top-0 z-50">
+      <div className="card flex items-center justify-between px-5 py-4 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-lg">
+        <Link href="/" className="text-xl font-semibold tracking-tight text-white">
           ForeverLuvd
         </Link>
 
-        <nav className="hidden gap-8 text-sm text-neutral-300 md:flex">
+        <nav className="hidden gap-8 text-sm text-neutral-200 md:flex">
           <Link href="/onboarding" className="hover:text-white transition">
             How It Works
           </Link>

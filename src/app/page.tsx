@@ -69,11 +69,11 @@ export default function HomePage() {
     <main className="pb-24">
       <Nav />
 
-      <section className="container-wrap pt-10 pb-20">
-        <div className="card overflow-hidden p-8 md:p-12 lg:p-16">
+      <section className="container-wrap pt-16 pb-24">
+        <div className="card overflow-hidden p-8 md:p-12 lg:p-16 bg-gradient-to-br from-white/5 to-transparent">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <p className="mb-5 text-xs uppercase tracking-[0.32em] text-neutral-400">
+              <p className="mb-5 text-xs uppercase tracking-[0.32em] text-neutral-300">
                 Private memory preservation for the people you love
               </p>
 
@@ -86,7 +86,7 @@ export default function HomePage() {
                 and presence.
               </h1>
 
-              <p className="section-copy mt-6 max-w-2xl">
+              <p className="section-copy mt-6 max-w-2xl text-neutral-200">
                 ForeverLuvd helps families preserve photos, videos, voice notes,
                 letters, and the emotional essence of the people they love —
                 with privacy, ownership, and protection built into the core
