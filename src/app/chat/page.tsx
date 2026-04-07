@@ -64,64 +64,41 @@ const EXAMPLE_MEMORIES = [
     created_at: "2023-12-18T12:00:00.000Z",
     updated_at: "2023-12-18T12:00:00.000Z",
   },
-  {
-    id: "3",
-    loved_one_id: "mom-1",
-    title: "Kitchen story",
-    description: "Told a funny family story and ended with encouragement.",
-    memory_type: "note",
-    memory_date: "2024-01-08",
-    file_url: null,
-    created_at: "2024-01-08T12:00:00.000Z",
-    updated_at: "2024-01-08T12:00:00.000Z",
-  },
 ];
 
 const EXAMPLE_PROFILE: IdentityProfile = {
   traits: ["kind", "patient", "wise"],
   communicationStyle: "warm, thoughtful, and reassuring",
   emotionalPatterns: ["expressed pride", "offered reassurance"],
-  recurringThemes: ["family", "encouragement", "gratitude"],
-  keyPhrases: ["I'm proud of you", "keep going", "I love you more than you know"],
+  recurringThemes: ["family", "encouragement"],
+  keyPhrases: ["I'm proud of you", "keep going"],
   identitySummary:
-    "A warm, steady presence who communicated with care, encouragement, and emotional grounding.",
-  memoryCount: 12,
+    "A warm, steady presence who communicated with care and encouragement.",
+  memoryCount: 8,
   derivedAt: "Preview generated from archived memories",
   confidenceNotes: [
-    "Derived from a limited set of preserved examples",
-    "Will become more specific as more memories are added",
+    "Derived from limited sample data",
+    "Will improve as more memories are added",
   ],
 };
 
 const EXAMPLE_PROMPT = buildPromptPayload(EXAMPLE_PROFILE, [
-  "Help preserve how this person communicated, what mattered to them, and how they made others feel.",
+  "Preserve how this person communicated and supported others.",
 ]);
 
 const messages: ChatMessage[] = [
   {
     id: "1",
-    text: "What was her favorite thing to say to me?",
-    type: "user", 
-    timestamp: "7:42 PM",
-  },
-  {
-    id: "2", 
-    text: "Based on the preserved memories, she often expressed pride in you, reassured you, and spoke with warmth that felt grounding.",
-    type: "system",
-    timestamp: "7:42 PM",
-  },
-  {
-    id: "3",
-    text: "How does ForeverLuvd prepare responses like this responsibly?",
+    text: "What was she like?",
     type: "user",
-    timestamp: "7:43 PM", 
+    timestamp: "7:42 PM",
   },
   {
-    id: "4",
-    text: "Through structured orchestration: 1) Memory analysis 2) Identity distillation 3) Constrained synthesis. Never hidden training or loose generation.",
+    id: "2",
+    text: "She communicated with warmth, encouragement, and emotional steadiness.",
     type: "system",
-    timestamp: "7:43 PM",
-  }
+    timestamp: "7:42 PM",
+  },
 ];
 
 export default function ChatPage() {
@@ -133,99 +110,49 @@ export default function ChatPage() {
 
   return (
     <main className="container-wrap py-12">
-      <div className="overflow-hidden">
-        <div className="card mb-6 p-8">
-          <div className="max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
-              Identity Continuity Engine
-            </p>
-            <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-              Structured identity, derived from real memory.
-            </h1>
-            <p className="mt-4 max-w-2xl text-neutral-400">
-              ForeverLuvd's orchestration layer turns preserved memories into safe, 
-              structured identity context through deterministic analysis - building 
-              trustworthy pathways for future interaction while respecting privacy 
-              boundaries.
-            </p>
-          </div>
-        </div>
+      <div className="card p-8">
+        <h1 className="text-4xl font-semibold">Identity Engine</h1>
+        <p className="mt-3 text-neutral-400 max-w-2xl">
+          ForeverLuvd transforms preserved memories into structured identity
+          context. This enables future, respectful interaction rooted only in
+          real, user-approved experiences.
+        </p>
 
-        <div className="card p-8">
-        <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
-            Identity engine
-          </p>
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-            Structured identity, derived from real memory.
-          </h1>
-          <p className="mt-4 max-w-2xl text-neutral-400">
-            ForeverLuvd is building a consent-based continuity layer that turns
-            preserved memories into structured identity context for future,
-            respectful interaction.
-          </p>
-        </div>
-
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <div className="card p-6">
-            <h2 className="text-xl font-semibold">Concept preview</h2>
-            <p className="mt-2 text-sm text-neutral-400">
-              This is not generic AI. It is a future interaction layer built
-              only from user-approved archived memories.
-            </p>
+            <h2 className="text-lg font-semibold">Conversation preview</h2>
 
             <div className="mt-6 space-y-4">
-              {messages.map((message) => (
+              {messages.map((m) => (
                 <ChatBubble
-                  key={message.id}
-                  message={message.text}
-                  type={message.type}
-                  timestamp={message.timestamp}
+                  key={m.id}
+                  message={m.text}
+                  type={m.type}
+                  timestamp={m.timestamp}
                 />
               ))}
             </div>
           </div>
 
-          <div className="space-y-5">
+          <div className="space-y-6">
             <div className="card p-6">
-              <h3 className="text-lg font-semibold">Identity signals</h3>
-              <pre className="mt-4 overflow-x-auto whitespace-pre-wrap text-xs text-neutral-300">
+              <h3 className="text-lg font-semibold">Identity context</h3>
+              <pre className="mt-4 text-xs text-neutral-300">
                 {JSON.stringify(derivedPreview, null, 2)}
               </pre>
             </div>
 
             <div className="card p-6">
               <h3 className="text-lg font-semibold">Prompt scaffold</h3>
-              <pre className="mt-4 overflow-x-auto whitespace-pre-wrap text-xs text-neutral-300">
-                {typeof EXAMPLE_PROMPT === "string"
-                  ? EXAMPLE_PROMPT
-                  : JSON.stringify(EXAMPLE_PROMPT, null, 2)}
+              <pre className="mt-4 text-xs text-neutral-300">
+                {JSON.stringify(EXAMPLE_PROMPT, null, 2)}
               </pre>
             </div>
-
-            <div className="card p-6">
-              <h3 className="text-lg font-semibold">Voice Continuity</h3>
-              <p className="mt-3 text-sm text-neutral-400">
-                Future capability to preserve voice recordings and carefully reconstruct
-                communication patterns, rooted only in approved recordings.
-              </p>
-            </div>
-            <div className="card p-6">
-              <h3 className="text-lg font-semibold">Family Stewardship</h3>
-              <p className="mt-3 text-sm text-neutral-400">
-                Trusted family members can eventually contribute memories and help
-                preserve a loved one's identity together.
-              </p>
-            </div>
-            <div className="card p-6">
-              <h3 className="text-lg font-semibold">Privacy Commitment</h3>
-              <p className="mt-3 text-sm text-neutral-400">
-                No hidden training. No resale. No platform ownership of likeness
-                or memory. Identity is derived only from preserved, user-approved
-                material.
-              </p>
-            </div>
           </div>
+        </div>
+
+        <div className="mt-10 text-sm text-neutral-500">
+          Built on privacy, ownership, and consent. No hidden training. No resale.
         </div>
       </div>
     </main>
