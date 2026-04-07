@@ -10,19 +10,22 @@ export default function Nav() {
 
         <nav className="hidden gap-8 text-sm text-neutral-200 md:flex">
           <Link href="/onboarding" className="hover:text-white transition">
-            How It Works
+            Get Started
           </Link>
           <Link href="/family" className="hover:text-white transition">
-            Family
+            Family Stewardship
           </Link>
           <Link href="/legacy" className="hover:text-white transition">
-            Legacy
+            Legacy Planning
           </Link>
-          <Link href="/pricing" className="hover:text-white transition">
-            Pricing
+          <Link href="/voice" className="hover:text-white transition">
+            Voice Continuity
           </Link>
           <Link href="/technology" className="hover:text-white transition">
             Technology
+          </Link>
+          <Link href="/pricing" className="hover:text-white transition">
+            Plans
           </Link>
         </nav>
 

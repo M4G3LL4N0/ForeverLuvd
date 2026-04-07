@@ -169,7 +169,66 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="how-it-works" className="container-wrap py-14">
+      {/* Platform Modules Section */}
+      <section className="container-wrap py-20">
+        <div className="mb-16 max-w-2xl">
+          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
+            Platform Modules
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
+            A Complete Continuity System
+          </h2>
+          <p className="section-copy mt-4">
+            ForeverLuvd combines multiple preservation layers into one private platform.
+          </p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {[
+            {
+              title: "Memory Archive",
+              copy: "Secure storage for photos, videos, letters and meaningful moments",
+              href: "/dashboard"
+            },
+            {
+              title: "Identity Engine", 
+              copy: "Structured preservation of personality, traits and relationships",
+              href: "/loved-ones"
+            },
+            {
+              title: "Voice Continuity",
+              copy: "Preserved recordings and future voice capabilities",
+              href: "/voice"
+            },
+            {
+              title: "Family Layer",
+              copy: "Trusted collaboration for shared memory preservation",
+              href: "/family"
+            },
+            {
+              title: "Legacy System",
+              copy: "Multi-generational access and stewardship tools",
+              href: "/legacy"  
+            },
+            {
+              title: "Privacy Infrastructure",
+              copy: "Encrypted architecture with full data ownership",
+              href: "/technology"
+            }
+          ].map((module) => (
+            <Link 
+              key={module.title}
+              href={module.href}
+              className="card p-6 hover:bg-white/10 transition-colors"
+            >
+              <h3 className="text-xl font-semibold">{module.title}</h3>
+              <p className="mt-3 text-neutral-400">{module.copy}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section id="how-it-works" className="container-wrap py-20">
         <div className="mb-10 max-w-2xl">
           <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
             How it works

@@ -11,9 +11,9 @@ export default function TechnologyPage() {
 
         <div className="mt-12 grid gap-8">
           <section>
-            <h2 className="text-3xl font-semibold tracking-tight">Platform Architecture</h2>
+            <h2 className="text-3xl font-semibold tracking-tight">Technical Architecture</h2>
             <p className="mt-2 max-w-3xl text-neutral-400">
-              ForeverLuvd's technology stack is built on three core layers:
+              ForeverLuvd's privacy-first platform combines multiple technical layers:
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
