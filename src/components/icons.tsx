@@ -8,6 +8,8 @@ import {
   Home,
   Heart,
   Sparkles,
+  Mic,
+  Cpu,
   type LucideIcon,
 } from "lucide-react";
 
@@ -23,4 +25,6 @@ export const Icons = {
   home: Home,
   heart: Heart,
   sparkles: Sparkles,
+  mic: Mic,
+  cpu: Cpu,
 };
