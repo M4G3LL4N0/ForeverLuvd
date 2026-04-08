@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { Memory } from '@/lib/data/memories';
+import { LovedOne } from '@/lib/data/loved-ones';
 import { validateEnv } from '@/lib/utils/env';
 import { LovedOne } from '@/lib/data/loved-ones';
 import { Button } from '@/components/ui/button';
@@ -55,25 +56,36 @@ export default async function DashboardPage() {
   const safeMemories = memories || [];
   const safeInsights = insights || [];
 
-  const lovedOnesCount = lovedOnes?.length ?? 0;
-  const memoriesCount = memories?.length ?? 0;
-  type MemoryInsight = {
-    memory_id: string;
-    emotional_depth: number;
-    descriptive_richness: number;
-    relationship_context: string;
-  };
+  const lovedOnesCount = safeLovedOnes.length;
+  const memoriesCount = safeMemories.length;
 
   interface MemoryWithInsight extends Memory {
     loved_ones: { name: string } | null;
     insight?: MemoryInsight;
   }
 
-  const enrichedMemories: MemoryWithInsight[] = safeMemories.map(mem => ({
-    ...mem,
-    insight: safeInsights.find(ins => ins.memory_id === mem.id),
-    loved_ones: mem.loved_ones || { name: 'Unknown' } // Add fallback for loved_ones
-  }));
+  type MemoryInsight = {
+    memory_id: string;
+    emotional_depth: number; 
+    descriptive_richness: number;
+    relationship_context: string;
+  };
+
+  interface MemoryWithInsight extends Memory {
+    insight?: MemoryInsight;
+    loved_ones: { name: string };
+  }
+
+  const enrichedMemories: MemoryWithInsight[] = safeMemories.map(mem => {
+    const insight = safeInsights.find(ins => ins.memory_id === mem.id);
+    return {
+      ...mem,
+      insight,
+      loved_ones: {
+        name: (mem.loved_ones as {name: string} | null)?.name || 'Unknown'
+      }
+    };
+  });
 
   return (
     <main className="container-wrap py-10">
