@@ -256,6 +256,32 @@ export default function HomePage() {
       </section>
 
       <section className="container-wrap py-14">
+        <div className="card p-8 mb-16">
+          <div className="grid gap-8 md:grid-cols-2">
+            <div>
+              <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
+                Memory diversity
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+                Preserve every dimension
+              </h2>
+              <p className="mt-4 text-neutral-300">
+                Capture the full spectrum of memories - from voice notes to letters, 
+                creating a multidimensional legacy.
+              </p>
+            </div>
+            <div className="grid grid-cols-3 gap-4">
+              {['Photos', 'Videos', 'Voice', 'Letters', 'Stories', 'Moments'].map((type) => (
+                <div 
+                  key={type}
+                  className="aspect-square rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center text-sm"
+                >
+                  {type}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         <div className="mb-10 max-w-2xl">
           <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
             Why ForeverLuvd
