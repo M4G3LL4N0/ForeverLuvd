@@ -118,7 +118,7 @@ export default function ChatPage() {
           your stewardship protocols.
         </p>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
           <div className="card p-6">
             <h2 className="text-lg font-semibold">Continuity Simulation Preview</h2>
 
