@@ -7,40 +7,11 @@ import {
   ShieldCheck,
   GalleryVertical,
   MessageCircleHeart,
+  Cpu,
+  Mic,
+  Users,
+  Landmark,
 } from "lucide-react";
-
-const features = [
-  {
-    icon: Heart,
-    title: "Loved ones profiles",
-    copy: "Create a private space for each person you want to preserve, honor, and remember.",
-  },
-  {
-    icon: GalleryVertical,
-    title: "Memory vault",
-    copy: "Store photos, videos, voice notes, letters, and meaningful moments in one secure timeline.",
-  },
-  {
-    icon: AudioLines,
-    title: "Voice-ready foundation",
-    copy: "Capture audio and stories now, before they are lost to time.",
-  },
-  {
-    icon: MessageCircleHeart,
-    title: "Consent-based AI",
-    copy: "Build toward future conversational experiences rooted only in user-approved memories.",
-  },
-  {
-    icon: LockKeyhole,
-    title: "You own the data",
-    copy: "Your family’s memories and likeness are never sold, scraped, or exploited.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Privacy-first by design",
-    copy: "Encrypted architecture, protected storage, and trust-centered defaults from day one.",
-  },
-];
 
 const trustItems = [
   "Private by default",
@@ -59,8 +30,59 @@ const steps = [
     copy: "Upload photos, videos, audio, letters, and stories that matter.",
   },
   {
-    title: "Build their timeline",
-    copy: "Organize moments into a lasting archive of voice, presence, and memory.",
+    title: "Build continuity",
+    copy: "Organize moments into a lasting archive of voice, presence, and identity over time.",
+  },
+];
+
+const platformCards = [
+  {
+    icon: GalleryVertical,
+    chip: "Archive Layer",
+    title: "Memory Archive",
+    copy: "Securely preserve photos, videos, voice notes, letters, and the moments that define a person.",
+  },
+  {
+    icon: Heart,
+    chip: "Identity Layer",
+    title: "Identity Engine",
+    copy: "Turn preserved memories into structured context about tone, themes, personality, and emotional presence.",
+  },
+  {
+    icon: Mic,
+    chip: "Voice Layer",
+    title: "Voice Continuity",
+    copy: "Build toward future continuity rooted only in real, user-approved recordings and voice memories.",
+  },
+  {
+    icon: Users,
+    chip: "Family Layer",
+    title: "Family Stewardship",
+    copy: "Enable trusted contributors to help preserve a shared archive while ownership and permissions remain clear.",
+  },
+  {
+    icon: Landmark,
+    chip: "Legacy Layer",
+    title: "Legacy System",
+    copy: "Support long-term archive stewardship, future access, and continuity preferences over time.",
+  },
+  {
+    icon: LockKeyhole,
+    chip: "Trust Layer",
+    title: "Privacy + Ownership",
+    copy: "No hidden training. No resale. No platform ownership of likeness, memory, or preserved family context.",
+  },
+  {
+    icon: Cpu,
+    chip: "Technology",
+    title: "AI Orchestration",
+    copy: "Prepare identity context, prompt scaffolds, and continuity systems for future respectful interaction.",
+  },
+  {
+    icon: ShieldCheck,
+    chip: "Control Layer",
+    title: "Consent Boundaries",
+    copy: "Define what can be used, what stays private, and how future continuity features must remain constrained.",
   },
 ];
 
@@ -69,24 +91,24 @@ export default function HomePage() {
     <main className="pb-24">
       <Nav />
 
-      <section className="container-wrap pt-24 pb-32">
-        <div className="card overflow-hidden p-8 md:p-12 lg:p-16 bg-gradient-to-br from-white/5 to-transparent">
+      <section className="container-wrap pt-8 pb-16">
+        <div className="card overflow-hidden p-8 md:p-12 lg:p-16">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <p className="mb-5 text-xs uppercase tracking-[0.32em] text-neutral-400">
                 Private memory preservation for the people you love
               </p>
 
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight max-w-4xl">
+              <h1 className="section-title max-w-4xl">
                 Preserve their{" "}
-                <span className="bg-gradient-to-r from-[#ff7b6b] via-[#ff8f6b] to-[#4f6bff] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#ff9f7a] via-[#c48eff] to-[#6f8cff] bg-clip-text text-transparent">
                   voice, memories,
                 </span>
                 <br />
                 and presence.
               </h1>
 
-              <p className="mt-6 max-w-2xl text-neutral-300 text-lg leading-relaxed">
+              <p className="section-copy mt-6 max-w-2xl">
                 ForeverLuvd helps families preserve photos, videos, voice notes,
                 letters, and the emotional essence of the people they love —
                 with privacy, ownership, and protection built into the core
@@ -94,10 +116,7 @@ export default function HomePage() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link 
-                  href="/auth/sign-up" 
-                  className="btn btn-primary hover:bg-gradient-to-br hover:from-[#ff7b6b] hover:via-[#ff8f6b] hover:to-[#4f6bff] transition-all duration-200"
-                >
+                <Link href="/onboarding" className="btn btn-primary">
                   Start preserving
                 </Link>
                 <Link href="/dashboard" className="btn btn-secondary">
@@ -109,7 +128,7 @@ export default function HomePage() {
                 {trustItems.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-neutral-300 hover:bg-white/10 transition-colors"
+                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-neutral-300"
                   >
                     {item}
                   </span>
@@ -118,28 +137,28 @@ export default function HomePage() {
             </div>
 
             <div className="relative">
-              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-[#4f6bff]/20 via-transparent to-[#ff8f6b]/20 blur-3xl" />
+              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-[#5f7cff]/20 via-transparent to-[#ff8a6b]/20 blur-3xl" />
               <div className="card relative p-6 md:p-8">
                 <div className="mb-6 flex items-center justify-between">
                   <div>
                     <p className="text-sm text-neutral-400">Memory vault preview</p>
                     <h2 className="mt-1 text-2xl font-semibold text-white">Keep them with you</h2>
                   </div>
-                  <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300 bg-white/5">
+                  <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300">
                     Encrypted
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-colors">
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
                     <p className="text-sm text-neutral-400">Loved one</p>
                     <p className="mt-1 text-lg font-medium text-white">Mom</p>
                     <p className="mt-2 text-sm text-neutral-300">
-                      <span className="animate-pulse">●</span> 184 memories · 32 voice notes · 12 letters
+                      184 memories · 32 voice notes · 12 letters
                     </p>
                   </div>
 
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-colors">
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
                     <p className="text-sm text-neutral-400">Recent memory</p>
                     <p className="mt-1 font-medium text-white">Birthday voicemail</p>
                     <p className="mt-2 text-sm text-neutral-300">
@@ -147,12 +166,11 @@ export default function HomePage() {
                     </p>
                   </div>
 
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-colors">
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
                     <p className="text-sm text-neutral-400">Future AI layer</p>
                     <p className="mt-1 font-medium text-white">Private and opt-in</p>
                     <p className="mt-2 text-sm text-neutral-300">
-                      Conversational memory experiences built only from real,
-                      user-approved archived moments.
+                      Conversational continuity built only from real, user-approved archived moments.
                     </p>
                   </div>
                 </div>
@@ -167,76 +185,54 @@ export default function HomePage() {
           {trustItems.map((item) => (
             <div key={item} className="card px-5 py-4 text-sm text-neutral-300">
               {item}
-            </Link>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Platform Modules Section */}
-      <section className="container-wrap py-20">
-        <div className="mb-16 max-w-2xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
-            Platform Modules
-          </p>
-          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
-            A Complete Continuity System
-          </h2>
-          <p className="section-copy mt-4">
-            ForeverLuvd combines multiple preservation layers into one private platform.
-          </p>
-        </div>
+      <section className="container-wrap py-14">
+        <div className="card p-8 lg:p-10">
+          <div className="mb-10 max-w-3xl">
+            <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
+              Platform layers
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+              A continuity platform, not just storage.
+            </h2>
+            <p className="section-copy mt-4">
+              ForeverLuvd is being built as a multi-layer system for preserving
+              memory, identity, voice, family-held context, and long-term continuity.
+            </p>
+          </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {[
-            {
-              title: "Memory Archive",
-              copy: "Secure storage for photos, videos, letters and meaningful moments",
-              href: "/dashboard"
-            },
-            {
-              title: "Identity Engine", 
-              copy: "Structured preservation of personality, traits and relationships",
-              href: "/loved-ones"
-            },
-            {
-              title: "Voice Continuity",
-              copy: "Preserved recordings and future voice capabilities",
-              href: "/voice"
-            },
-            {
-              title: "Family Layer",
-              copy: "Trusted collaboration for shared memory preservation",
-              href: "/family"
-            },
-            {
-              title: "Legacy System",
-              copy: "Multi-generational access and stewardship tools",
-              href: "/legacy"  
-            },
-            {
-              title: "Privacy Infrastructure",
-              copy: "Encrypted architecture with full data ownership",
-              href: "/technology"
-            }
-          ].map((module) => (
-            <Link 
-              key={module.title}
-              href={module.href}
-              className="card p-6 hover:bg-white/10 transition-all duration-200 hover:-translate-y-[4px] transform-gpu ease-out"
-            >
-              <h3 className="text-xl font-semibold">{module.title}</h3>
-              <p className="mt-3 text-neutral-400">{module.copy}</p>
-            </Link>
-          ))}
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {platformCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <div key={card.title} className="card p-6">
+                  <div className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-neutral-300">
+                    {card.chip}
+                  </div>
+
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+                    <Icon className="h-5 w-5 text-white" />
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-white">{card.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-neutral-300">{card.copy}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      <section id="how-it-works" className="container-wrap py-20">
+      <section id="how-it-works" className="container-wrap py-14">
         <div className="mb-10 max-w-2xl">
           <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
             How it works
           </p>
-          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
             Start with preservation first.
           </h2>
           <p className="section-copy mt-4">
@@ -251,66 +247,10 @@ export default function HomePage() {
               <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm text-neutral-300">
                 0{index + 1}
               </div>
-              <h3 className="text-xl font-semibold">{step.title}</h3>
-              <p className="mt-3 text-neutral-400">{step.copy}</p>
+              <h3 className="text-xl font-semibold text-white">{step.title}</h3>
+              <p className="mt-3 text-neutral-300">{step.copy}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section className="container-wrap py-14">
-        <div className="card p-8 mb-16">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
-                Memory diversity
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-                Preserve every dimension
-              </h2>
-              <p className="mt-4 text-neutral-300">
-                Capture the full spectrum of memories - from voice notes to letters, 
-                creating a multidimensional legacy.
-              </p>
-            </div>
-            <div className="grid grid-cols-3 gap-4">
-              {['Photos', 'Videos', 'Voice', 'Letters', 'Stories', 'Moments'].map((type) => (
-                <div 
-                  key={type}
-                  className="aspect-square rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center text-sm"
-                >
-                  {type}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="mb-10 max-w-2xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
-            Why ForeverLuvd
-          </p>
-          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
-            More than storage.
-          </h2>
-          <p className="section-copy mt-4">
-            This is a private continuity layer for the people you love — built
-            around memory, voice, ownership, and dignity.
-          </p>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {features.map((feature) => {
-            const Icon = feature.icon;
-            return (
-              <div key={feature.title} className="card p-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <h3 className="text-xl font-semibold">{feature.title}</h3>
-                <p className="mt-3 text-neutral-400">{feature.copy}</p>
-              </div>
-            );
-          })}
         </div>
       </section>
 
@@ -318,76 +258,26 @@ export default function HomePage() {
         <div className="card grid gap-8 p-8 lg:grid-cols-2 lg:p-12">
           <div>
             <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
-              Emotional continuity
+              Why ForeverLuvd
             </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-              Photos are not the same as presence.
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+              More than a memory vault.
             </h2>
           </div>
 
           <div className="space-y-4 text-neutral-300">
             <p>
-              People don’t just lose images when someone passes. They lose a
-              voice. A rhythm. A way of speaking. A thousand small details.
+              People do not only lose photos when someone is gone. They lose a
+              voice, a rhythm, a way of speaking, and a thousand small signals that made that person feel real.
             </p>
             <p>
-              ForeverLuvd is designed to preserve the things that make someone
-              feel real — their stories, recordings, letters, memories, and the
-              emotional texture of who they were.
+              ForeverLuvd is being designed to preserve those signals with ownership,
+              privacy, and future continuity at the center.
             </p>
             <p>
-              And it does that without taking ownership away from the people who
-              loved them.
+              The long-term vision is not imitation. It is respectful continuity built from real, user-approved memory.
             </p>
           </div>
-        </div>
-      </section>
-
-      <section id="pricing" className="container-wrap py-14">
-        <div className="mb-8 max-w-2xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
-            Pricing
-          </p>
-          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
-            Start simply.
-          </h2>
-          <p className="section-copy mt-4">
-            Launch with a clean consumer plan now. Expand into family and legacy
-            tiers after traction.
-          </p>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-3">
-          {[
-            {
-              name: "Personal",
-              price: "$12/mo",
-              copy: "Preserve up to 3 loved ones with 50GB storage",
-              href: "/pricing"
-            },
-            { 
-              name: "Family",
-              price: "$29/mo",
-              copy: "Protect up to 10 loved ones with 200GB storage", 
-              href: "/pricing"
-            },
-            {
-              name: "Legacy", 
-              price: "$99/mo",
-              copy: "Unlimited loved ones with 1TB storage and premium features",
-              href: "/pricing"
-            }
-          ].map((tier) => (
-            <Link
-              key={tier.name}
-              href={tier.href}
-              className="card p-6 hover:-translate-y-1 transition-transform hover:bg-white/10"
-            >
-              <h3 className="text-xl font-semibold">{tier.name}</h3>
-              <p className="mt-3 text-3xl font-bold">{tier.price}</p>
-              <p className="mt-4 text-neutral-400">{tier.copy}</p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -396,15 +286,15 @@ export default function HomePage() {
           <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
             Start now
           </p>
-          <h2 className="mx-auto max-w-3xl text-3xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="mx-auto max-w-3xl text-3xl font-semibold tracking-tight text-white md:text-5xl">
             Preserve what matters before it becomes impossible to recover.
           </h2>
           <p className="section-copy mx-auto mt-5 max-w-2xl">
             Build a private vault for the people you love — with memory,
-            ownership, and dignity at the center.
+            ownership, dignity, and future continuity at the center.
           </p>
           <div className="mt-8 flex justify-center">
-            <Link href="/auth/sign-up" className="btn btn-primary">
+            <Link href="/onboarding" className="btn btn-primary">
               Start preserving
             </Link>
           </div>
