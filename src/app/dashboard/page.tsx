@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { Memory } from "@/lib/data/memories";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -12,20 +13,65 @@ export default async function DashboardPage() {
     redirect("/auth/sign-in");
   }
 
-  const [{ data: lovedOnes }, { data: memories }] = await Promise.all([
+  type SupabaseResponse<T> = {
+    data: T | null;
+    error: Error | null;
+  };
+
+  const [
+    { data: lovedOnes, error: lovedOnesError },
+    { data: memories, error: memoriesError },
+    { data: insights, error: insightsError }
+  ]: [
+    SupabaseResponse<{id: string; name: string; relationship_type?: string; created_at: string}[]>,
+    SupabaseResponse<Memory[]>,
+    SupabaseResponse<{memory_id: string; emotional_depth: number; descriptive_richness: number; relationship_context: string}[]>
+  ] = await Promise.all([
     supabase
       .from("loved_ones")
       .select("*")
       .order("created_at", { ascending: false }),
     supabase
       .from("memories")
-      .select("*")
+      .select("*, loved_ones!inner(name)")
       .order("memory_date", { ascending: false })
       .limit(8),
+    supabase
+      .rpc('get_memory_insights')
+      .select('memory_id, emotional_depth, descriptive_richness, relationship_context')
   ]);
+
+  if (lovedOnesError || memoriesError || insightsError) {
+    console.error('Error fetching dashboard data:', {
+      lovedOnesError,
+      memoriesError,
+      insightsError
+    });
+    redirect('/error?code=dashboard_fetch');
+  }
+
+  // Ensure we have valid arrays even if data is null
+  const safeLovedOnes = lovedOnes || [];
+  const safeMemories = memories || [];
+  const safeInsights = insights || [];
 
   const lovedOnesCount = lovedOnes?.length ?? 0;
   const memoriesCount = memories?.length ?? 0;
+  interface MemoryWithInsight extends Memory {
+    loved_ones: { name: string };
+    insight?: {
+      memory_id: string;
+      emotional_depth: number;
+      descriptive_richness: number;
+      relationship_context: string;
+    };
+  }
+
+  const enrichedMemories: MemoryWithInsight[] = safeMemories.map(mem => ({
+    ...mem,
+    insight: safeInsights.find(ins => ins.memory_id === mem.id),
+    loved_ones: mem.loved_ones || { name: 'Unknown' } // Add fallback for loved_ones
+  }));
 
   return (
     <main className="container-wrap py-10">
@@ -85,6 +131,36 @@ export default async function DashboardPage() {
       </section>
 
       <section className="mt-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="card p-8">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-sm text-neutral-400">Memory insights</p>
+              <h2 className="mt-1 text-2xl font-semibold">Emotional patterns</h2>
+            </div>
+          </div>
+
+          <div className="mt-6 space-y-6">
+            {(insights || []).slice(0, 3).map((insight) => (
+              <div key={insight.memory_id} className="space-y-2">
+                <div className="flex justify-between text-sm text-neutral-400">
+                  <span>Emotional depth</span>
+                  <span>{Math.round(insight.emotional_depth * 100)}%</span>
+                </div>
+                <div className="h-2 w-full rounded-full bg-white/5 overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-[#ff7b6b] to-[#4f6bff]" 
+                    style={{ width: `${(insight.emotional_depth * 100)}%` }}
+                  />
+                </div>
+                {insight.relationship_context && (
+                  <p className="text-sm text-neutral-300 mt-2">
+                    "{insight.relationship_context}"
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="card p-8">
           <div className="flex items-start justify-between gap-4">
             <div>
@@ -148,8 +224,8 @@ export default async function DashboardPage() {
           </div>
 
           <div className="mt-6 space-y-4">
-            {memories?.length ? (
-              memories.map((memory) => (
+            {enrichedMemories?.length ? (
+              enrichedMemories.map((memory) => (
                 <div
                   key={memory.id}
                   className="rounded-[24px] border border-white/10 bg-white/5 p-5"
@@ -167,11 +243,27 @@ export default async function DashboardPage() {
                     </p>
                   ) : null}
 
-                  {memory.memory_date ? (
-                    <p className="mt-4 text-xs text-neutral-500">
-                      {memory.memory_date}
-                    </p>
-                  ) : null}
+                  <div className="mt-4 flex items-center gap-4">
+                    {memory.memory_date && (
+                      <span className="text-xs text-neutral-500">
+                        {memory.memory_date}
+                      </span>
+                    )}
+                    {memory.insight && (
+                      <div className="flex items-center gap-2">
+                        <div 
+                          className="h-2 w-16 rounded-full bg-white/5 overflow-hidden">
+                          <div 
+                            className="h-full bg-gradient-to-r from-[#ff7b6b] to-[#4f6bff]" 
+                            style={{ width: `${(memory.insight.emotional_depth * 100)}%` }}
+                          />
+                        </div>
+                        <span className="text-xs text-neutral-400">
+                          {Math.round(memory.insight.emotional_depth * 100)}%
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               ))
             ) : (
@@ -187,6 +279,33 @@ export default async function DashboardPage() {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-6">
+        <div className="card p-8">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-sm text-neutral-400">Recent activity</p>
+              <h2 className="mt-1 text-2xl font-semibold">Timeline</h2>
+            </div>
+          </div>
+
+          <div className="mt-6 space-y-4">
+            {enrichedMemories?.slice(0, 5).map((memory) => (
+              <div key={memory.id} className="flex gap-4 items-start">
+                <div className="mt-1 h-2 w-2 rounded-full bg-white/20 flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-neutral-400">
+                    {new Date(memory.created_at).toLocaleDateString()}
+                  </p>
+                  <p className="font-medium">
+                    Added {memory.memory_type || 'memory'} for {memory.loved_ones?.name}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
