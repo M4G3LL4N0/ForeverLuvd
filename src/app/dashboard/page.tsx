@@ -1,13 +1,21 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
-import { Memory } from "@/lib/data/memories";
+import { redirect } from 'next/navigation';
+import { createClient } from '@/lib/supabase/server';
+import { Memory } from '@/lib/data/memories';
+import type { SupabaseResponse } from '@/lib/types';
+import { validateEnv } from '@/lib/utils/env';
 
 export default async function DashboardPage() {
+  // Validate required environment variables
+  validateEnv(['NEXT_PUBLIC_SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_ANON_KEY']);
+
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+  if (authError) {
+    console.error('Auth error:', authError);
+    redirect('/error?code=auth_failed');
+  }
 
   if (!user) {
     redirect("/auth/sign-in");
