@@ -167,7 +167,7 @@ export default function HomePage() {
           {trustItems.map((item) => (
             <div key={item} className="card px-5 py-4 text-sm text-neutral-300">
               {item}
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -374,7 +374,7 @@ export default function HomePage() {
             {
               name: "Legacy", 
               price: "$99/mo",
-              copy: "Unlimited loved ones with 1TB and premium features",
+              copy: "Unlimited loved ones with 1TB storage and premium features",
               href: "/pricing"
             }
           ].map((tier) => (

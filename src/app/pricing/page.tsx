@@ -59,25 +59,6 @@ const tiers = [
     cta: 'Build Legacy',
     ctaColor: 'bg-indigo-600',
   },
-  {
-    name: 'Legacy',
-    price: '$99/mo',
-    lovedOnes: 'Unlimited',
-    storage: '1TB',
-    aiAccess: 'Unlimited',
-    features: [
-      'Preserve unlimited loved ones',
-      '1TB memory storage',
-      'Unlimited AI memory assistance',
-      'Multi-generational access',
-      'Legacy planning tools',
-      'Dedicated account manager',
-      'Priority 24/7 support',
-      'ForeverLuvd legacy badge'
-    ],
-    cta: 'Build Legacy',
-    ctaColor: 'bg-indigo-600',
-  },
 ]
 
 export default function PricingPage() {
