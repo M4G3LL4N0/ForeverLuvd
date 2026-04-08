@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { Memory } from '@/lib/data/memories';
 import { validateEnv } from '@/lib/utils/env';
 import { LovedOne } from '@/lib/data/loved-ones';
+import { Button } from '@/components/ui/button';
 
 export default async function DashboardPage() {
   // Validate required environment variables
@@ -64,7 +65,7 @@ export default async function DashboardPage() {
   };
 
   interface MemoryWithInsight extends Memory {
-    loved_ones: { name: string };
+    loved_ones: { name: string } | null;
     insight?: MemoryInsight;
   }
 
@@ -95,12 +96,12 @@ export default async function DashboardPage() {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <Link href="/loved-ones/new" className="btn btn-secondary">
-              Add loved one
-            </Link>
-            <Link href="/memories/new" className="btn btn-primary">
-              Add memory
-            </Link>
+            <Button asChild variant="secondary">
+              <Link href="/loved-ones/new">Add loved one</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/memories/new">Add memory</Link>
+            </Button>
           </div>
         </div>
 
@@ -302,7 +303,7 @@ export default async function DashboardPage() {
                     {new Date(memory.created_at).toLocaleDateString()}
                   </p>
                   <p className="font-medium">
-                    Added {memory.memory_type || 'memory'} for {memory.loved_ones?.name}
+                    Added {memory.memory_type || 'memory'} for {memory.loved_ones?.name || 'loved one'}
                   </p>
                 </div>
               </div>
