@@ -199,26 +199,46 @@ a {
 }
 
 .btn-primary {
-  background: 
-    linear-gradient(
-      145deg, 
-      hsl(var(--primary)/0.95) 0%, 
-      hsl(var(--primary)/0.9) 100%
-    ),
-    radial-gradient(
-      ellipse at 50% 200%,
-      hsl(var(--glow)/0.2) 0%,
-      transparent 70%
-    );
-  color: hsl(var(--primary-foreground));
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--depth-1);
-  border: 1px solid hsl(var(--border)/0.1);
+  background: linear-gradient(
+    145deg, 
+    hsl(258, 90%, 66%) 0%, 
+    hsl(258, 75%, 60%) 100%
+  );
+  color: white;
+  border: none;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
   will-change: transform, box-shadow;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  background: linear-gradient(
+    145deg, 
+    hsl(258, 85%, 60%) 0%, 
+    hsl(258, 70%, 54%) 100%
+  );
+}
+
+.btn-secondary {
+  background: hsl(var(--background)/0.8);
+  color: white;
+  border: 1px solid hsl(var(--border)/0.3);
+  backdrop-filter: blur(8px);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 0.75rem 1.5rem;
+  letter-spacing: 0.01em;
+}
+
+.btn-secondary:hover {
+  background: hsl(var(--background)/0.9);
+  border-color: hsl(var(--border)/0.5);
+  color: white;
 }
 
 .btn-primary::before {
