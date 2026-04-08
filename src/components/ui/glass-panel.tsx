@@ -13,10 +13,12 @@ export function GlassPanel({
   return (
     <div
       className={cn(
-        "relative isolate overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-2xl",
-        "before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(800px_at_50%_50%,rgba(88,28,135,0.15),transparent_70%)]",
-        "after:absolute after:inset-0 after:-z-10 after:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGZpbHRlciBpZD0ibm9pc2UiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=')]",
-        "hover:border-white/20 hover:shadow-[0_8px_32px_rgba(88,28,135,0.3)] hover:backdrop-blur-3xl transition-all duration-300",
+        "relative isolate overflow-hidden rounded-[1.75rem] border border-white/15 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl",
+        "before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(700px_at_50%_50%,rgba(124,58,237,0.15),transparent_65%)]",
+        "after:absolute after:inset-0 after:-z-10 after:bg-[linear-gradient(145deg,transparent_65%,rgba(255,255,255,0.02)_100%)]",
+        "shadow-[0_8px_48px_-8px_rgba(0,0,0,0.25)] hover:shadow-[0_12px_64px_-12px_rgba(124,58,237,0.25)]",
+        "hover:border-white/25 hover:backdrop-blur-2xl transition-all duration-300 ease-out",
+        "hover:-translate-y-1 hover:shadow-xl",
         className
       )}
       {...props}
