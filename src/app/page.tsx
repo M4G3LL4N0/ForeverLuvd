@@ -359,14 +359,33 @@ export default function HomePage() {
 
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            ["Starter", "Free", "1 loved one profile, basic memory uploads, private dashboard"],
-            ["Personal", "$12/mo", "More storage, unlimited memory entries, better organization"],
-            ["Family", "$29/mo", "Multiple loved ones, shared family access, future legacy features"],
-          ].map(([name, price, copy]) => (
-            <div key={name} className="card p-6">
-              <h3 className="text-xl font-semibold">{name}</h3>
-              <p className="mt-3 text-3xl font-bold">{price}</p>
-              <p className="mt-4 text-neutral-400">{copy}</p>
+            {
+              name: "Personal",
+              price: "$12/mo",
+              copy: "Preserve up to 3 loved ones with 50GB storage",
+              href: "/pricing"
+            },
+            { 
+              name: "Family",
+              price: "$29/mo",
+              copy: "Protect up to 10 loved ones with 200GB storage", 
+              href: "/pricing"
+            },
+            {
+              name: "Legacy", 
+              price: "$99/mo",
+              copy: "Unlimited loved ones with 1TB and premium features",
+              href: "/pricing"
+            }
+          ].map((tier) => (
+            <Link
+              key={tier.name}
+              href={tier.href}
+              className="card p-6 hover:-translate-y-1 transition-transform hover:bg-white/10"
+            >
+              <h3 className="text-xl font-semibold">{tier.name}</h3>
+              <p className="mt-3 text-3xl font-bold">{tier.price}</p>
+              <p className="mt-4 text-neutral-400">{tier.copy}</p>
             </div>
           ))}
         </div>
