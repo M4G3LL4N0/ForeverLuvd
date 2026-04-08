@@ -2,8 +2,8 @@ import Link from "next/link";
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { Memory } from '@/lib/data/memories';
-import type { SupabaseResponse } from '@/lib/types';
 import { validateEnv } from '@/lib/utils/env';
+import { LovedOne } from '@/lib/data/loved-ones';
 
 export default async function DashboardPage() {
   // Validate required environment variables
@@ -21,19 +21,10 @@ export default async function DashboardPage() {
     redirect("/auth/sign-in");
   }
 
-  type SupabaseResponse<T> = {
-    data: T | null;
-    error: Error | null;
-  };
-
   const [
     { data: lovedOnes, error: lovedOnesError },
     { data: memories, error: memoriesError },
     { data: insights, error: insightsError }
-  ]: [
-    SupabaseResponse<{id: string; name: string; relationship_type?: string; created_at: string}[]>,
-    SupabaseResponse<Memory[]>,
-    SupabaseResponse<{memory_id: string; emotional_depth: number; descriptive_richness: number; relationship_context: string}[]>
   ] = await Promise.all([
     supabase
       .from("loved_ones")
@@ -65,14 +56,16 @@ export default async function DashboardPage() {
 
   const lovedOnesCount = lovedOnes?.length ?? 0;
   const memoriesCount = memories?.length ?? 0;
+  type MemoryInsight = {
+    memory_id: string;
+    emotional_depth: number;
+    descriptive_richness: number;
+    relationship_context: string;
+  };
+
   interface MemoryWithInsight extends Memory {
     loved_ones: { name: string };
-    insight?: {
-      memory_id: string;
-      emotional_depth: number;
-      descriptive_richness: number;
-      relationship_context: string;
-    };
+    insight?: MemoryInsight;
   }
 
   const enrichedMemories: MemoryWithInsight[] = safeMemories.map(mem => ({
