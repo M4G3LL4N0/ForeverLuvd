@@ -94,7 +94,10 @@ export default function HomePage() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link href="/auth/sign-up" className="btn btn-primary">
+                <Link 
+                  href="/auth/sign-up" 
+                  className="btn btn-primary hover:bg-gradient-to-br hover:from-[#ff7b6b] hover:via-[#ff8f6b] hover:to-[#4f6bff] transition-all duration-200"
+                >
                   Start preserving
                 </Link>
                 <Link href="/dashboard" className="btn btn-secondary">
@@ -219,7 +222,7 @@ export default function HomePage() {
             <Link 
               key={module.title}
               href={module.href}
-              className="card p-6 hover:bg-white/10 transition-colors"
+              className="card p-6 hover:bg-white/10 transition-all duration-200 hover:-translate-y-[4px] transform-gpu ease-out"
             >
               <h3 className="text-xl font-semibold">{module.title}</h3>
               <p className="mt-3 text-neutral-400">{module.copy}</p>
