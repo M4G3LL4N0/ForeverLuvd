@@ -132,7 +132,7 @@ export default function HomePage() {
                     <p className="text-sm text-neutral-400">Loved one</p>
                     <p className="mt-1 text-lg font-medium text-white">Mom</p>
                     <p className="mt-2 text-sm text-neutral-300">
-                      184 memories · 32 voice notes · 12 letters
+                      <span className="animate-pulse">●</span> 184 memories · 32 voice notes · 12 letters
                     </p>
                   </div>
 
