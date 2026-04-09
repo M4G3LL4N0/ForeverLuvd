@@ -91,11 +91,11 @@ export default function HomePage() {
     <main className="pb-24">
       <Nav />
 
-      <section className="container-wrap pt-8 pb-16">
+      <section className="container-wrap pt-12 pb-24">
         <div className="card overflow-hidden p-8 md:p-12 lg:p-16">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <p className="mb-5 text-xs uppercase tracking-[0.32em] text-neutral-400">
+              <p className="mb-6 text-xs uppercase tracking-[0.32em] text-neutral-400/80">
                 Private memory preservation for the people you love
               </p>
 
@@ -108,14 +108,14 @@ export default function HomePage() {
                 and presence.
               </h1>
 
-              <p className="section-copy mt-6 max-w-2xl">
+              <p className="section-copy mt-8 max-w-2xl text-neutral-300/90">
                 ForeverLuvd helps families preserve photos, videos, voice notes,
                 letters, and the emotional essence of the people they love —
                 with privacy, ownership, and protection built into the core
                 product.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-10 flex flex-wrap gap-4">
                 <Link href="/onboarding" className="btn btn-primary">
                   Start preserving
                 </Link>
@@ -124,11 +124,11 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="mt-12 flex flex-wrap gap-3">
                 {trustItems.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-neutral-300"
+                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200"
                   >
                     {item}
                   </span>
@@ -138,38 +138,38 @@ export default function HomePage() {
 
             <div className="relative">
               <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-[#5f7cff]/20 via-transparent to-[#ff8a6b]/20 blur-3xl" />
-              <div className="card relative p-6 md:p-8">
+              <div className="card relative p-6 md:p-8 hover:border-white/20 transition-all duration-300">
                 <div className="mb-6 flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-neutral-400">Memory vault preview</p>
+                    <p className="text-sm text-neutral-400/80">Memory vault preview</p>
                     <h2 className="mt-1 text-2xl font-semibold text-white">Keep them with you</h2>
                   </div>
-                  <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300">
+                  <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300/80 hover:bg-white/10 hover:text-white transition-all duration-200">
                     Encrypted
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
-                    <p className="text-sm text-neutral-400">Loved one</p>
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-all duration-200">
+                    <p className="text-sm text-neutral-400/80">Loved one</p>
                     <p className="mt-1 text-lg font-medium text-white">Mom</p>
-                    <p className="mt-2 text-sm text-neutral-300">
+                    <p className="mt-2 text-sm text-neutral-300/90">
                       184 memories · 32 voice notes · 12 letters
                     </p>
                   </div>
 
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
-                    <p className="text-sm text-neutral-400">Recent memory</p>
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-all duration-200">
+                    <p className="text-sm text-neutral-400/80">Recent memory</p>
                     <p className="mt-1 font-medium text-white">Birthday voicemail</p>
-                    <p className="mt-2 text-sm text-neutral-300">
+                    <p className="mt-2 text-sm text-neutral-300/90">
                       “I love you more than you know. I’m proud of you.”
                     </p>
                   </div>
 
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
-                    <p className="text-sm text-neutral-400">Future AI layer</p>
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-all duration-200">
+                    <p className="text-sm text-neutral-400/80">Future AI layer</p>
                     <p className="mt-1 font-medium text-white">Private and opt-in</p>
-                    <p className="mt-2 text-sm text-neutral-300">
+                    <p className="mt-2 text-sm text-neutral-300/90">
                       Conversational continuity built only from real, user-approved archived moments.
                     </p>
                   </div>
@@ -180,26 +180,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container-wrap pb-8">
+      <section className="container-wrap pb-12">
         <div className="grid gap-4 md:grid-cols-4">
           {trustItems.map((item) => (
-            <div key={item} className="card px-5 py-4 text-sm text-neutral-300">
+            <div key={item} className="card px-5 py-4 text-sm text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200">
               {item}
             </div>
           ))}
         </div>
       </section>
 
-      <section className="container-wrap py-14">
-        <div className="card p-8 lg:p-10">
-          <div className="mb-10 max-w-3xl">
-            <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
+      <section className="container-wrap py-16">
+        <div className="card p-8 lg:p-10 hover:border-white/20 transition-all duration-300">
+          <div className="mb-12 max-w-3xl">
+            <p className="mb-4 text-xs uppercase tracking-[0.28em] text-neutral-500/80">
               Platform layers
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
               A continuity platform, not just storage.
             </h2>
-            <p className="section-copy mt-4">
+            <p className="section-copy mt-6 text-neutral-300/90">
               ForeverLuvd is being built as a multi-layer system for preserving
               memory, identity, voice, family-held context, and long-term continuity.
             </p>
@@ -209,17 +209,17 @@ export default function HomePage() {
             {platformCards.map((card) => {
               const Icon = card.icon;
               return (
-                <div key={card.title} className="card p-6">
-                  <div className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-neutral-300">
+                <div key={card.title} className="card p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-200">
+                  <div className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200">
                     {card.chip}
                   </div>
 
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-200">
                     <Icon className="h-5 w-5 text-white" />
                   </div>
 
                   <h3 className="text-xl font-semibold text-white">{card.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-neutral-300">{card.copy}</p>
+                  <p className="mt-3 text-sm leading-6 text-neutral-300/90">{card.copy}</p>
                 </div>
               );
             })}
@@ -227,15 +227,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="how-it-works" className="container-wrap py-14">
-        <div className="mb-10 max-w-2xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
+      <section id="how-it-works" className="container-wrap py-16">
+        <div className="mb-12 max-w-2xl">
+          <p className="mb-4 text-xs uppercase tracking-[0.28em] text-neutral-500/80">
             How it works
           </p>
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
             Start with preservation first.
           </h2>
-          <p className="section-copy mt-4">
+          <p className="section-copy mt-6 text-neutral-300/90">
             Build trust first. Capture what matters now. Expand into voice,
             legacy, and AI interaction later.
           </p>
@@ -243,29 +243,29 @@ export default function HomePage() {
 
         <div className="grid gap-5 md:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={step.title} className="card p-6">
-              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm text-neutral-300">
+            <div key={step.title} className="card p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-200">
+              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200">
                 0{index + 1}
               </div>
               <h3 className="text-xl font-semibold text-white">{step.title}</h3>
-              <p className="mt-3 text-neutral-300">{step.copy}</p>
+              <p className="mt-3 text-neutral-300/90">{step.copy}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="container-wrap py-14">
-        <div className="card grid gap-8 p-8 lg:grid-cols-2 lg:p-12">
+      <section className="container-wrap py-16">
+        <div className="card grid gap-8 p-8 lg:grid-cols-2 lg:p-12 hover:border-white/20 transition-all duration-300">
           <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
+            <p className="text-xs uppercase tracking-[0.28em] text-neutral-500/80">
               Why ForeverLuvd
             </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
               More than a memory vault.
             </h2>
           </div>
 
-          <div className="space-y-4 text-neutral-300">
+          <div className="space-y-4 text-neutral-300/90">
             <p>
               People do not only lose photos when someone is gone. They lose a
               voice, a rhythm, a way of speaking, and a thousand small signals that made that person feel real.
@@ -281,15 +281,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container-wrap pt-10 pb-24">
-        <div className="card p-8 text-center lg:p-14">
-          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-neutral-500">
+      <section className="container-wrap pt-12 pb-24">
+        <div className="card p-8 text-center lg:p-14 hover:border-white/20 transition-all duration-300">
+          <p className="mb-4 text-xs uppercase tracking-[0.28em] text-neutral-500/80">
             Start now
           </p>
           <h2 className="mx-auto max-w-3xl text-3xl font-semibold tracking-tight text-white md:text-5xl">
             Preserve what matters before it becomes impossible to recover.
           </h2>
-          <p className="section-copy mx-auto mt-5 max-w-2xl">
+          <p className="section-copy mx-auto mt-6 max-w-2xl text-neutral-300/90">
             Build a private vault for the people you love — with memory,
             ownership, dignity, and future continuity at the center.
           </p>
