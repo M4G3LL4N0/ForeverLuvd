@@ -1,21 +1,21 @@
 export default function FamilyPage() {
   return (
-    <main className="container-wrap py-16 md:py-24">
-      <div className="card p-8 md:p-12 lg:p-16">
-        <div className="max-w-4xl">
-          <h1 className="text-5xl font-light tracking-tight mb-4 bg-gradient-to-r from-[#ffd6c2] to-[#ff7b6b] bg-clip-text text-transparent">Family Continuity</h1>
-          <p className="mb-8 text-xl text-neutral-400">
+    <main className="container-wrap py-12 md:py-16 lg:py-24">
+      <div className="card p-6 sm:p-8 md:p-12 lg:p-16">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-4 bg-gradient-to-r from-[#ffd6c2] to-[#ff7b6b] bg-clip-text text-transparent">Family Continuity</h1>
+          <p className="mb-8 text-lg sm:text-xl text-neutral-400">
             Preserve and protect memories together through trusted family collaboration.
           </p>
         </div>
 
         <div className="mt-12 grid gap-8">
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight">Shared Preservation</h2>
-            <p className="mt-2 max-w-3xl text-neutral-400">
+          <section className="mt-12">
+            <h2 className="text-3xl font-semibold tracking-tight text-center">Shared Preservation</h2>
+            <p className="mt-4 max-w-3xl mx-auto text-neutral-400 text-center">
               ForeverLuvd enables families to collectively preserve and protect memories through secure, permission-based collaboration.
             </p>
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <h3 className="text-lg font-medium">Trusted Contributors</h3>
                 <p className="mt-1 text-sm text-neutral-400">

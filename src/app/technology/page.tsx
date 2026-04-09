@@ -1,21 +1,21 @@
 export default function TechnologyPage() {
   return (
-    <main className="container-wrap py-16 md:py-24">
-      <div className="card p-8 md:p-12 lg:p-16">
-        <div className="max-w-4xl">
+    <main className="container-wrap py-12 md:py-16 lg:py-24">
+      <div className="card p-6 sm:p-8 md:p-12 lg:p-16">
+        <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl font-semibold tracking-tight">Technology</h1>
-          <p className="mt-3 text-lg text-neutral-400">
+          <p className="mt-4 text-lg text-neutral-400">
             ForeverLuvd's technical architecture is designed for privacy, security, and long-term continuity.
           </p>
         </div>
 
         <div className="mt-12 grid gap-8">
-          <section>
-            <h2 className="text-3xl font-semibold tracking-tight">Technical Architecture</h2>
-            <p className="mt-2 max-w-3xl text-neutral-400">
+          <section className="mt-12">
+            <h2 className="text-3xl font-semibold tracking-tight text-center">Technical Architecture</h2>
+            <p className="mt-4 max-w-3xl mx-auto text-neutral-400 text-center">
               ForeverLuvd's privacy-first platform combines multiple technical layers:
             </p>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <h3 className="text-lg font-medium">Archive Layer</h3>
                 <p className="mt-1 text-sm text-neutral-400">
