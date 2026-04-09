@@ -1,10 +1,10 @@
 export default function FamilyPage() {
   return (
-    <main className="container-wrap py-12">
-      <div className="card p-8">
+    <main className="container-wrap py-16 md:py-24">
+      <div className="card p-8 md:p-12 lg:p-16">
         <div className="max-w-4xl">
-          <h1 className="text-4xl font-semibold tracking-tight">Family Continuity</h1>
-          <p className="mt-3 text-lg text-neutral-400">
+          <h1 className="text-5xl font-light tracking-tight mb-4 bg-gradient-to-r from-[#ffd6c2] to-[#ff7b6b] bg-clip-text text-transparent">Family Continuity</h1>
+          <p className="mb-8 text-xl text-neutral-400">
             Preserve and protect memories together through trusted family collaboration.
           </p>
         </div>

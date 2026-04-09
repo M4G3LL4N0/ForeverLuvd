@@ -1,7 +1,7 @@
 export default function TechnologyPage() {
   return (
-    <main className="container-wrap py-12">
-      <div className="card p-8">
+    <main className="container-wrap py-16 md:py-24">
+      <div className="card p-8 md:p-12 lg:p-16">
         <div className="max-w-4xl">
           <h1 className="text-4xl font-semibold tracking-tight">Technology</h1>
           <p className="mt-3 text-lg text-neutral-400">

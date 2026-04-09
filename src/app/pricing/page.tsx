@@ -66,8 +66,8 @@ export default function PricingPage() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Continuity Infrastructure</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+          <h2 className="text-base font-light uppercase tracking-wider text-neutral-400">Continuity Infrastructure</h2>
+          <p className="mt-2 text-5xl font-light tracking-tight bg-gradient-to-r from-[#ffd6c2] to-[#ff7b6b] bg-clip-text text-transparent">
             Platform Subscription Plans
           </p>
         </div>
