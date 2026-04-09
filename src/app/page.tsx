@@ -91,9 +91,9 @@ export default function HomePage() {
     <main className="pb-24">
       <Nav />
 
-      <section className="container-wrap pt-12 pb-24">
-        <div className="card overflow-hidden p-8 md:p-12 lg:p-16">
-          <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="container-wrap pt-6 pb-12 md:pt-12 md:pb-24">
+        <div className="card overflow-hidden p-6 md:p-8 lg:p-12">
+          <div className="grid gap-8 md:gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <p className="mb-6 text-xs uppercase tracking-[0.32em] text-neutral-400/80">
                 Private memory preservation for the people you love
@@ -124,11 +124,11 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className="mt-12 flex flex-wrap gap-3">
+              <div className="mt-8 md:mt-12 flex flex-wrap gap-3">
                 {trustItems.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200"
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-sm text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200"
                   >
                     {item}
                   </span>

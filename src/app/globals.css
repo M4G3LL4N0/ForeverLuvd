@@ -100,8 +100,38 @@ a {
 .container-wrap {
   max-width: 1180px;
   margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: clamp(16px, 4vw, 24px);
+  padding-right: clamp(16px, 4vw, 24px);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: clamp(2.25rem, 8vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  .section-copy {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {

@@ -4,53 +4,27 @@ export default function Nav() {
   return (
     <header className="container-wrap py-6 sticky top-0 z-50">
       <div className="card flex items-center justify-between px-6 py-3 bg-gradient-to-b from-white/5 to-white/2 backdrop-blur-lg border-white/15">
-        <div className="flex items-center space-x-10">
-          <Link href="/" className="text-xl font-semibold tracking-tight text-white hover:text-opacity-80 transition">
-            ForeverLuvd
-          </Link>
-
-          <nav className="hidden gap-6 text-sm text-neutral-200 md:flex">
-            <Link href="/onboarding" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
-              Get Started
-            </Link>
-            <Link href="/family" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
-              Family Stewardship
-            </Link>
-            <Link href="/legacy" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
-              Legacy Planning
-            </Link>
-            <Link href="/voice" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
-              Voice Continuity
-            </Link>
-            <Link href="/technology" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
-              Technology
-            </Link>
-            <Link href="/pricing" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
-              Plans
-            </Link>
-          </nav>
-        </div>
-        <Link href="/" className="text-xl font-semibold tracking-tight text-white">
+        <Link href="/" className="text-xl font-semibold tracking-tight text-white hover:text-opacity-80 transition">
           ForeverLuvd
         </Link>
 
-        <nav className="hidden gap-8 text-sm text-neutral-200 md:flex">
-          <Link href="/onboarding" className="hover:text-white transition">
+        <nav className="hidden gap-6 text-sm text-neutral-200 md:flex">
+          <Link href="/onboarding" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
             Get Started
           </Link>
-          <Link href="/family" className="hover:text-white transition">
+          <Link href="/family" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
             Family Stewardship
           </Link>
-          <Link href="/legacy" className="hover:text-white transition">
+          <Link href="/legacy" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
             Legacy Planning
           </Link>
-          <Link href="/voice" className="hover:text-white transition">
+          <Link href="/voice" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
             Voice Continuity
           </Link>
-          <Link href="/technology" className="hover:text-white transition">
+          <Link href="/technology" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
             Technology
           </Link>
-          <Link href="/pricing" className="hover:text-white transition">
+          <Link href="/pricing" className="hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white/30">
             Plans
           </Link>
         </nav>
