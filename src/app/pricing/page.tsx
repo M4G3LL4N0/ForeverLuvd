@@ -78,7 +78,7 @@ export default function PricingPage() {
         {/* Pricing Tiers */}
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {tiers.map((tier) => (
-            <div key={tier.name} className="flex flex-col rounded-3xl bg-gray-50 p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div key={tier.name} className="flex flex-col rounded-3xl bg-white/5 border border-white/10 p-8 hover:bg-white/10 hover:-translate-y-2 transition-all duration-200 transform-gpu">
               <h3 className="text-lg font-semibold leading-8 text-gray-900">{tier.name}</h3>
               <div className="mt-4 flex items-baseline gap-x-2">
                 <span className="text-4xl font-bold tracking-tight text-gray-900">{tier.price}</span>
