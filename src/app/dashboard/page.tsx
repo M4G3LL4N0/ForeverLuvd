@@ -15,7 +15,9 @@ export default async function DashboardPage() {
   const [
     { data: lovedOnes, count: lovedOnesCount }, 
     { data: memories, count: memoriesCount },
-    { data: memoryTypes }
+    { data: memoryTypes },
+    { data: recentActivity },
+    { data: stats }
   ] = await Promise.all([
     supabase
       .from("loved_ones")
@@ -30,13 +32,29 @@ export default async function DashboardPage() {
       .from("memories")
       .select("memory_type")
       .not("memory_type", "is", null)
-      .limit(5)
+      .limit(5),
+    supabase
+      .from("activity_log")
+      .select("*")
+      .order("created_at", { ascending: false })
+      .limit(5),
+    supabase
+      .rpc("get_user_stats", { user_id: user.id })
   ]);
 
   // Get unique memory types
   const uniqueMemoryTypes = [...new Set(
     memoryTypes?.map(m => m.memory_type).filter(Boolean)
   )] as string[];
+
+  // Process stats
+  const {
+    total_memories = 0,
+    total_voice_minutes = 0,
+    total_photos = 0,
+    total_videos = 0,
+    total_letters = 0
+  } = stats?.[0] || {};
 
   return (
     <main className="container-wrap py-10">
@@ -75,33 +93,41 @@ export default async function DashboardPage() {
           </div>
 
           <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
-            <p className="text-sm text-neutral-400">Recent memories</p>
-            <p className="mt-3 text-3xl font-semibold text-white">{memoriesCount}</p>
+            <p className="text-sm text-neutral-400">Total memories</p>
+            <p className="mt-3 text-3xl font-semibold text-white">{total_memories}</p>
             <div className="mt-2 space-y-1">
               <p className="text-sm text-neutral-500">
-                The latest preserved moments in your vault.
+                Breakdown of preserved moments:
               </p>
-              {uniqueMemoryTypes.length > 0 && (
-                <div className="mt-2 flex flex-wrap gap-1">
-                  {uniqueMemoryTypes.map(type => (
-                    <span 
-                      key={type}
-                      className="text-xs rounded-full bg-white/5 px-2 py-0.5 text-neutral-400"
-                    >
-                      {type}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <div className="mt-2 flex flex-wrap gap-1">
+                <span className="text-xs rounded-full bg-white/5 px-2 py-0.5 text-neutral-400">
+                  {total_photos} photos
+                </span>
+                <span className="text-xs rounded-full bg-white/5 px-2 py-0.5 text-neutral-400">
+                  {total_videos} videos
+                </span>
+                <span className="text-xs rounded-full bg-white/5 px-2 py-0.5 text-neutral-400">
+                  {total_letters} letters
+                </span>
+                <span className="text-xs rounded-full bg-white/5 px-2 py-0.5 text-neutral-400">
+                  {total_voice_minutes} voice mins
+                </span>
+              </div>
             </div>
           </div>
 
           <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
-            <p className="text-sm text-neutral-400">Protection status</p>
-            <p className="mt-3 text-3xl font-semibold text-white">Private</p>
-            <p className="mt-2 text-sm text-neutral-500">
-              Ownership and dignity stay with the family.
-            </p>
+            <p className="text-sm text-neutral-400">Recent activity</p>
+            <div className="mt-3 space-y-2">
+              {recentActivity?.map(activity => (
+                <div key={activity.id} className="text-sm text-neutral-300">
+                  {activity.description}
+                  <span className="block text-xs text-neutral-500 mt-1">
+                    {new Date(activity.created_at).toLocaleString()}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
