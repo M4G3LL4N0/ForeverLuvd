@@ -12,20 +12,31 @@ export default async function DashboardPage() {
     redirect("/auth/sign-in");
   }
 
-  const [{ data: lovedOnes }, { data: memories }] = await Promise.all([
+  const [
+    { data: lovedOnes, count: lovedOnesCount }, 
+    { data: memories, count: memoriesCount },
+    { data: memoryTypes }
+  ] = await Promise.all([
     supabase
       .from("loved_ones")
-      .select("*")
+      .select("*", { count: 'exact' })
       .order("created_at", { ascending: false }),
     supabase
       .from("memories")
-      .select("*")
+      .select("*", { count: 'exact' })
       .order("memory_date", { ascending: false })
       .limit(8),
+    supabase
+      .from("memories")
+      .select("memory_type")
+      .not("memory_type", "is", null)
+      .limit(5)
   ]);
 
-  const lovedOnesCount = lovedOnes?.length ?? 0;
-  const memoriesCount = memories?.length ?? 0;
+  // Get unique memory types
+  const uniqueMemoryTypes = [...new Set(
+    memoryTypes?.map(m => m.memory_type).filter(Boolean)
+  )] as string[];
 
   return (
     <main className="container-wrap py-10">
@@ -66,9 +77,23 @@ export default async function DashboardPage() {
           <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
             <p className="text-sm text-neutral-400">Recent memories</p>
             <p className="mt-3 text-3xl font-semibold text-white">{memoriesCount}</p>
-            <p className="mt-2 text-sm text-neutral-500">
-              The latest preserved moments in your vault.
-            </p>
+            <div className="mt-2 space-y-1">
+              <p className="text-sm text-neutral-500">
+                The latest preserved moments in your vault.
+              </p>
+              {uniqueMemoryTypes.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-1">
+                  {uniqueMemoryTypes.map(type => (
+                    <span 
+                      key={type}
+                      className="text-xs rounded-full bg-white/5 px-2 py-0.5 text-neutral-400"
+                    >
+                      {type}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
@@ -139,9 +164,14 @@ export default async function DashboardPage() {
               <h2 className="mt-1 text-2xl font-semibold text-white">Timeline activity</h2>
             </div>
 
-            <Link href="/chat" className="text-sm text-white underline">
-              AI roadmap
-            </Link>
+            <div className="flex gap-4">
+              <Link href="/memories/new" className="text-sm text-white underline">
+                Add memory
+              </Link>
+              <Link href="/chat" className="text-sm text-white underline">
+                AI roadmap
+              </Link>
+            </div>
           </div>
 
           <div className="mt-6 space-y-4">
