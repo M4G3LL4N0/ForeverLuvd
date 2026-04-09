@@ -92,8 +92,8 @@ export default function HomePage() {
       <Nav />
 
       <section className="container-wrap pt-6 pb-12 md:pt-12 md:pb-24">
-        <div className="card overflow-hidden p-6 md:p-8 lg:p-12">
-          <div className="grid gap-8 md:gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="card overflow-hidden p-5 sm:p-6 md:p-8 lg:p-12">
+          <div className="grid gap-8 md:gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <p className="mb-6 text-xs uppercase tracking-[0.32em] text-neutral-400/80">
                 Private memory preservation for the people you love
@@ -115,20 +115,20 @@ export default function HomePage() {
                 product.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link href="/onboarding" className="btn btn-primary">
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link href="/onboarding" className="btn btn-primary flex-1 sm:flex-none">
                   Start preserving
                 </Link>
-                <Link href="/dashboard" className="btn btn-secondary">
+                <Link href="/dashboard" className="btn btn-secondary flex-1 sm:flex-none">
                   View product
                 </Link>
               </div>
 
-              <div className="mt-8 md:mt-12 flex flex-wrap gap-3">
+              <div className="mt-8 md:mt-12 flex flex-wrap gap-2">
                 {trustItems.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-sm text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200"
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs md:text-sm text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200 whitespace-nowrap"
                   >
                     {item}
                   </span>
@@ -138,7 +138,7 @@ export default function HomePage() {
 
             <div className="relative">
               <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-[#5f7cff]/20 via-transparent to-[#ff8a6b]/20 blur-3xl" />
-              <div className="card relative p-6 md:p-8 hover:border-white/20 transition-all duration-300">
+              <div className="card relative p-5 sm:p-6 md:p-8 hover:border-white/20 transition-all duration-300">
                 <div className="mb-6 flex items-center justify-between">
                   <div>
                     <p className="text-sm text-neutral-400/80">Memory vault preview</p>
@@ -181,17 +181,17 @@ export default function HomePage() {
       </section>
 
       <section className="container-wrap pb-12">
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid gap-3 sm:gap-4 md:grid-cols-4">
           {trustItems.map((item) => (
-            <div key={item} className="card px-5 py-4 text-sm text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200">
+            <div key={item} className="card px-4 py-3 sm:px-5 sm:py-4 text-sm text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200">
               {item}
             </div>
           ))}
         </div>
       </section>
 
-      <section className="container-wrap py-16">
-        <div className="card p-8 lg:p-10 hover:border-white/20 transition-all duration-300">
+      <section className="container-wrap py-12 sm:py-16">
+        <div className="card p-6 sm:p-8 lg:p-10 hover:border-white/20 transition-all duration-300">
           <div className="mb-12 max-w-3xl">
             <p className="mb-4 text-xs uppercase tracking-[0.28em] text-neutral-500/80">
               Platform layers
@@ -227,7 +227,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="how-it-works" className="container-wrap py-16">
+      <section id="how-it-works" className="container-wrap py-12 sm:py-16">
         <div className="mb-12 max-w-2xl">
           <p className="mb-4 text-xs uppercase tracking-[0.28em] text-neutral-500/80">
             How it works
@@ -243,7 +243,7 @@ export default function HomePage() {
 
         <div className="grid gap-5 md:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={step.title} className="card p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-200">
+            <div key={step.title} className="card p-5 sm:p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-200">
               <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm text-neutral-300/90 hover:bg-white/10 hover:text-white transition-all duration-200">
                 0{index + 1}
               </div>
@@ -254,8 +254,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container-wrap py-16">
-        <div className="card grid gap-8 p-8 lg:grid-cols-2 lg:p-12 hover:border-white/20 transition-all duration-300">
+      <section className="container-wrap py-12 sm:py-16">
+        <div className="card grid gap-6 sm:gap-8 p-6 sm:p-8 lg:grid-cols-2 lg:p-12 hover:border-white/20 transition-all duration-300">
           <div>
             <p className="text-xs uppercase tracking-[0.28em] text-neutral-500/80">
               Why ForeverLuvd
@@ -282,7 +282,7 @@ export default function HomePage() {
       </section>
 
       <section className="container-wrap pt-12 pb-24">
-        <div className="card p-8 text-center lg:p-14 hover:border-white/20 transition-all duration-300">
+        <div className="card p-6 sm:p-8 text-center lg:p-14 hover:border-white/20 transition-all duration-300">
           <p className="mb-4 text-xs uppercase tracking-[0.28em] text-neutral-500/80">
             Start now
           </p>
